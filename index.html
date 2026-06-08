@@ -1,0 +1,1606 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+
+                
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unión de Veteranos de Fútbol Paraná - Larramendi</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--primary:#0a1628;--secondary:#1e3a5f;--accent:#3b82f6;--accent2:#60a5fa;
+--gold:#fbbf24;--light:#f8fafc;--dark:#0f172a;
+--glass:rgba(255,255,255,0.08);--glass2:rgba(255,255,255,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;overflow-x:hidden}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
+.nav.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.3)}
+.nav-logo{display:flex;align-items:center;gap:.8rem;font-weight:800;font-size:1.3rem;letter-spacing:1px;cursor:pointer}
+.nav-logo .shield{width:45px;height:45px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;box-shadow:0 0 20px rgba(59,130,246,0.5)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:.3rem 0;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+.btn-admin{background:linear-gradient(135deg,var(--gold),#f59e0b);color:var(--dark);border:none;padding:.6rem 1.3rem;border-radius:30px;font-weight:700;cursor:pointer;font-size:.85rem;transition:all .3s;text-transform:uppercase;letter-spacing:1px}
+.btn-admin:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(251,191,36,0.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.hamburger span{width:28px;height:3px;background:#fff;border-radius:3px;transition:all .3s}
+
+.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.4)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,0.85) 0%,rgba(30,58,95,0.6) 50%,rgba(10,22,40,0.9) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:900px}
+.hero-badge{display:inline-block;background:var(--glass);border:1px solid var(--glass2);padding:.5rem 1.5rem;border-radius:30px;font-size:.85rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;backdrop-filter:blur(10px);animation:fadeInDown 1s}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:900;line-height:1.05;margin-bottom:1rem;animation:fadeInUp 1s .2s both}
+.hero-title .gold{color:var(--gold);text-shadow:0 0 40px rgba(251,191,36,0.3)}
+.hero-subtitle{font-size:clamp(1rem,2.5vw,1.5rem);font-weight:300;opacity:.9;margin-bottom:1rem;animation:fadeInUp 1s .4s both}
+.hero-date{font-size:1.1rem;color:var(--gold);font-weight:600;letter-spacing:2px;margin-bottom:2.5rem;animation:fadeInUp 1s .6s both}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeInUp 1s .8s both}
+.btn{padding:.9rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;transition:all .3s;cursor:pointer;border:none;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 30px rgba(59,130,246,0.4)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(59,130,246,0.6)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3)}
+.btn-outline:hover{background:#fff;color:var(--dark);border-color:#fff}
+.btn-sm{padding:.5rem 1rem;font-size:.8rem}
+.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;animation:bounce 2s infinite}
+.scroll-indicator svg{width:30px;height:30px;stroke:var(--gold)}
+
+.section{padding:6rem 2rem;position:relative}
+.section-alt{background:linear-gradient(180deg,var(--primary) 0%,var(--secondary) 100%)}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-label{color:var(--gold);font-size:.85rem;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:.8rem;display:block}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:1rem}
+.section-divider{width:80px;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));margin:0 auto;border-radius:2px}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-image{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.5)}
+.about-image img{width:100%;display:block;transition:transform .6s}
+.about-image:hover img{transform:scale(1.05)}
+.about-text h3{font-size:1.8rem;margin-bottom:1rem;font-family:'Playfair Display',serif}
+.about-text p{line-height:1.8;opacity:.85;margin-bottom:1rem;font-size:1.05rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.stat{text-align:center;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2);backdrop-filter:blur(10px)}
+.stat-number{font-size:2.5rem;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif}
+.stat-label{font-size:.85rem;opacity:.7;margin-top:.3rem}
+
+.albums-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
+.album-card{background:var(--glass);border:1px solid var(--glass2);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .4s;position:relative}
+.album-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,0.4);background:var(--glass2)}
+.album-cover{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--secondary)}
+.album-cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.album-card:hover .album-cover img{transform:scale(1.1)}
+.album-cover-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.7) 100%);display:flex;align-items:flex-end;padding:1rem}
+.album-photo-count{background:rgba(0,0,0,0.6);padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;backdrop-filter:blur(10px)}
+.album-info{padding:1.5rem}
+.album-info h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem}
+.album-info p{font-size:.9rem;opacity:.7;line-height:1.5}
+.album-info .album-date{font-size:.8rem;color:var(--gold);margin-top:.8rem;font-weight:600}
+.album-add{background:var(--glass);border:2px dashed var(--glass2);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;min-height:280px;cursor:pointer;transition:all .3s;color:var(--gold)}
+.album-add:hover{background:var(--glass2);border-color:var(--gold)}
+.album-add svg{width:50px;height:50px}
+
+.album-detail{position:fixed;inset:0;z-index:1600;background:var(--primary);overflow-y:auto;transform:translateX(100%);transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.album-detail.open{transform:translateX(0)}
+.album-detail-hero{position:relative;height:40vh;min-height:250px;overflow:hidden}
+.album-detail-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(0.35)}
+.album-detail-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,0.5),rgba(10,22,40,0.95))}
+.album-detail-hero-content{position:absolute;bottom:0;left:0;right:0;padding:3rem 2rem}
+.album-detail-back{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-weight:600;font-size:.9rem;cursor:pointer;margin-bottom:1rem;text-decoration:none;transition:opacity .3s}
+.album-detail-back:hover{opacity:.7}
+.album-detail-hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900}
+.album-detail-hero-subtitle{font-size:1rem;opacity:.7;margin-top:.5rem}
+.album-detail-close{position:absolute;top:1.5rem;right:1.5rem;width:45px;height:45px;background:var(--glass);border:none;color:#fff;border-radius:50%;cursor:pointer;font-size:1.3rem;z-index:10;transition:all .3s;backdrop-filter:blur(10px)}
+.album-detail-close:hover{background:#ef4444;transform:rotate(90deg)}
+.album-photos-section{max-width:1200px;margin:0 auto;padding:3rem 2rem 4rem}
+.album-photos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.album-photos-title{font-family:'Playfair Display',serif;font-size:1.5rem}
+.album-photos-title span{color:var(--gold)}
+.album-photos-count{font-size:.9rem;opacity:.6}
+.album-photos-actions{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.manage-mode-toggle{background:var(--glass);border:1px solid var(--glass2);color:#fff;padding:.6rem 1.2rem;border-radius:30px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .3s;display:flex;align-items:center;gap:.5rem}
+.manage-mode-toggle:hover{background:var(--glass2)}
+.manage-mode-toggle.active{background:rgba(239,68,68,0.2);border-color:#ef4444;color:#fca5a5}
+.album-photos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.album-photo-item{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;box-shadow:0 5px 20px rgba(0,0,0,0.3);transition:transform .3s;background:var(--secondary)}
+.album-photo-item:hover{transform:translateY(-5px) scale(1.02)}
+.album-photo-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.album-photo-item:hover img{transform:scale(1.1)}
+.album-photo-item-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);display:flex;align-items:flex-end;padding:1rem;opacity:0;transition:opacity .3s}
+.album-photo-item:hover .album-photo-item-overlay{opacity:1}
+.album-photo-item-title{font-weight:600;font-size:.95rem}
+.album-photo-item-date{font-size:.8rem;opacity:.7;margin-top:.2rem}
+.album-photo-delete{position:absolute;top:8px;right:8px;width:36px;height:36px;background:rgba(239,68,68,0.9);border:2px solid rgba(255,255,255,0.3);color:#fff;border-radius:50%;cursor:pointer;font-size:1rem;display:none;align-items:center;justify-content:center;transition:all .2s;z-index:5;backdrop-filter:blur(10px)}
+.album-photo-delete:hover{background:#ef4444;transform:scale(1.15);border-color:#fff}
+.album-photo-item.manage-mode .album-photo-delete{display:flex}
+.album-photo-item.manage-mode{cursor:default}
+.album-photo-item.manage-mode:hover{transform:none}
+.album-photo-item.manage-mode:hover img{transform:none}
+.album-photo-item.manage-mode .album-photo-item-overlay{opacity:1;background:linear-gradient(180deg,rgba(239,68,68,0.2) 0%,rgba(0,0,0,0.8) 100%)}
+.album-photo-item.manage-mode::after{content:'MODO ELIMINAR';position:absolute;top:8px;left:8px;background:rgba(239,68,68,0.9);color:#fff;font-size:.65rem;font-weight:700;padding:.2rem .5rem;border-radius:10px;z-index:5;letter-spacing:1px}
+.album-photo-add-btn{background:var(--glass);border:2px dashed var(--glass2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;aspect-ratio:4/3;cursor:pointer;transition:all .3s;color:var(--gold);min-height:150px}
+.album-photo-add-btn:hover{background:var(--glass2);border-color:var(--gold)}
+.album-photo-add-btn svg{width:35px;height:35px}
+
+.pages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
+.page-card{background:var(--glass);border:1px solid var(--glass2);border-radius:20px;padding:2rem;backdrop-filter:blur(10px);transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
+.page-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.page-card:hover::before{transform:scaleX(1)}
+.page-card:hover{transform:translateY(-5px);background:var(--glass2);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
+.page-card-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.2rem}
+.page-card h3{font-size:1.4rem;margin-bottom:.8rem;font-family:'Playfair Display',serif}
+.page-card p{opacity:.75;line-height:1.7;font-size:.95rem}
+.page-card-date{margin-top:1rem;font-size:.8rem;color:var(--gold);font-weight:600}
+.page-card-photos{margin-top:.8rem;font-size:.8rem;opacity:.6;display:flex;align-items:center;gap:.3rem}
+.page-edit-btn{position:absolute;top:1rem;right:1rem;width:35px;height:35px;background:rgba(251,191,36,0.9);border:none;color:var(--dark);border-radius:50%;cursor:pointer;font-size:1rem;display:none;align-items:center;justify-content:center;transition:all .2s;z-index:5}
+.page-edit-btn:hover{background:var(--gold);transform:scale(1.1)}
+.page-card.admin-mode .page-edit-btn{display:flex}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.contact-item{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2)}
+.contact-item-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.contact-item h4{margin-bottom:.3rem;font-size:1.1rem}
+.contact-item p{opacity:.75;font-size:.95rem}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.contact-form input,.contact-form textarea{background:var(--glass);border:1px solid var(--glass2);padding:1rem 1.2rem;border-radius:12px;color:#fff;font-family:inherit;font-size:1rem;transition:all .3s}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
+.contact-form textarea{min-height:150px;resize:vertical}
+
+.footer{background:var(--dark);padding:3rem 2rem 1.5rem;text-align:center;border-top:1px solid var(--glass2)}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.5rem}
+.footer-logo span{color:var(--gold)}
+.footer p{opacity:.6;font-size:.9rem;margin-bottom:1rem}
+.footer-social{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem}
+.footer-social a{width:45px;height:45px;background:var(--glass);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;transition:all .3s}
+.footer-social a:hover{background:var(--accent);transform:translateY(-3px)}
+.footer-copy{opacity:.4;font-size:.8rem;padding-top:1.5rem;border-top:1px solid var(--glass2)}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);z-index:2000;display:none;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.active{display:flex;animation:fadeIn .3s}
+.modal{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid var(--glass2);border-radius:25px;padding:2.5rem;max-width:500px;width:100%;position:relative;box-shadow:0 25px 80px rgba(0,0,0,0.5);max-height:90vh;overflow-y:auto}
+.modal-lg{max-width:800px}
+.modal-xl{max-width:900px}
+.modal-close{position:absolute;top:1rem;right:1rem;background:var(--glass);border:none;color:#fff;width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:1.2rem;transition:all .3s}
+.modal-close:hover{background:#ef4444;transform:rotate(90deg)}
+.modal h2{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:.5rem}
+.modal-subtitle{opacity:.7;margin-bottom:2rem;font-size:.95rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;margin-bottom:.5rem;font-weight:600;font-size:.9rem;color:var(--gold)}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--glass);border:1px solid var(--glass2);padding:.9rem 1.2rem;border-radius:12px;color:#fff;font-family:inherit;font-size:1rem;transition:all .3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-error{color:#ef4444;font-size:.85rem;margin-top:.5rem;display:none}
+.form-error.show{display:block}
+.btn-full{width:100%;padding:1rem;margin-top:1rem}
+
+.upload-zone{border:2px dashed var(--glass2);border-radius:15px;padding:2rem;text-align:center;cursor:pointer;transition:all .3s;margin-bottom:1rem;background:var(--glass)}
+.upload-zone:hover{border-color:var(--accent);background:var(--glass2)}
+.upload-zone.has-image{border-style:solid;border-color:var(--accent)}
+.upload-zone img{max-width:100%;max-height:200px;border-radius:10px;margin-top:1rem}
+.upload-zone input[type=file]{display:none}
+
+.multi-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.8rem;margin-top:1rem}
+.multi-preview-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--secondary)}
+.multi-preview-item img{width:100%;height:100%;object-fit:cover}
+.multi-preview-remove{position:absolute;top:4px;right:4px;width:24px;height:24px;background:rgba(239,68,68,0.9);border:none;color:#fff;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.multi-preview-remove:hover{background:#ef4444;transform:scale(1.1)}
+.multi-preview-count{grid-column:1/-1;text-align:center;font-size:.85rem;opacity:.7;margin-top:.5rem}
+
+.admin-panel{position:fixed;top:0;right:-500px;width:500px;max-width:100%;height:100vh;background:linear-gradient(180deg,#0f172a,#1e293b);z-index:1500;transition:right .4s;overflow-y:auto;border-left:1px solid var(--glass2);box-shadow:-10px 0 50px rgba(0,0,0,0.5)}
+.admin-panel.open{right:0}
+.admin-header{padding:2rem;border-bottom:1px solid var(--glass2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:inherit;z-index:10}
+.admin-header h2{font-family:'Playfair Display',serif;font-size:1.5rem}
+.admin-header h2 span{color:var(--gold)}
+.admin-tabs{display:flex;gap:.5rem;padding:1rem 2rem;border-bottom:1px solid var(--glass2);position:sticky;top:80px;background:inherit;z-index:9;overflow-x:auto}
+.admin-tab{padding:.6rem 1.2rem;background:var(--glass);border:none;color:#fff;border-radius:10px;cursor:pointer;font-weight:600;font-size:.85rem;white-space:nowrap;transition:all .3s}
+.admin-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.admin-content{padding:2rem}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.admin-item{background:var(--glass);border:1px solid var(--glass2);border-radius:15px;padding:1.2rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:all .3s}
+.admin-item:hover{background:var(--glass2)}
+.admin-item-info{flex:1;min-width:0}
+.admin-item-title{font-weight:700;margin-bottom:.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.admin-item-meta{font-size:.8rem;opacity:.6}
+.admin-item-actions{display:flex;gap:.5rem;flex-shrink:0}
+.btn-icon{width:35px;height:35px;border-radius:10px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:1rem}
+.btn-edit{background:rgba(59,130,246,0.2);color:var(--accent2)}
+.btn-edit:hover{background:var(--accent)}
+.btn-delete{background:rgba(239,68,68,0.2);color:#fca5a5}
+.btn-delete:hover{background:#ef4444;color:#fff}
+.btn-add{width:100%;padding:1rem;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;border-radius:15px;font-weight:700;cursor:pointer;font-size:1rem;transition:all .3s;margin-top:1rem}
+.btn-add:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(59,130,246,0.4)}
+.admin-toggle{position:fixed;bottom:2rem;right:2rem;z-index:1400;width:60px;height:60px;background:linear-gradient(135deg,var(--gold),#f59e0b);border:none;border-radius:50%;cursor:pointer;font-size:1.5rem;color:var(--dark);box-shadow:0 8px 30px rgba(251,191,36,0.4);transition:all .3s;display:none}
+.admin-toggle.show{display:flex;align-items:center;justify-content:center}
+.admin-toggle:hover{transform:scale(1.1) rotate(90deg)}
+
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:3000;display:none;align-items:center;justify-content:center;padding:2rem}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90%;max-height:90vh;border-radius:15px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.lightbox-close{position:absolute;top:2rem;right:2rem;background:var(--glass);border:none;color:#fff;width:45px;height:45px;border-radius:50%;cursor:pointer;font-size:1.5rem}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:var(--glass);border:none;color:#fff;width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:1.5rem;transition:all .3s;backdrop-filter:blur(10px)}
+.lightbox-nav:hover{background:var(--accent)}
+.lightbox-prev{left:2rem}
+.lightbox-next{right:2rem}
+.lightbox-counter{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:#fff;font-weight:600;font-size:.9rem;background:var(--glass);padding:.5rem 1.5rem;border-radius:20px;backdrop-filter:blur(10px)}
+
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:1rem 2rem;border-radius:15px;font-weight:600;z-index:4000;transition:transform .4s;box-shadow:0 10px 40px rgba(59,130,246,0.4);max-width:90%;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.error{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.toast.success{background:linear-gradient(135deg,#10b981,#059669)}
+.toast.loading{background:linear-gradient(135deg,#f59e0b,#d97706)}
+
+.help-box{background:rgba(59,130,246,0.1);border:1px solid var(--accent);border-radius:15px;padding:1.5rem;margin-bottom:1.5rem}
+.help-box h4{color:var(--accent2);margin-bottom:.8rem;font-size:1rem}
+.help-box ul{list-style:none;padding:0}
+.help-box li{padding:.4rem 0;font-size:.9rem;opacity:.9}
+.help-box li::before{content:'✓ ';color:var(--gold);font-weight:bold}
+
+.icon-selector{display:grid;grid-template-columns:repeat(8,1fr);gap:.5rem;margin-top:.5rem}
+.icon-option{width:100%;aspect-ratio:1;background:var(--glass);border:2px solid transparent;border-radius:10px;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.icon-option:hover{background:var(--glass2);transform:scale(1.1)}
+.icon-option.selected{border-color:var(--gold);background:rgba(251,191,36,0.2)}
+
+.storage-indicator{position:fixed;top:80px;right:20px;background:var(--glass);border:1px solid var(--glass2);padding:.5rem 1rem;border-radius:20px;font-size:.75rem;z-index:999;backdrop-filter:blur(10px)}
+.storage-indicator supabase{border-color:#10b981;color:#10b981}
+.storage-indicator.local{border-color:#f59e0b;color:#f59e0b}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:968px){
+.nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;gap:2rem;transition:right .4s;padding:2rem}
+.nav-links.open{right:0}
+.hamburger{display:flex}
+.about-grid,.contact-grid{grid-template-columns:1fr}
+.stats{grid-template-columns:repeat(3,1fr)}
+.admin-panel{width:100%}
+}
+@media(max-width:600px){
+.stats{grid-template-columns:1fr}
+.hero-title{font-size:2.5rem}
+.section{padding:4rem 1rem}
+.album-detail-hero{height:30vh;min-height:180px}
+.lightbox-prev{left:1rem}
+.lightbox-next{right:1rem}
+.multi-preview{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}
+.albums-grid{grid-template-columns:1fr}
+.album-photos-header{flex-direction:column;align-items:flex-start}
+.icon-selector{grid-template-columns:repeat(6,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="storage-indicator local" id="storageIndicator">⚠️ Modo local</div>
+
+<nav class="nav" id="nav">
+<div class="nav-logo" onclick="goHome()">
+<div class="shield">L</div>
+<span>LARRAMENDI</span>
+</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+<li><a href="#historia" onclick="closeMenu()">Historia</a></li>
+<li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+<li><a href="#paginas" onclick="closeMenu()">Secciones</a></li>
+<li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+<li><button class="btn-admin" onclick="openLogin()">Admin</button></li>
+</ul>
+<div class="hamburger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+</nav>
+
+<section class="hero" id="inicio">
+<div class="hero-bg" id="heroBg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<span class="hero-badge">⚽ Unión de Veteranos de Fútbol</span>
+<h1 class="hero-title">LARRA<span class="gold">MENDI</span></h1>
+<p class="hero-subtitle">Paraná, Entre Ríos · Pasión por el fútbol que trasciende el tiempo</p>
+<p class="hero-date">📅 OCTUBRE 2025</p>
+<div class="hero-buttons">
+<a href="#historia" class="btn btn-primary">Conocer Más</a>
+<a href="#galeria" class="btn btn-outline">Ver Galería</a>
+</div>
+</div>
+<div class="scroll-indicator">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+</div>
+</section>
+
+<section class="section section-alt" id="historia">
+<div class="container">
+<div class="section-header fade-in">
+<span class="section-label">Nuestra Historia</span>
+<h2 class="section-title">Tradición y <span style="color:var(--gold)">Pasión</span></h2>
+<div class="section-divider"></div>
+</div>
+<div class="about-grid fade-in">
+<div class="about-image">
+<img src="" id="aboutImg" alt="Equipo Larramendi" onerror="this.style.display='none'">
+</div>
+<div class="about-text">
+<h3>Más que un equipo, una familia</h3>
+<p>La Unión de Veteranos de Fútbol Larramendi nació del amor por el deporte rey. Desde Paraná, Entre Ríos, reunimos a jugadores que mantienen viva la pasión por el fútbol a través de los años.</p>
+<p>Nuestro compromiso es fomentar el deporte, la camaradería y los valores que el fútbol nos enseñó. Cada partido es una celebración de la amistad y el compañerismo.</p>
+<div class="stats">
+<div class="stat"><div class="stat-number">25+</div><div class="stat-label">Años de historia</div></div>
+<div class="stat"><div class="stat-number">40+</div><div class="stat-label">Jugadores</div></div>
+<div class="stat"><div class="stat-number">15+</div><div class="stat-label">Torneos</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="galeria">
+<div class="container">
+<div class="section-header fade-in">
+<span class="section-label">Momentos</span>
+<h2 class="section-title">Galería de <span style="color:var(--gold)">Álbumes</span></h2>
+<div class="section-divider"></div>
+</div>
+<div class="albums-grid fade-in" id="albumsGrid"></div>
+</div>
+</section>
+
+<section class="section section-alt" id="paginas">
+<div class="container">
+<div class="section-header fade-in">
+<span class="section-label">Contenido</span>
+<h2 class="section-title">Nuestras <span style="color:var(--gold)">Secciones</span></h2>
+<div class="section-divider"></div>
+</div>
+<div class="pages-grid fade-in" id="pagesGrid"></div>
+</div>
+</section>
+
+<section class="section" id="contacto">
+<div class="container">
+<div class="section-header fade-in">
+<span class="section-label">Contacto</span>
+<h2 class="section-title">Hablemos de <span style="color:var(--gold)">Fútbol</span></h2>
+<div class="section-divider"></div>
+</div>
+<div class="contact-grid fade-in">
+<div class="contact-info">
+<div class="contact-item"><div class="contact-item-icon">📍</div><div><h4>Ubicación</h4><p>Paraná, Entre Ríos, Argentina</p></div></div>
+<div class="contact-item"><div class="contact-item-icon">📧</div><div><h4>Email</h4><p>contacto@larramendi.com.ar</p></div></div>
+<div class="contact-item"><div class="contact-item-icon">📱</div><div><h4>Teléfono</h4><p>+54 343 555-0000</p></div></div>
+<div class="contact-item"><div class="contact-item-icon">⏰</div><div><h4>Entrenamientos</h4><p>Martes y Jueves 18:00 hs</p></div></div>
+</div>
+<form class="contact-form" onsubmit="sendContact(event)">
+<input type="text" placeholder="Nombre completo" required>
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Asunto">
+<textarea placeholder="Tu mensaje..." required></textarea>
+<button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-logo">LARRA<span>MENDI</span></div>
+<p>Unión de Veteranos de Fútbol - Paraná</p>
+<div class="footer-social"><a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a><a href="#">▶️</a></div>
+<div class="footer-copy">© 2025 Larramendi. Todos los derechos reservados.</div>
+</footer>
+
+<div class="album-detail" id="albumDetail">
+<button class="album-detail-close" onclick="closeAlbumDetail()"></button>
+<div class="album-detail-hero">
+<img id="albumDetailHeroImg" src="" alt="">
+<div class="album-detail-hero-overlay"></div>
+<div class="album-detail-hero-content">
+<a class="album-detail-back" onclick="closeAlbumDetail()">← Volver a álbumes</a>
+<h1 class="album-detail-hero-title" id="albumDetailTitle"></h1>
+<p class="album-detail-hero-subtitle" id="albumDetailSubtitle"></p>
+</div>
+</div>
+<div class="album-photos-section">
+<div class="album-photos-header">
+<div>
+<div class="album-photos-title">Fotos del álbum <span id="albumPhotosTitleName"></span></div>
+<div class="album-photos-count" id="albumPhotosCount"></div>
+</div>
+<div class="album-photos-actions" id="albumPhotosActions"></div>
+</div>
+<div class="album-photos-grid" id="albumPhotosGrid"></div>
+</div>
+</div>
+
+<div class="modal-overlay" id="loginModal">
+<div class="modal">
+<button class="modal-close" onclick="closeLogin()">✕</button>
+<h2>Acceso <span style="color:var(--gold)">Administrador</span></h2>
+<p class="modal-subtitle">Ingresá tus credenciales para gestionar el sitio</p>
+<form onsubmit="doLogin(event)">
+<div class="form-group"><label>Usuario</label><input type="text" id="loginUser" required placeholder="admin"></div>
+<div class="form-group"><label>Contraseña</label><input type="password" id="loginPass" required placeholder="••••••••"></div>
+<div class="form-error" id="loginError">Usuario o contraseña incorrectos</div>
+<button type="submit" class="btn btn-primary btn-full">Ingresar</button>
+</form>
+<p style="margin-top:1.5rem;text-align:center;font-size:.8rem;opacity:.5">Demo: admin / larramendi2025</p>
+</div>
+</div>
+
+<div class="modal-overlay" id="editAlbumModal">
+<div class="modal modal-lg">
+<button class="modal-close" onclick="closeEditAlbum()">✕</button>
+<h2 id="editAlbumTitle">Nuevo Álbum</h2>
+<p class="modal-subtitle">Completá los datos del álbum</p>
+<form onsubmit="saveAlbum(event)" novalidate>
+<input type="hidden" id="editAlbumId">
+<div class="form-group"><label>Título del álbum *</label><input type="text" id="albumField1" required><div class="form-error" id="errAlbumTitle">El título es obligatorio</div></div>
+<div class="form-group"><label>Descripción</label><textarea id="albumField2" placeholder="Descripción breve del álbum..."></textarea></div>
+<div class="form-group"><label>Imagen de portada *</label>
+<div class="upload-zone" id="albumUploadZone" onclick="document.getElementById('albumFileInput').click()">
+<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem">📁 Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
+<img id="albumUploadPreview" style="display:none">
+<input type="file" id="albumFileInput" accept="image/*" onchange="handleAlbumCoverUpload(event)">
+</div>
+<input type="url" id="albumField3" placeholder="https://... (opcional si subiste archivo)" oninput="clearAlbumCoverPreview()">
+<div class="form-error" id="errAlbumCover">Debés subir una imagen o pegar una URL</div>
+</div>
+<div class="form-group"><label>Fecha</label><input type="text" id="albumField4" placeholder="Octubre 2025"></div>
+<button type="submit" class="btn btn-primary btn-full" id="btnSaveAlbum">💾 Guardar Álbum</button>
+</form>
+</div>
+</div>
+
+<div class="modal-overlay" id="editPageModal">
+<div class="modal modal-xl">
+<button class="modal-close" onclick="closeEditPage()">✕</button>
+<h2 id="editPageTitle">Editar Sección</h2>
+<p class="modal-subtitle">Modificá todos los datos de la sección/página</p>
+<form onsubmit="savePage(event)" novalidate>
+<input type="hidden" id="editPageId">
+<div class="form-group"><label>Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
+<div class="form-group"><label>Descripción / Contenido *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
+<div class="form-group"><label>Imagen de fondo de la página *</label>
+<div class="upload-zone" id="pageUploadZone" onclick="document.getElementById('pageFileInput').click()">
+<div id="pageUploadPlaceholder"><p style="margin-bottom:.5rem">️ Hacé clic para subir la imagen de fondo</p><p style="font-size:.8rem;opacity:.6">Esta imagen aparecerá como fondo al abrir la sección</p></div>
+<img id="pageUploadPreview" style="display:none">
+<input type="file" id="pageFileInput" accept="image/*" onchange="handlePageBgUpload(event)">
+</div>
+<input type="url" id="pageField3" placeholder="https://... (opcional si subiste archivo)" oninput="clearPageBgPreview()">
+<div class="form-error" id="errPageBg">Debés subir una imagen o pegar una URL</div>
+</div>
+<div class="form-group"><label>Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
+<div class="form-group"><label>Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
+<button type="submit" class="btn btn-primary btn-full" id="btnSavePage">💾 Guardar Sección</button>
+</form>
+</div>
+</div>
+
+<div class="modal-overlay" id="multiUploadModal">
+<div class="modal modal-xl">
+<button class="modal-close" onclick="closeMultiUpload()">✕</button>
+<h2>📸 Agregar Múltiples Fotos</h2>
+<p class="modal-subtitle" id="multiUploadSubtitle">Seleccioná todas las fotos que quieras agregar</p>
+<div class="upload-zone" id="multiUploadZone" onclick="document.getElementById('multiFileInput').click()" style="min-height:120px">
+<div id="multiUploadPlaceholder">
+<p style="font-size:1.1rem;margin-bottom:.5rem">📁 Hacé clic para seleccionar fotos</p>
+<p style="font-size:.85rem;opacity:.6">Podés seleccionar varias imágenes a la vez</p>
+<p style="font-size:.75rem;opacity:.5;margin-top:.5rem" id="compressInfo">Las imágenes se comprimirán automáticamente</p>
+</div>
+<div class="multi-preview" id="multiPreview"></div>
+<input type="file" id="multiFileInput" accept="image/*" multiple onchange="handleMultiFileUpload(event)">
+</div>
+<div class="form-group"><label>Fecha para todas las fotos</label><input type="text" id="multiDate" placeholder="Octubre 2025"></div>
+<div id="multiCount" style="text-align:center;font-size:.9rem;opacity:.7;margin-bottom:1rem"></div>
+<div id="uploadProgress" style="display:none;text-align:center;margin-bottom:1rem">
+<div style="background:var(--glass);border-radius:10px;height:8px;overflow:hidden;margin-bottom:.5rem">
+<div id="uploadProgressBar" style="background:linear-gradient(90deg,var(--accent),var(--accent2));height:100%;width:0%;transition:width .3s"></div>
+</div>
+<p style="font-size:.85rem;opacity:.7" id="uploadProgressText">Subiendo 0 de 0...</p>
+</div>
+<button class="btn btn-primary btn-full" id="btnMultiSave" onclick="saveMultiPhotos()">💾 Agregar Todas las Fotos</button>
+</div>
+</div>
+
+<div class="lightbox" id="lightbox">
+<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">❮</button>
+<button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">❯</button>
+<img id="lightboxImg" src="">
+<div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<button class="admin-toggle" id="adminToggle" onclick="toggleAdmin()">⚙️</button>
+<div class="admin-panel" id="adminPanel">
+<div class="admin-header">
+<h2>Panel <span>Admin</span></h2>
+<button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button>
+</div>
+<div class="admin-tabs">
+<button class="admin-tab active" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
+<button class="admin-tab" onclick="switchTab('pages',this)">📄 Secciones</button>
+<button class="admin-tab" onclick="switchTab('settings',this)">⚙️ Ajustes</button>
+</div>
+<div class="admin-content">
+<div class="admin-section active" id="tab-albums">
+<div class="help-box">
+<h4>💡 Cómo gestionar álbumes</h4>
+<ul>
+<li>Cada álbum es una galería temática independiente</li>
+<li>Hacé clic en "+ Nuevo Álbum" para crear uno</li>
+<li>Dentro de cada álbum podés agregar/eliminar fotos</li>
+<li>Las fotos se guardan en Supabase Storage (1GB gratis)</li>
+</ul>
+</div>
+<div id="adminAlbumsList"></div>
+<button class="btn-add" onclick="openEditAlbum()">+ Nuevo Álbum</button>
+</div>
+<div class="admin-section" id="tab-pages">
+<div class="help-box">
+<h4>💡 Cómo gestionar secciones</h4>
+<ul>
+<li>Cada sección es una página con título, fondo y contenido propios</li>
+<li>Hacé clic en ✏️ para editar título, fondo, descripción e ícono</li>
+<li>Usá ️ para eliminar una sección</li>
+</ul>
+</div>
+<div id="adminPagesList"></div>
+<button class="btn-add" onclick="openEditPage()">+ Nueva Sección</button>
+</div>
+<div class="admin-section" id="tab-settings">
+<div class="help-box">
+<h4>⚙️ Ajustes del sitio</h4>
+<ul>
+<li>Cambiá la contraseña de administrador</li>
+<li>Modificá la imagen de fondo principal (Hero)</li>
+<li>Cerrá sesión cuando termines</li>
+</ul>
+</div>
+<div class="admin-item">
+<div class="admin-item-info">
+<div class="admin-item-title">Cambiar Contraseña</div>
+<div class="admin-item-meta">Actualizá la clave de administrador</div>
+</div>
+</div>
+<form onsubmit="changePassword(event)" style="margin-top:1rem">
+<div class="form-group"><label>Nueva Contraseña</label><input type="password" id="newPass" required></div>
+<button type="submit" class="btn btn-primary btn-full">Actualizar</button>
+</form>
+<div class="admin-item" style="margin-top:1.5rem">
+<div class="admin-item-info">
+<div class="admin-item-title">Imagen Hero (fondo principal)</div>
+<div class="admin-item-meta">URL de la imagen de fondo del inicio</div>
+</div>
+</div>
+<form onsubmit="changeHero(event)" style="margin-top:1rem">
+<div class="form-group"><label>URL de Imagen</label><input type="url" id="heroUrl" required></div>
+<button type="submit" class="btn btn-primary btn-full">Actualizar Hero</button>
+</form>
+<div style="margin-top:2rem;text-align:center">
+<button class="btn btn-outline" onclick="logout()" style="background:#ef4444;border-color:#ef4444;color:#fff">Cerrar Sesión</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+// ============================================
+// CONFIGURACIÓN DE SUPABASE
+// ============================================
+// INSTRUCCIONES:
+// 1. Andá a https://supabase.com y creá una cuenta gratis
+// 2. Creá un nuevo proyecto
+// 3. En Settings → API copiá:
+//    - Project URL (ej: https://xyz123.supabase.co)
+//    - anon/public key (ej: eyJhbGciOiJIUzI1NiIs...)
+// 4. Pegá los valores abajo:
+
+const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_rj7roK3kDjnkDKg-kjuMow_0r5HcHki';
+
+// Detectar si Supabase está configurado
+const SUPABASE_ENABLED = SUPABASE_URL !== 'https://ngfgghnrfjjimfpuytfr.supabase.co' && SUPABASE_KEY !== 'sb_publishable_rj7roK3kDjnkDKg-kjuMow_0r5HcHki';
+
+let supabaseClient = null;
+
+if (SUPABASE_ENABLED) {
+  try {
+    supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    console.log('✅ Supabase conectado correctamente');
+  } catch(e) {
+    console.error('Error al inicializar Supabase:', e);
+  }
+}
+
+// ============================================
+// COMPRESOR DE IMÁGENES
+// ============================================
+function compressImage(file, maxWidth = 1200, quality = 0.7) {
+  return new Promise(function(resolve, reject) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxWidth) {
+          height = (height * maxWidth) / width;
+          width = maxWidth;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob(function(blob) {
+          if (blob) {
+            resolve({
+              blob: blob,
+              dataUrl: URL.createObjectURL(blob),
+              size: blob.size
+            });
+          } else {
+            reject(new Error('Error al comprimir'));
+          }
+        }, 'image/jpeg', quality);
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+// ============================================
+// SUBIDA A SUPABASE STORAGE
+// ============================================
+async function uploadToSupabase(file, folder) {
+  if (!supabaseClient) {
+    throw new Error('Supabase no está configurado');
+  }
+
+  // Comprimir antes de subir
+  const compressed = await compressImage(file, 1200, 0.7);
+  
+  const fileName = Date.now() + '_' + Math.random().toString(36).substr(2, 9) + '.jpg';
+  const filePath = folder + '/' + fileName;
+
+  const { data, error } = await supabaseClient.storage
+    .from('albums')
+    .upload(filePath, compressed.blob, {
+      contentType: 'image/jpeg',
+      upsert: false
+    });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  // Obtener URL pública
+  const { data: urlData } = supabaseClient.storage
+    .from('albums')
+    .getPublicUrl(filePath);
+
+  return urlData.publicUrl;
+}
+
+// ============================================
+// ELIMINAR DE SUPABASE
+// ============================================
+async function deleteFromSupabase(url) {
+  if (!supabaseClient || !url.includes('supabase.co')) return;
+  
+  try {
+    // Extraer el path de la URL
+    const match = url.match(/object\/public\/albums\/(.+)$/);
+    if (match) {
+      const filePath = match[1];
+      await supabaseClient.storage
+        .from('albums')
+        .remove([filePath]);
+    }
+  } catch(e) {
+    console.error('Error al eliminar de Supabase:', e);
+  }
+}
+
+// ============================================
+// DATOS POR DEFECTO
+// ============================================
+const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
+
+const ICONS = ['⚽','','🎉','📖','⭐','👥','🎯','🏟️','📸','🎊','','🤝','🥅','','💪','🤝'];
+
+const DEFAULT_ALBUMS = [
+  {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde sus inicios hasta hoy.',date:'Histórico',url:TEAM_IMAGE,photos:[
+    {id:101,title:'Fundación del club',date:'Año fundacional',url:TEAM_IMAGE},
+    {id:102,title:'Primer plantel',date:'Años iniciales',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800'},
+    {id:103,title:'Cancha original',date:'Años 90',url:'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800'}
+  ]},
+  {id:2,title:'Torneo 2025',desc:'Los mejores momentos del torneo regional de este año.',date:'2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',photos:[
+    {id:201,title:'Apertura del torneo',date:'Marzo 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800'},
+    {id:202,title:'Semifinal',date:'Agosto 2025',url:'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800'},
+    {id:203,title:'Final y premiación',date:'Octubre 2025',url:'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800'}
+  ]},
+  {id:3,title:'Asados y Reuniones',desc:'Los momentos más divertidos fuera de la cancha.',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',photos:[
+    {id:301,title:'Asado de primavera',date:'Septiembre 2025',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800'},
+    {id:302,title:'Fiesta de fin de año',date:'Diciembre 2024',url:'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800'}
+  ]}
+];
+
+const DEFAULT_PAGES = [
+  {id:1,title:'Nuestro Equipo',desc:'Conocé a los jugadores que forman parte de la Unión de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Octubre 2025',url:TEAM_IMAGE,gallery:[]},
+  {id:2,title:'Torneos y Competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
+  {id:3,title:'Eventos Sociales',desc:'Más allá de la cancha, somos una comunidad.',icon:'🎉',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
+  {id:4,title:'Historia del Club',desc:'Desde nuestra fundación, hemos construido una tradición de compañerismo y deporte.',icon:'📖',date:'Desde la fundación',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
+];
+
+let state = {
+  albums: JSON.parse(localStorage.getItem('larr_albums')) || DEFAULT_ALBUMS,
+  pages: JSON.parse(localStorage.getItem('larr_pages')) || DEFAULT_PAGES,
+  heroUrl: localStorage.getItem('larr_hero') || TEAM_IMAGE,
+  password: localStorage.getItem('larr_pass') || 'larramendi2025',
+  loggedIn: sessionStorage.getItem('larr_logged') === 'true',
+  pendingImage: null,
+  originalUrl: null,
+  pagePendingBg: null,
+  pageOriginalBg: null,
+  selectedIcon: '⚽',
+  currentAlbumId: null,
+  lightboxImages: [],
+  lightboxIndex: 0,
+  multiFiles: [],
+  manageMode: false
+};
+
+// ============================================
+// ACTUALIZAR INDICADOR DE ALMACENAMIENTO
+// ============================================
+function updateStorageIndicator() {
+  const indicator = document.getElementById('storageIndicator');
+  if (SUPABASE_ENABLED) {
+    indicator.textContent = '☁️ Supabase Storage (1GB)';
+    indicator.className = 'storage-indicator supabase';
+  } else {
+    indicator.textContent = '⚠️ Modo local (5MB límite)';
+    indicator.className = 'storage-indicator local';
+  }
+}
+
+function save() {
+  try {
+    localStorage.setItem('larr_albums', JSON.stringify(state.albums));
+    localStorage.setItem('larr_pages', JSON.stringify(state.pages));
+    localStorage.setItem('larr_hero', state.heroUrl);
+    localStorage.setItem('larr_pass', state.password);
+    return true;
+  } catch(e) {
+    console.error('Error al guardar:', e);
+    toast('⚠️ Error: almacenamiento local lleno. Configurá Supabase para más espacio.', 'error');
+    return false;
+  }
+}
+
+// ============================================
+// RENDER PRINCIPAL
+// ============================================
+function render() {
+  document.getElementById('heroBg').style.backgroundImage = "url('" + state.heroUrl + "')";
+  document.getElementById('heroUrl').value = state.heroUrl;
+  document.getElementById('aboutImg').src = state.heroUrl;
+
+  var ag = document.getElementById('albumsGrid');
+  var albumsHtml = state.albums.map(function(a) {
+    var photoCount = (a.photos || []).length;
+    var coverUrl = a.url || TEAM_IMAGE;
+    return '<div class="album-card" onclick="openAlbumDetail(' + a.id + ')">' +
+      '<div class="album-cover">' +
+      '<img src="' + coverUrl + '" alt="' + a.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\'">' +
+      '<div class="album-cover-overlay"><span class="album-photo-count">📸 ' + photoCount + ' foto' + (photoCount !== 1 ? 's' : '') + '</span></div>' +
+      '</div>' +
+      '<div class="album-info">' +
+      '<h3>' + a.title + '</h3>' +
+      '<p>' + (a.desc || '').substring(0, 100) + (a.desc && a.desc.length > 100 ? '...' : '') + '</p>' +
+      '<div class="album-date">' + (a.date || '') + '</div>' +
+      '</div></div>';
+  }).join('');
+
+  if (state.loggedIn) {
+    albumsHtml += '<div class="album-add" onclick="openEditAlbum()">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>' +
+      '<span>Crear Nuevo Álbum</span></div>';
+  }
+  ag.innerHTML = albumsHtml;
+
+  var pg = document.getElementById('pagesGrid');
+  pg.innerHTML = state.pages.map(function(p) {
+    var pc = (p.gallery || []).length;
+    var adminClass = state.loggedIn ? 'admin-mode' : '';
+    return '<div class="page-card ' + adminClass + '" onclick="handlePageCardClick(event,' + p.id + ')">' +
+      '<button class="page-edit-btn" onclick="event.stopPropagation();openEditPage(' + p.id + ')" title="Editar sección">✏️</button>' +
+      '<div class="page-card-icon">' + (p.icon || '') + '</div>' +
+      '<h3>' + p.title + '</h3>' +
+      '<p>' + (p.desc || '').substring(0, 120) + ((p.desc || '').length > 120 ? '...' : '') + '</p>' +
+      '<div class="page-card-photos"> ' + pc + ' foto' + (pc !== 1 ? 's' : '') + '</div>' +
+      '<div class="page-card-date">' + (p.date || '') + '</div></div>';
+  }).join('');
+
+  renderAdmin();
+  updateStorageIndicator();
+}
+
+function handlePageCardClick(event, id) {
+  if (state.loggedIn) {
+    openEditPage(id);
+  } else {
+    var page = state.pages.find(function(p) { return p.id === id; });
+    toast('Sección: ' + (page ? page.title : ''), '');
+  }
+}
+
+function renderAdmin() {
+  var al = document.getElementById('adminAlbumsList');
+  al.innerHTML = state.albums.map(function(a) {
+    return '<div class="admin-item">' +
+      '<div class="admin-item-info">' +
+      '<div class="admin-item-title">🖼️ ' + a.title + '</div>' +
+      '<div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div>' +
+      '</div>' +
+      '<div class="admin-item-actions">' +
+      '<button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">✏️</button>' +
+      '<button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">🗑️</button>' +
+      '</div></div>';
+  }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay álbumes creados</p>';
+
+  var pl = document.getElementById('adminPagesList');
+  pl.innerHTML = state.pages.map(function(p) {
+    return '<div class="admin-item">' +
+      '<div class="admin-item-info">' +
+      '<div class="admin-item-title">' + (p.icon || '') + ' ' + p.title + '</div>' +
+      '<div class="admin-item-meta">' + (p.date || '') + '</div>' +
+      '</div>' +
+      '<div class="admin-item-actions">' +
+      '<button class="btn-icon btn-edit" onclick="openEditPage(' + p.id + ')">✏️</button>' +
+      '<button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">🗑️</button>' +
+      '</div></div>';
+  }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay secciones</p>';
+}
+
+// ============================================
+// DETALLE DE ÁLBUM
+// ============================================
+function openAlbumDetail(id) {
+  var album = state.albums.find(function(a) { return a.id === id; });
+  if (!album) return;
+  state.currentAlbumId = id;
+  state.manageMode = false;
+  document.getElementById('albumDetailHeroImg').src = album.url || TEAM_IMAGE;
+  document.getElementById('albumDetailTitle').textContent = album.title;
+  document.getElementById('albumDetailSubtitle').textContent = album.desc || '';
+  document.getElementById('albumPhotosTitleName').textContent = album.title;
+
+  var photos = album.photos || [];
+  document.getElementById('albumPhotosCount').textContent = photos.length + ' foto' + (photos.length !== 1 ? 's' : '');
+
+  var actionsHtml = '';
+  if (state.loggedIn) {
+    actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">️ Gestionar fotos</button>' +
+      '<button class="btn btn-primary btn-sm" onclick="window._addPhotosToAlbum(' + id + ')">+ Agregar Fotos</button>';
+  }
+  document.getElementById('albumPhotosActions').innerHTML = actionsHtml;
+
+  var grid = document.getElementById('albumPhotosGrid');
+  grid.innerHTML = photos.map(function(ph) {
+    return '<div class="album-photo-item" id="photo-' + ph.id + '" onclick="handlePhotoClick(event,' + id + ',' + ph.id + ')">' +
+      '<button class="album-photo-delete" onclick="event.stopPropagation();confirmDeletePhoto(' + id + ',' + ph.id + ')" title="Eliminar foto">🗑️</button>' +
+      '<img src="' + ph.url + '" alt="' + ph.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\';this.style.display=\'none\'">' +
+      '<div class="album-photo-item-overlay">' +
+      '<div><div class="album-photo-item-title">' + ph.title + '</div><div class="album-photo-item-date">' + (ph.date || '') + '</div></div>' +
+      '</div></div>';
+  }).join('');
+
+  if (state.loggedIn) {
+    grid.innerHTML += '<div class="album-photo-add-btn" onclick="window._addPhotosToAlbum(' + id + ')">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>' +
+      '<span>Agregar Múltiples Fotos</span></div>';
+  }
+
+  if (photos.length === 0 && !state.loggedIn) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;opacity:.6"><p>No hay fotos en este álbum aún</p></div>';
+  }
+
+  document.getElementById('albumDetail').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+window._addPhotosToAlbum = function(albumId) {
+  openMultiUploadForAlbum(albumId);
+};
+
+function toggleManageMode() {
+  state.manageMode = !state.manageMode;
+  var btn = document.getElementById('manageModeBtn');
+  if (btn) {
+    btn.classList.toggle('active', state.manageMode);
+    btn.innerHTML = state.manageMode ? '✕ Salir de gestión' : '🗑️ Gestionar fotos';
+  }
+  var items = document.querySelectorAll('.album-photo-item');
+  items.forEach(function(item) {
+    item.classList.toggle('manage-mode', state.manageMode);
+  });
+  if (state.manageMode) {
+    toast('Modo eliminar activado. Hacé clic en 🗑️ para borrar fotos.', '');
+  }
+}
+
+function handlePhotoClick(event, albumId, photoId) {
+  if (state.manageMode) {
+    event.preventDefault();
+    event.stopPropagation();
+    confirmDeletePhoto(albumId, photoId);
+  } else {
+    openAlbumLightbox(albumId, photoId);
+  }
+}
+
+function confirmDeletePhoto(albumId, photoId) {
+  var album = state.albums.find(function(a) { return a.id === albumId; });
+  if (!album) return;
+  var photo = album.photos.find(function(p) { return p.id === photoId; });
+  if (!photo) return;
+
+  if (confirm('¿Eliminar la foto "' + photo.title + '" de este álbum?\n\nEsta acción no se puede deshacer.')) {
+    album.photos = album.photos.filter(function(p) { return p.id !== photoId; });
+
+    // Si está en Supabase, eliminar también el archivo
+    if (SUPABASE_ENABLED && photo.url && photo.url.includes('supabase.co')) {
+      deleteFromSupabase(photo.url);
+    }
+
+    save();
+    openAlbumDetail(albumId);
+    toast('🗑️ Foto eliminada correctamente', 'success');
+  }
+}
+
+function closeAlbumDetail() {
+  document.getElementById('albumDetail').classList.remove('open');
+  document.body.style.overflow = '';
+  state.currentAlbumId = null;
+  state.manageMode = false;
+}
+
+function goHome() {
+  closeAlbumDetail();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================
+// LIGHTBOX
+// ============================================
+function openAlbumLightbox(albumId, photoId) {
+  var album = state.albums.find(function(a) { return a.id === albumId; });
+  if (!album) return;
+  var photos = album.photos || [];
+  state.lightboxImages = photos.map(function(ph) { return ph.url; });
+  var idx = photos.findIndex(function(ph) { return ph.id === photoId; });
+  state.lightboxIndex = idx >= 0 ? idx : 0;
+  showLightbox();
+}
+
+function showLightbox() {
+  document.getElementById('lightboxImg').src = state.lightboxImages[state.lightboxIndex];
+  document.getElementById('lightboxCounter').textContent = (state.lightboxIndex + 1) + ' / ' + state.lightboxImages.length;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function lightboxNav(dir) {
+  state.lightboxIndex = (state.lightboxIndex + dir + state.lightboxImages.length) % state.lightboxImages.length;
+  showLightbox();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxNav(-1);
+  if (e.key === 'ArrowRight') lightboxNav(1);
+});
+
+// ============================================
+// AUTH
+// ============================================
+function openLogin() { document.getElementById('loginModal').classList.add('active'); }
+function closeLogin() { document.getElementById('loginModal').classList.remove('active'); document.getElementById('loginError').classList.remove('show'); }
+function doLogin(e) {
+  e.preventDefault();
+  var u = document.getElementById('loginUser').value;
+  var p = document.getElementById('loginPass').value;
+  if (u === 'admin' && p === state.password) {
+    state.loggedIn = true;
+    sessionStorage.setItem('larr_logged', 'true');
+    document.getElementById('adminToggle').classList.add('show');
+    closeLogin();
+    toast('¡Bienvenido, Administrador!', 'success');
+    render();
+    if (state.currentAlbumId) openAlbumDetail(state.currentAlbumId);
+  } else {
+    document.getElementById('loginError').classList.add('show');
+  }
+}
+function logout() {
+  state.loggedIn = false;
+  sessionStorage.removeItem('larr_logged');
+  document.getElementById('adminToggle').classList.remove('show');
+  document.getElementById('adminPanel').classList.remove('open');
+  toast('Sesión cerrada');
+  render();
+  if (state.currentAlbumId) openAlbumDetail(state.currentAlbumId);
+}
+
+// ============================================
+// ADMIN PANEL
+// ============================================
+function toggleAdmin() { document.getElementById('adminPanel').classList.toggle('open'); }
+function switchTab(tab, btn) {
+  document.querySelectorAll('.admin-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.admin-section').forEach(function(s) { s.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+// ============================================
+// EDIT ALBUM
+// ============================================
+function hideAllErrors() {
+  document.querySelectorAll('.form-error').forEach(function(e) { e.classList.remove('show'); });
+}
+
+function openEditAlbum(id) {
+  if (!state.loggedIn) { openLogin(); return; }
+  hideAllErrors();
+  document.getElementById('editAlbumId').value = id || '';
+  document.getElementById('editAlbumTitle').textContent = id ? 'Editar Álbum' : 'Nuevo Álbum';
+
+  state.pendingImage = null;
+  state.originalUrl = null;
+  document.getElementById('albumUploadPreview').style.display = 'none';
+  document.getElementById('albumUploadPlaceholder').style.display = 'block';
+  document.getElementById('albumUploadZone').classList.remove('has-image');
+  document.getElementById('albumFileInput').value = '';
+  document.getElementById('btnSaveAlbum').textContent = '💾 Guardar Álbum';
+  document.getElementById('btnSaveAlbum').disabled = false;
+
+  if (id) {
+    var album = state.albums.find(function(a) { return a.id === id; });
+    if (album) {
+      document.getElementById('albumField1').value = album.title;
+      document.getElementById('albumField2').value = album.desc || '';
+      document.getElementById('albumField3').value = '';
+      document.getElementById('albumField4').value = album.date || '';
+      state.originalUrl = album.url || '';
+      if (album.url) {
+        document.getElementById('albumUploadPreview').src = album.url;
+        document.getElementById('albumUploadPreview').style.display = 'block';
+        document.getElementById('albumUploadPlaceholder').style.display = 'none';
+        document.getElementById('albumUploadZone').classList.add('has-image');
+        if (!album.url.startsWith('data:')) document.getElementById('albumField3').value = album.url;
+      }
+    }
+  } else {
+    document.getElementById('albumField1').value = '';
+    document.getElementById('albumField2').value = '';
+    document.getElementById('albumField3').value = '';
+    document.getElementById('albumField4').value = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
+  }
+  document.getElementById('editAlbumModal').classList.add('active');
+}
+function closeEditAlbum() {
+  document.getElementById('editAlbumModal').classList.remove('active');
+  state.pendingImage = null;
+  state.originalUrl = null;
+  hideAllErrors();
+}
+
+function handleAlbumCoverUpload(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('La imagen es muy grande (máx 10MB)', 'error'); return; }
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    state.pendingImage = ev.target.result;
+    document.getElementById('albumUploadPreview').src = ev.target.result;
+    document.getElementById('albumUploadPreview').style.display = 'block';
+    document.getElementById('albumUploadPlaceholder').style.display = 'none';
+    document.getElementById('albumUploadZone').classList.add('has-image');
+    document.getElementById('albumField3').value = '';
+    hideAllErrors();
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearAlbumCoverPreview() {
+  if (document.getElementById('albumField3').value) {
+    state.pendingImage = null;
+    document.getElementById('albumUploadPreview').style.display = 'none';
+    document.getElementById('albumUploadPlaceholder').style.display = 'block';
+    document.getElementById('albumUploadZone').classList.remove('has-image');
+    hideAllErrors();
+  }
+}
+
+function saveAlbum(e) {
+  e.preventDefault();
+  hideAllErrors();
+
+  var id = document.getElementById('editAlbumId').value;
+  var title = document.getElementById('albumField1').value.trim();
+  var desc = document.getElementById('albumField2').value.trim();
+  var url = document.getElementById('albumField3').value.trim();
+  var date = document.getElementById('albumField4').value.trim();
+
+  var hasError = false;
+  if (!title) { document.getElementById('errAlbumTitle').classList.add('show'); hasError = true; }
+  if (state.pendingImage) url = state.pendingImage;
+  if (!url && !id) { document.getElementById('errAlbumCover').classList.add('show'); hasError = true; }
+  if (hasError) { toast('Revisá los campos marcados', 'error'); return; }
+
+  var btn = document.getElementById('btnSaveAlbum');
+  btn.textContent = ' Guardando...';
+  btn.disabled = true;
+
+  setTimeout(function() {
+    if (id) {
+      var album = state.albums.find(function(a) { return a.id === parseInt(id); });
+      if (album) {
+        album.title = title;
+        album.desc = desc;
+        if (url) album.url = url;
+        else if (state.originalUrl) album.url = state.originalUrl;
+        album.date = date;
+      }
+    } else {
+      state.albums.push({ id: Date.now(), title: title, desc: desc, url: url, date: date, photos: [] });
+    }
+
+    var saved = save();
+    if (saved) { render(); closeEditAlbum(); toast('✅ Álbum guardado', 'success'); }
+    else { btn.textContent = '💾 Guardar Álbum'; btn.disabled = false; }
+  }, 300);
+}
+
+function deleteAlbum(id) {
+  if (!confirm('¿Eliminar este álbum y todas sus fotos?\n\nEsta acción no se puede deshacer.')) return;
+  state.albums = state.albums.filter(function(a) { return a.id !== id; });
+  save(); render();
+  toast('Álbum eliminado', 'error');
+}
+
+// ============================================
+// EDIT PAGE
+// ============================================
+function openEditPage(id) {
+  if (!state.loggedIn) { openLogin(); return; }
+  hideAllErrors();
+  document.getElementById('editPageId').value = id || '';
+  document.getElementById('editPageTitle').textContent = id ? 'Editar Sección' : 'Nueva Sección';
+
+  state.pagePendingBg = null;
+  state.pageOriginalBg = null;
+  state.selectedIcon = '⚽';
+
+  document.getElementById('pageUploadPreview').style.display = 'none';
+  document.getElementById('pageUploadPlaceholder').style.display = 'block';
+  document.getElementById('pageUploadZone').classList.remove('has-image');
+  document.getElementById('pageFileInput').value = '';
+  document.getElementById('btnSavePage').textContent = '💾 Guardar Sección';
+  document.getElementById('btnSavePage').disabled = false;
+
+  var iconHtml = '';
+  ICONS.forEach(function(ic) {
+    iconHtml += '<div class="icon-option" data-icon="' + ic + '" onclick="selectIcon(this,\'' + ic + '\')">' + ic + '</div>';
+  });
+  document.getElementById('iconSelector').innerHTML = iconHtml;
+
+  if (id) {
+    var page = state.pages.find(function(p) { return p.id === id; });
+    if (page) {
+      document.getElementById('pageField1').value = page.title;
+      document.getElementById('pageField2').value = page.desc || '';
+      document.getElementById('pageField3').value = '';
+      document.getElementById('pageField4').value = page.date || '';
+      state.pageOriginalBg = page.url || '';
+      state.selectedIcon = page.icon || '';
+
+      var iconEls = document.querySelectorAll('.icon-option');
+      iconEls.forEach(function(el) {
+        el.classList.toggle('selected', el.dataset.icon === state.selectedIcon);
+      });
+
+      if (page.url) {
+        document.getElementById('pageUploadPreview').src = page.url;
+        document.getElementById('pageUploadPreview').style.display = 'block';
+        document.getElementById('pageUploadPlaceholder').style.display = 'none';
+        document.getElementById('pageUploadZone').classList.add('has-image');
+        if (!page.url.startsWith('data:')) document.getElementById('pageField3').value = page.url;
+      }
+    }
+  } else {
+    document.getElementById('pageField1').value = '';
+    document.getElementById('pageField2').value = '';
+    document.getElementById('pageField3').value = '';
+    document.getElementById('pageField4').value = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
+  }
+  document.getElementById('editPageModal').classList.add('active');
+}
+
+function selectIcon(el, icon) {
+  document.querySelectorAll('.icon-option').forEach(function(e) { e.classList.remove('selected'); });
+  el.classList.add('selected');
+  state.selectedIcon = icon;
+}
+
+function closeEditPage() {
+  document.getElementById('editPageModal').classList.remove('active');
+  state.pagePendingBg = null;
+  state.pageOriginalBg = null;
+  hideAllErrors();
+}
+
+function handlePageBgUpload(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('La imagen es muy grande (máx 10MB)', 'error'); return; }
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    state.pagePendingBg = ev.target.result;
+    document.getElementById('pageUploadPreview').src = ev.target.result;
+    document.getElementById('pageUploadPreview').style.display = 'block';
+    document.getElementById('pageUploadPlaceholder').style.display = 'none';
+    document.getElementById('pageUploadZone').classList.add('has-image');
+    document.getElementById('pageField3').value = '';
+    hideAllErrors();
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearPageBgPreview() {
+  if (document.getElementById('pageField3').value) {
+    state.pagePendingBg = null;
+    document.getElementById('pageUploadPreview').style.display = 'none';
+    document.getElementById('pageUploadPlaceholder').style.display = 'block';
+    document.getElementById('pageUploadZone').classList.remove('has-image');
+    hideAllErrors();
+  }
+}
+
+function savePage(e) {
+  e.preventDefault();
+  hideAllErrors();
+
+  var id = document.getElementById('editPageId').value;
+  var title = document.getElementById('pageField1').value.trim();
+  var desc = document.getElementById('pageField2').value.trim();
+  var url = document.getElementById('pageField3').value.trim();
+  var date = document.getElementById('pageField4').value.trim();
+
+  var hasError = false;
+  if (!title) { document.getElementById('errPageTitle').classList.add('show'); hasError = true; }
+  if (!desc) { document.getElementById('errPageDesc').classList.add('show'); hasError = true; }
+  if (state.pagePendingBg) url = state.pagePendingBg;
+  if (!url && !id) { document.getElementById('errPageBg').classList.add('show'); hasError = true; }
+  if (hasError) { toast('Revisá los campos marcados', 'error'); return; }
+
+  var btn = document.getElementById('btnSavePage');
+  btn.textContent = '⏳ Guardando...';
+  btn.disabled = true;
+
+  setTimeout(function() {
+    if (id) {
+      var page = state.pages.find(function(p) { return p.id === parseInt(id); });
+      if (page) {
+        page.title = title;
+        page.desc = desc;
+        if (url) page.url = url;
+        else if (state.pageOriginalBg) page.url = state.pageOriginalBg;
+        page.date = date;
+        page.icon = state.selectedIcon;
+      }
+    } else {
+      state.pages.push({ id: Date.now(), title: title, desc: desc, url: url, date: date, icon: state.selectedIcon, gallery: [] });
+    }
+
+    var saved = save();
+    if (saved) { render(); closeEditPage(); toast('✅ Sección guardada correctamente', 'success'); }
+    else { btn.textContent = '💾 Guardar Sección'; btn.disabled = false; }
+  }, 300);
+}
+
+function deletePage(id) {
+  if (!confirm('¿Eliminar esta sección?\n\nEsta acción no se puede deshacer.')) return;
+  state.pages = state.pages.filter(function(x) { return x.id !== id; });
+  save(); render();
+  toast('Sección eliminada', 'error');
+}
+
+// ============================================
+// MULTI UPLOAD CON SUPABASE
+// ============================================
+function openMultiUpload() {
+  if (!state.loggedIn) { openLogin(); return; }
+  state.multiFiles = [];
+  state.currentAlbumId = null;
+  document.getElementById('multiUploadSubtitle').textContent = 'Seleccioná fotos para la galería general';
+  document.getElementById('multiPreview').innerHTML = '';
+  document.getElementById('multiUploadPlaceholder').style.display = 'block';
+  document.getElementById('multiCount').textContent = '';
+  document.getElementById('multiDate').value = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
+  document.getElementById('multiFileInput').value = '';
+  document.getElementById('uploadProgress').style.display = 'none';
+  document.getElementById('btnMultiSave').style.display = 'block';
+  document.getElementById('multiUploadModal').classList.add('active');
+}
+
+function openMultiUploadForAlbum(albumId) {
+  if (!state.loggedIn) { openLogin(); return; }
+  state.multiFiles = [];
+  state.currentAlbumId = albumId;
+  var album = state.albums.find(function(a) { return a.id === albumId; });
+  document.getElementById('multiUploadSubtitle').textContent = 'Agregando fotos al álbum: ' + (album ? album.title : '');
+  document.getElementById('multiPreview').innerHTML = '';
+  document.getElementById('multiUploadPlaceholder').style.display = 'block';
+  document.getElementById('multiCount').textContent = '';
+  document.getElementById('multiDate').value = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
+  document.getElementById('multiFileInput').value = '';
+  document.getElementById('uploadProgress').style.display = 'none';
+  document.getElementById('btnMultiSave').style.display = 'block';
+  document.getElementById('multiUploadModal').classList.add('active');
+}
+
+function closeMultiUpload() {
+  document.getElementById('multiUploadModal').classList.remove('active');
+  state.multiFiles = [];
+}
+
+async function handleMultiFileUpload(e) {
+  var files = Array.from(e.target.files);
+  if (files.length === 0) return;
+
+  var placeholder = document.getElementById('multiUploadPlaceholder');
+  placeholder.innerHTML = '<p style="font-size:1rem">⏳ Procesando imágenes...</p>';
+
+  var processed = 0;
+  var totalSize = 0;
+
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    if (file.size > 10 * 1024 * 1024) {
+      toast('⚠️ "' + file.name + '" supera 10MB, se omitió', 'error');
+      processed++;
+      continue;
+    }
+
+    try {
+      var compressed = await compressImage(file, 1200, 0.7);
+      state.multiFiles.push({
+        blob: compressed.blob,
+        dataUrl: compressed.dataUrl,
+        name: file.name,
+        originalSize: file.size,
+        compressedSize: compressed.size
+      });
+      totalSize += compressed.size;
+    } catch(err) {
+      console.error('Error procesando ' + file.name, err);
+    }
+    processed++;
+  }
+
+  placeholder.innerHTML = '<p style="font-size:1.1rem;margin-bottom:.5rem">📁 Hacé clic para agregar más fotos</p>' +
+    '<p style="font-size:.85rem;opacity:.6">Podés seleccionar varias imágenes a la vez</p>' +
+    '<p style="font-size:.75rem;opacity:.5;margin-top:.5rem">Las imágenes se comprimirán automáticamente</p>';
+  placeholder.style.display = 'block';
+
+  updateMultiPreview();
+
+  var sizeMB = (totalSize / (1024 * 1024)).toFixed(2);
+  toast('✅ ' + state.multiFiles.length + ' imágenes procesadas (' + sizeMB + ' MB)', 'success');
+}
+
+function updateMultiPreview() {
+  var container = document.getElementById('multiPreview');
+  var placeholder = document.getElementById('multiUploadPlaceholder');
+  placeholder.style.display = state.multiFiles.length > 0 ? 'none' : 'block';
+
+  var html = '';
+  state.multiFiles.forEach(function(f, idx) {
+    html += '<div class="multi-preview-item">' +
+      '<img src="' + f.dataUrl + '" alt="' + f.name + '">' +
+      '<button class="multi-preview-remove" onclick="removeMultiFile(' + idx + ')" title="Eliminar">✕</button>' +
+      '</div>';
+  });
+  if (state.multiFiles.length > 0) {
+    var totalSize = state.multiFiles.reduce(function(sum, f) { return sum + (f.compressedSize || 0); }, 0);
+    var sizeMB = (totalSize / (1024 * 1024)).toFixed(2);
+    html += '<div class="multi-preview-count">' + state.multiFiles.length + ' foto' + (state.multiFiles.length !== 1 ? 's' : '') + ' · ' + sizeMB + ' MB</div>';
+  }
+  container.innerHTML = html;
+
+  document.getElementById('multiCount').textContent = state.multiFiles.length > 0 ? state.multiFiles.length + ' fotos listas para agregar' : '';
+}
+
+function removeMultiFile(idx) {
+  state.multiFiles.splice(idx, 1);
+  updateMultiPreview();
+}
+
+async function saveMultiPhotos() {
+  if (state.multiFiles.length === 0) { toast('Seleccioná al menos una foto', 'error'); return; }
+
+  var date = document.getElementById('multiDate').value.trim() || new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
+  var btn = document.getElementById('btnMultiSave');
+  var progressDiv = document.getElementById('uploadProgress');
+  var progressBar = document.getElementById('uploadProgressBar');
+  var progressText = document.getElementById('uploadProgressText');
+
+  btn.style.display = 'none';
+  progressDiv.style.display = 'block';
+
+  var total = state.multiFiles.length;
+  var added = 0;
+  var failed = 0;
+
+  try {
+    for (var i = 0; i < state.multiFiles.length; i++) {
+      var f = state.multiFiles[i];
+      var photoUrl = f.dataUrl;
+
+      // Subir a Supabase si está configurado
+      if (SUPABASE_ENABLED && f.blob) {
+        try {
+          var folder = state.currentAlbumId ? 'albums/' + state.currentAlbumId : 'albums/general';
+          photoUrl = await uploadToSupabase(f.blob, folder);
+        } catch(uploadErr) {
+          console.error('Error subiendo a Supabase:', uploadErr);
+          toast('️ Error subiendo "' + f.name + '" a Supabase. Usando versión local.', 'error');
+        }
+      }
+
+      var photoData = {
+        id: Date.now() + added,
+        title: f.name.replace(/\.[^/.]+$/, ''),
+        url: photoUrl,
+        date: date
+      };
+
+      if (state.currentAlbumId) {
+        var album = state.albums.find(function(a) { return a.id === state.currentAlbumId; });
+        if (album) {
+          if (!album.photos) album.photos = [];
+          album.photos.push(photoData);
+        }
+      } else {
+        state.albums.push({
+          id: Date.now() + added + 10000,
+          title: f.name.replace(/\.[^/.]+$/, ''),
+          desc: '',
+          url: photoUrl,
+          date: date,
+          photos: []
+        });
+      }
+
+      added++;
+      var progress = Math.round((added / total) * 100);
+      progressBar.style.width = progress + '%';
+      progressText.textContent = 'Subiendo ' + added + ' de ' + total + '... (' + progress + '%)';
+    }
+
+    save();
+    render();
+    closeMultiUpload();
+
+    var msg = '✅ ' + added + ' fotos agregadas correctamente';
+    if (failed > 0) msg += ' (' + failed + ' fallaron)';
+    toast(msg, 'success');
+
+    if (state.currentAlbumId) openAlbumDetail(state.currentAlbumId);
+
+  } catch(err) {
+    console.error('Error en saveMultiPhotos:', err);
+    toast('❌ Error al procesar las fotos: ' + err.message, 'error');
+    btn.style.display = 'block';
+    progressDiv.style.display = 'none';
+  }
+}
+
+// ============================================
+// SETTINGS
+// ============================================
+function changePassword(e) {
+  e.preventDefault();
+  var newP = document.getElementById('newPass').value;
+  if (newP.length < 4) { toast('La contraseña debe tener al menos 4 caracteres', 'error'); return; }
+  state.password = newP; save();
+  document.getElementById('newPass').value = '';
+  toast('Contraseña actualizada', 'success');
+}
+function changeHero(e) {
+  e.preventDefault();
+  state.heroUrl = document.getElementById('heroUrl').value;
+  save(); render();
+  toast('Imagen hero actualizada', 'success');
+}
+
+function sendContact(e) { e.preventDefault(); toast('Mensaje enviado correctamente', 'success'); e.target.reset(); }
+
+function toast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show ' + (type || '');
+  setTimeout(function() { t.classList.remove('show'); }, 3500);
+}
+
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+if (state.loggedIn) document.getElementById('adminToggle').classList.add('show');
+render();
+</script>
+</body>
+</html>
+
+
+
+              <script>
+                              const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
+const SUPABASE_KEY = 'TU-CLAVE-PUBLICA-AQUI';
+
+
+              </script>
+                        </body>
+                        </html>
+                    
