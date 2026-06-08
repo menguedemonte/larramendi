@@ -1,19 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-
-                
-              </style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -413,7 +398,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 </footer>
 
 <div class="album-detail" id="albumDetail">
-<button class="album-detail-close" onclick="closeAlbumDetail()"></button>
+<button class="album-detail-close" onclick="closeAlbumDetail()">✕</button>
 <div class="album-detail-hero">
 <img id="albumDetailHeroImg" src="" alt="">
 <div class="album-detail-hero-overlay"></div>
@@ -461,7 +446,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="form-group"><label>Descripción</label><textarea id="albumField2" placeholder="Descripción breve del álbum..."></textarea></div>
 <div class="form-group"><label>Imagen de portada *</label>
 <div class="upload-zone" id="albumUploadZone" onclick="document.getElementById('albumFileInput').click()">
-<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem">📁 Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
+<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem"> Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
 <img id="albumUploadPreview" style="display:none">
 <input type="file" id="albumFileInput" accept="image/*" onchange="handleAlbumCoverUpload(event)">
 </div>
@@ -478,22 +463,52 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="modal modal-xl">
 <button class="modal-close" onclick="closeEditPage()">✕</button>
 <h2 id="editPageTitle">Editar Sección</h2>
-<p class="modal-subtitle">Modificá todos los datos de la sección/página</p>
+<p class="modal-subtitle">Modificá todos los elementos visibles de la sección</p>
 <form onsubmit="savePage(event)" novalidate>
 <input type="hidden" id="editPageId">
-<div class="form-group"><label>Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
-<div class="form-group"><label>Descripción / Contenido *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
-<div class="form-group"><label>Imagen de fondo de la página *</label>
+
+<div class="form-group">
+<label>📝 Título de la sección *</label>
+<input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo">
+<div class="form-error" id="errPageTitle">El título es obligatorio</div>
+</div>
+
+<div class="form-group">
+<label>📄 Encabezado / Subtítulo</label>
+<input type="text" id="pageField5" placeholder="Ej: Conocé a nuestro equipo">
+</div>
+
+<div class="form-group">
+<label>📋 Contenido / Descripción *</label>
+<textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea>
+<div class="form-error" id="errPageDesc">La descripción es obligatoria</div>
+</div>
+
+<div class="form-group">
+<label>🖼️ Imagen de fondo (Hero) *</label>
 <div class="upload-zone" id="pageUploadZone" onclick="document.getElementById('pageFileInput').click()">
-<div id="pageUploadPlaceholder"><p style="margin-bottom:.5rem">️ Hacé clic para subir la imagen de fondo</p><p style="font-size:.8rem;opacity:.6">Esta imagen aparecerá como fondo al abrir la sección</p></div>
+<div id="pageUploadPlaceholder">
+<p style="margin-bottom:.5rem">🖼️ Hacé clic para subir la imagen de fondo</p>
+<p style="font-size:.8rem;opacity:.6">Esta imagen aparecerá como fondo al abrir la sección</p>
+</div>
 <img id="pageUploadPreview" style="display:none">
 <input type="file" id="pageFileInput" accept="image/*" onchange="handlePageBgUpload(event)">
 </div>
 <input type="url" id="pageField3" placeholder="https://... (opcional si subiste archivo)" oninput="clearPageBgPreview()">
 <div class="form-error" id="errPageBg">Debés subir una imagen o pegar una URL</div>
 </div>
-<div class="form-group"><label>Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
-<div class="form-group"><label>Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
+
+<div class="form-group">
+<label>🎨 Ícono de la sección</label>
+<div class="icon-selector" id="iconSelector"></div>
+<input type="hidden" id="pageFieldIcon">
+</div>
+
+<div class="form-group">
+<label> Fecha / Período</label>
+<input type="text" id="pageField4" placeholder="Octubre 2025">
+</div>
+
 <button type="submit" class="btn btn-primary btn-full" id="btnSavePage">💾 Guardar Sección</button>
 </form>
 </div>
@@ -528,7 +543,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="lightbox" id="lightbox">
 <button class="lightbox-close" onclick="closeLightbox()">✕</button>
 <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">❮</button>
-<button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">❯</button>
+<button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)"></button>
 <img id="lightboxImg" src="">
 <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
@@ -537,12 +552,12 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="admin-panel" id="adminPanel">
 <div class="admin-header">
 <h2>Panel <span>Admin</span></h2>
-<button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button>
+<button class="modal-close" onclick="toggleAdmin()" style="position:static"></button>
 </div>
 <div class="admin-tabs">
 <button class="admin-tab active" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
-<button class="admin-tab" onclick="switchTab('pages',this)">📄 Secciones</button>
-<button class="admin-tab" onclick="switchTab('settings',this)">⚙️ Ajustes</button>
+<button class="admin-tab" onclick="switchTab('pages',this)"> Secciones</button>
+<button class="admin-tab" onclick="switchTab('settings',this)">️ Ajustes</button>
 </div>
 <div class="admin-content">
 <div class="admin-section active" id="tab-albums">
@@ -564,7 +579,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <ul>
 <li>Cada sección es una página con título, fondo y contenido propios</li>
 <li>Hacé clic en ✏️ para editar título, fondo, descripción e ícono</li>
-<li>Usá ️ para eliminar una sección</li>
+<li>Usá 🗑️ para eliminar una sección</li>
 </ul>
 </div>
 <div id="adminPagesList"></div>
@@ -614,19 +629,10 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 // ============================================
 // CONFIGURACIÓN DE SUPABASE
 // ============================================
-// INSTRUCCIONES:
-// 1. Andá a https://supabase.com y creá una cuenta gratis
-// 2. Creá un nuevo proyecto
-// 3. En Settings → API copiá:
-//    - Project URL (ej: https://xyz123.supabase.co)
-//    - anon/public key (ej: eyJhbGciOiJIUzI1NiIs...)
-// 4. Pegá los valores abajo:
+const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
+const SUPABASE_KEY = 'TU-CLAVE-PUBLICA-AQUI';
 
-const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
-
-// Detectar si Supabase está configurado
-const SUPABASE_ENABLED = SUPABASE_URL !== 'https://ngfgghnrfjjimfpuytfr.supabase.co' && SUPABASE_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
+const SUPABASE_ENABLED = SUPABASE_URL !== 'https://TU-PROYECTO.supabase.co' && SUPABASE_KEY !== 'TU-CLAVE-PUBLICA-AQUI';
 
 let supabaseClient = null;
 
@@ -690,7 +696,6 @@ async function uploadToSupabase(file, folder) {
     throw new Error('Supabase no está configurado');
   }
 
-  // Comprimir antes de subir
   const compressed = await compressImage(file, 1200, 0.7);
   
   const fileName = Date.now() + '_' + Math.random().toString(36).substr(2, 9) + '.jpg';
@@ -707,7 +712,6 @@ async function uploadToSupabase(file, folder) {
     throw new Error(error.message);
   }
 
-  // Obtener URL pública
   const { data: urlData } = supabaseClient.storage
     .from('albums')
     .getPublicUrl(filePath);
@@ -722,7 +726,6 @@ async function deleteFromSupabase(url) {
   if (!supabaseClient || !url.includes('supabase.co')) return;
   
   try {
-    // Extraer el path de la URL
     const match = url.match(/object\/public\/albums\/(.+)$/);
     if (match) {
       const filePath = match[1];
@@ -740,7 +743,7 @@ async function deleteFromSupabase(url) {
 // ============================================
 const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
 
-const ICONS = ['⚽','','🎉','📖','⭐','👥','🎯','🏟️','📸','🎊','','🤝','🥅','','💪','🤝'];
+const ICONS = ['⚽','🏆','🎉','📖','⭐','👥','🎯','🏟️','📸','🎊','','🥅','💪','','🏅','🎖️'];
 
 const DEFAULT_ALBUMS = [
   {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde sus inicios hasta hoy.',date:'Histórico',url:TEAM_IMAGE,photos:[
@@ -760,10 +763,10 @@ const DEFAULT_ALBUMS = [
 ];
 
 const DEFAULT_PAGES = [
-  {id:1,title:'Nuestro Equipo',desc:'Conocé a los jugadores que forman parte de la Unión de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Octubre 2025',url:TEAM_IMAGE,gallery:[]},
-  {id:2,title:'Torneos y Competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
-  {id:3,title:'Eventos Sociales',desc:'Más allá de la cancha, somos una comunidad.',icon:'🎉',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
-  {id:4,title:'Historia del Club',desc:'Desde nuestra fundación, hemos construido una tradición de compañerismo y deporte.',icon:'📖',date:'Desde la fundación',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
+  {id:1,title:'Nuestro Equipo',header:'Conocé a nuestro plantel',desc:'Conocé a los jugadores que forman parte de la Unión de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Octubre 2025',url:TEAM_IMAGE,gallery:[]},
+  {id:2,title:'Torneos y Competencias',header:'Nuestras competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'🏆',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
+  {id:3,title:'Eventos Sociales',header:'Más allá de la cancha',desc:'Más allá de la cancha, somos una comunidad.',icon:'',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
+  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación, hemos construido una tradición de compañerismo y deporte.',icon:'',date:'Desde la fundación',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
 ];
 
 let state = {
@@ -807,7 +810,7 @@ function save() {
     return true;
   } catch(e) {
     console.error('Error al guardar:', e);
-    toast('⚠️ Error: almacenamiento local lleno. Configurá Supabase para más espacio.', 'error');
+    toast('️ Error: almacenamiento local lleno. Configurá Supabase para más espacio.', 'error');
     return false;
   }
 }
@@ -852,7 +855,7 @@ function render() {
       '<div class="page-card-icon">' + (p.icon || '') + '</div>' +
       '<h3>' + p.title + '</h3>' +
       '<p>' + (p.desc || '').substring(0, 120) + ((p.desc || '').length > 120 ? '...' : '') + '</p>' +
-      '<div class="page-card-photos"> ' + pc + ' foto' + (pc !== 1 ? 's' : '') + '</div>' +
+      '<div class="page-card-photos">📸 ' + pc + ' foto' + (pc !== 1 ? 's' : '') + '</div>' +
       '<div class="page-card-date">' + (p.date || '') + '</div></div>';
   }).join('');
 
@@ -892,7 +895,7 @@ function renderAdmin() {
       '</div>' +
       '<div class="admin-item-actions">' +
       '<button class="btn-icon btn-edit" onclick="openEditPage(' + p.id + ')">✏️</button>' +
-      '<button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">🗑️</button>' +
+      '<button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">️</button>' +
       '</div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay secciones</p>';
 }
@@ -915,7 +918,7 @@ function openAlbumDetail(id) {
 
   var actionsHtml = '';
   if (state.loggedIn) {
-    actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">️ Gestionar fotos</button>' +
+    actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">🗑️ Gestionar fotos</button>' +
       '<button class="btn btn-primary btn-sm" onclick="window._addPhotosToAlbum(' + id + ')">+ Agregar Fotos</button>';
   }
   document.getElementById('albumPhotosActions').innerHTML = actionsHtml;
@@ -983,7 +986,6 @@ function confirmDeletePhoto(albumId, photoId) {
   if (confirm('¿Eliminar la foto "' + photo.title + '" de este álbum?\n\nEsta acción no se puede deshacer.')) {
     album.photos = album.photos.filter(function(p) { return p.id !== photoId; });
 
-    // Si está en Supabase, eliminar también el archivo
     if (SUPABASE_ENABLED && photo.url && photo.url.includes('supabase.co')) {
       deleteFromSupabase(photo.url);
     }
@@ -1182,7 +1184,7 @@ function saveAlbum(e) {
   if (hasError) { toast('Revisá los campos marcados', 'error'); return; }
 
   var btn = document.getElementById('btnSaveAlbum');
-  btn.textContent = ' Guardando...';
+  btn.textContent = '⏳ Guardando...';
   btn.disabled = true;
 
   setTimeout(function() {
@@ -1213,7 +1215,7 @@ function deleteAlbum(id) {
 }
 
 // ============================================
-// EDIT PAGE
+// EDIT PAGE (COMPLETO)
 // ============================================
 function openEditPage(id) {
   if (!state.loggedIn) { openLogin(); return; }
@@ -1245,6 +1247,7 @@ function openEditPage(id) {
       document.getElementById('pageField2').value = page.desc || '';
       document.getElementById('pageField3').value = '';
       document.getElementById('pageField4').value = page.date || '';
+      document.getElementById('pageField5').value = page.header || '';
       state.pageOriginalBg = page.url || '';
       state.selectedIcon = page.icon || '';
 
@@ -1266,6 +1269,7 @@ function openEditPage(id) {
     document.getElementById('pageField2').value = '';
     document.getElementById('pageField3').value = '';
     document.getElementById('pageField4').value = new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
+    document.getElementById('pageField5').value = '';
   }
   document.getElementById('editPageModal').classList.add('active');
 }
@@ -1316,6 +1320,7 @@ function savePage(e) {
 
   var id = document.getElementById('editPageId').value;
   var title = document.getElementById('pageField1').value.trim();
+  var header = document.getElementById('pageField5').value.trim();
   var desc = document.getElementById('pageField2').value.trim();
   var url = document.getElementById('pageField3').value.trim();
   var date = document.getElementById('pageField4').value.trim();
@@ -1336,6 +1341,7 @@ function savePage(e) {
       var page = state.pages.find(function(p) { return p.id === parseInt(id); });
       if (page) {
         page.title = title;
+        page.header = header;
         page.desc = desc;
         if (url) page.url = url;
         else if (state.pageOriginalBg) page.url = state.pageOriginalBg;
@@ -1343,7 +1349,16 @@ function savePage(e) {
         page.icon = state.selectedIcon;
       }
     } else {
-      state.pages.push({ id: Date.now(), title: title, desc: desc, url: url, date: date, icon: state.selectedIcon, gallery: [] });
+      state.pages.push({ 
+        id: Date.now(), 
+        title: title, 
+        header: header,
+        desc: desc, 
+        url: url, 
+        date: date, 
+        icon: state.selectedIcon, 
+        gallery: [] 
+      });
     }
 
     var saved = save();
@@ -1491,14 +1506,13 @@ async function saveMultiPhotos() {
       var f = state.multiFiles[i];
       var photoUrl = f.dataUrl;
 
-      // Subir a Supabase si está configurado
       if (SUPABASE_ENABLED && f.blob) {
         try {
           var folder = state.currentAlbumId ? 'albums/' + state.currentAlbumId : 'albums/general';
           photoUrl = await uploadToSupabase(f.blob, folder);
         } catch(uploadErr) {
           console.error('Error subiendo a Supabase:', uploadErr);
-          toast('️ Error subiendo "' + f.name + '" a Supabase. Usando versión local.', 'error');
+          toast('⚠️ Error subiendo "' + f.name + '" a Supabase. Usando versión local.', 'error');
         }
       }
 
@@ -1593,14 +1607,3 @@ render();
 </body>
 </html>
 
-
-
-              <script>
-                              const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
-
-
-              </script>
-                        </body>
-                        </html>
-                    
