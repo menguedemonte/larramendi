@@ -1,9 +1,9 @@
 
                         <!DOCTYPE html>
                         <html lang="en">
-                          <head>
-                            <meta charset="UTF-8">logo
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <style>
                 body {
                   background-color: white; /* Ensure the iframe has a white background */
@@ -22,14 +22,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
---primary:#0a1628;--secondary:#1e3a5f;--accent:#1565a8;--accent2:#1e7fd4;
---gold:#fbbf24;--light:#f8fafc;--dark:#0f172a;
---glass:rgba(255,255,255,0.08);--glass2:rgba(255,255,255,0.15);
-}
+:root{--primary:#0a1628;--secondary:#1e3a5f;--accent:#1565a8;--accent2:#1e7fd4;--gold:#fbbf24;--light:#f8fafc;--dark:#0f172a;--glass:rgba(255,255,255,0.08);--glass2:rgba(255,255,255,0.15)}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;overflow-x:hidden}
-
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
 .nav.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.3);padding:.6rem 2rem}
 .nav-logo{display:flex;align-items:center;gap:.8rem;font-weight:800;font-size:1.2rem;letter-spacing:1px;cursor:pointer}
@@ -49,7 +44,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .btn-admin:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(251,191,36,0.4)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
 .hamburger span{width:28px;height:3px;background:#fff;border-radius:3px;transition:all .3s}
-
 .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.4)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,0.85) 0%,rgba(30,58,95,0.6) 50%,rgba(10,22,40,0.9) 100%)}
@@ -73,10 +67,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .btn-sm{padding:.5rem 1rem;font-size:.8rem}
 .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;animation:bounce 2s infinite}
 .scroll-indicator svg{width:30px;height:30px;stroke:var(--gold)}
-
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:.9}}
-
 .section{padding:6rem 2rem;position:relative}
 .section-alt{background:linear-gradient(180deg,var(--primary) 0%,var(--secondary) 100%)}
 .container{max-width:1200px;margin:0 auto}
@@ -84,7 +76,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .section-label{color:var(--gold);font-size:.85rem;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:.8rem;display:block}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:1rem}
 .section-divider{width:80px;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));margin:0 auto;border-radius:2px}
-
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .about-image{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.5)}
 .about-image img{width:100%;display:block;transition:transform .6s}
@@ -95,7 +86,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .stat{text-align:center;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2);backdrop-filter:blur(10px)}
 .stat-number{font-size:2.5rem;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif}
 .stat-label{font-size:.85rem;opacity:.7;margin-top:.3rem}
-
 .albums-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
 .album-card{background:var(--glass);border:1px solid var(--glass2);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .4s;position:relative}
 .album-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,0.4);background:var(--glass2)}
@@ -111,7 +101,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .album-add{background:var(--glass);border:2px dashed var(--glass2);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;min-height:280px;cursor:pointer;transition:all .3s;color:var(--gold)}
 .album-add:hover{background:var(--glass2);border-color:var(--gold)}
 .album-add svg{width:50px;height:50px}
-
 .album-detail{position:fixed;inset:0;z-index:1600;background:var(--primary);overflow-y:auto;transform:translateX(100%);transition:transform .5s cubic-bezier(.4,0,.2,1)}
 .album-detail.open{transform:translateX(0)}
 .album-detail-hero{position:relative;height:40vh;min-height:250px;overflow:hidden}
@@ -153,7 +142,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .album-photo-add-btn{background:var(--glass);border:2px dashed var(--glass2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;aspect-ratio:4/3;cursor:pointer;transition:all .3s;color:var(--gold);min-height:150px}
 .album-photo-add-btn:hover{background:var(--glass2);border-color:var(--gold)}
 .album-photo-add-btn svg{width:35px;height:35px}
-
 .pages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
 .page-card{background:var(--glass);border:1px solid var(--glass2);border-radius:20px;padding:2rem;backdrop-filter:blur(10px);transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
 .page-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
@@ -167,7 +155,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .page-edit-btn{position:absolute;top:1rem;right:1rem;width:35px;height:35px;background:rgba(251,191,36,0.9);border:none;color:var(--dark);border-radius:50%;cursor:pointer;font-size:1rem;display:none;align-items:center;justify-content:center;transition:all .2s;z-index:5}
 .page-edit-btn:hover{background:var(--gold);transform:scale(1.1)}
 .page-card.admin-mode .page-edit-btn{display:flex}
-
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
 .contact-info{display:flex;flex-direction:column;gap:1.5rem}
 .contact-item{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2)}
@@ -178,7 +165,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .contact-form input,.contact-form textarea{background:var(--glass);border:1px solid var(--glass2);padding:1rem 1.2rem;border-radius:12px;color:#fff;font-family:inherit;font-size:1rem;transition:all .3s}
 .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
 .contact-form textarea{min-height:150px;resize:vertical}
-
 .footer{background:var(--dark);padding:3rem 2rem 1.5rem;text-align:center;border-top:1px solid var(--glass2)}
 .footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
 .footer-logo .shield-logo{width:70px;height:75px;object-fit:contain}
@@ -192,7 +178,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .footer-social a{width:45px;height:45px;background:var(--glass);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;transition:all .3s}
 .footer-social a:hover{background:var(--accent);transform:translateY(-3px)}
 .footer-copy{opacity:.4;font-size:.8rem;padding-top:1.5rem;border-top:1px solid var(--glass2)}
-
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);z-index:2000;display:none;align-items:center;justify-content:center;padding:2rem}
 .modal-overlay.active{display:flex;animation:fadeIn .3s}
 .modal{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid var(--glass2);border-radius:25px;padding:2.5rem;max-width:500px;width:100%;position:relative;box-shadow:0 25px 80px rgba(0,0,0,0.5);max-height:90vh;overflow-y:auto}
@@ -210,20 +195,17 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .form-error{color:#ef4444;font-size:.85rem;margin-top:.5rem;display:none}
 .form-error.show{display:block}
 .btn-full{width:100%;padding:1rem;margin-top:1rem}
-
 .upload-zone{border:2px dashed var(--glass2);border-radius:15px;padding:2rem;text-align:center;cursor:pointer;transition:all .3s;margin-bottom:1rem;background:var(--glass)}
 .upload-zone:hover{border-color:var(--accent);background:var(--glass2)}
 .upload-zone.has-image{border-style:solid;border-color:var(--accent)}
 .upload-zone img{max-width:100%;max-height:200px;border-radius:10px;margin-top:1rem}
 .upload-zone input[type=file]{display:none}
-
 .multi-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.8rem;margin-top:1rem}
 .multi-preview-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--secondary)}
 .multi-preview-item img{width:100%;height:100%;object-fit:cover}
 .multi-preview-remove{position:absolute;top:4px;right:4px;width:24px;height:24px;background:rgba(239,68,68,0.9);border:none;color:#fff;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .multi-preview-remove:hover{background:#ef4444;transform:scale(1.1)}
 .multi-preview-count{grid-column:1/-1;text-align:center;font-size:.85rem;opacity:.7;margin-top:.5rem}
-
 .admin-panel{position:fixed;top:0;right:-500px;width:500px;max-width:100%;height:100vh;background:linear-gradient(180deg,#0f172a,#1e293b);z-index:1500;transition:right .4s;overflow-y:auto;border-left:1px solid var(--glass2);box-shadow:-10px 0 50px rgba(0,0,0,0.5)}
 .admin-panel.open{right:0}
 .admin-header{padding:2rem;border-bottom:1px solid var(--glass2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:inherit;z-index:10}
@@ -251,7 +233,6 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .admin-toggle{position:fixed;bottom:2rem;right:2rem;z-index:1400;width:60px;height:60px;background:linear-gradient(135deg,var(--gold),#f59e0b);border:none;border-radius:50%;cursor:pointer;font-size:1.5rem;color:var(--dark);box-shadow:0 8px 30px rgba(251,191,36,0.4);transition:all .3s;display:none}
 .admin-toggle.show{display:flex;align-items:center;justify-content:center}
 .admin-toggle:hover{transform:scale(1.1) rotate(90deg)}
-
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:3000;display:none;align-items:center;justify-content:center;padding:2rem}
 .lightbox.active{display:flex}
 .lightbox img{max-width:90%;max-height:90vh;border-radius:15px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
@@ -261,60 +242,30 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .lightbox-prev{left:2rem}
 .lightbox-next{right:2rem}
 .lightbox-counter{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:#fff;font-weight:600;font-size:.9rem;background:var(--glass);padding:.5rem 1.5rem;border-radius:20px;backdrop-filter:blur(10px)}
-
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:1rem 2rem;border-radius:15px;font-weight:600;z-index:4000;transition:transform .4s;box-shadow:0 10px 40px rgba(59,130,246,0.4);max-width:90%;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .toast.error{background:linear-gradient(135deg,#ef4444,#dc2626)}
 .toast.success{background:linear-gradient(135deg,#10b981,#059669)}
-
 .help-box{background:rgba(59,130,246,0.1);border:1px solid var(--accent);border-radius:15px;padding:1.5rem;margin-bottom:1.5rem}
 .help-box h4{color:var(--accent2);margin-bottom:.8rem;font-size:1rem}
 .help-box ul{list-style:none;padding:0}
 .help-box li{padding:.4rem 0;font-size:.9rem;opacity:.9}
 .help-box li::before{content:'✓ ';color:var(--gold);font-weight:bold}
-
 .icon-selector{display:grid;grid-template-columns:repeat(8,1fr);gap:.5rem;margin-top:.5rem}
 .icon-option{width:100%;aspect-ratio:1;background:var(--glass);border:2px solid transparent;border-radius:10px;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .icon-option:hover{background:var(--glass2);transform:scale(1.1)}
 .icon-option.selected{border-color:var(--gold);background:rgba(251,191,36,0.2)}
-
 .storage-indicator{position:fixed;top:80px;right:20px;background:var(--glass);border:1px solid var(--glass2);padding:.5rem 1rem;border-radius:20px;font-size:.75rem;z-index:999;backdrop-filter:blur(10px)}
 .storage-indicator supabase{border-color:#10b981;color:#10b981}
 .storage-indicator.local{border-color:#f59e0b;color:#f59e0b}
-
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
 .fade-in{opacity:0;transform:translateY(30px);transition:all .8s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:968px){
-.nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;gap:2rem;transition:right .4s;padding:2rem}
-.nav-links.open{right:0}
-.hamburger{display:flex}
-.about-grid,.contact-grid{grid-template-columns:1fr}
-.stats{grid-template-columns:repeat(3,1fr)}
-.admin-panel{width:100%}
-.hero-logo{width:160px}
-}
-@media(max-width:600px){
-.stats{grid-template-columns:1fr}
-.hero-title{font-size:2.5rem}
-.section{padding:4rem 1rem}
-.album-detail-hero{height:30vh;min-height:180px}
-.lightbox-prev{left:1rem}
-.lightbox-next{right:1rem}
-.multi-preview{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}
-.albums-grid{grid-template-columns:1fr}
-.album-photos-header{flex-direction:column;align-items:flex-start}
-.icon-selector{grid-template-columns:repeat(6,1fr)}
-.hero-logo{width:130px}
-.nav-logo .logo-text .main{font-size:1rem}
-.nav-logo .logo-text .sub{font-size:.55rem}
-.nav-logo .shield-logo{width:45px;height:50px}
-.footer-logo .shield-logo{width:55px;height:60px}
-}
+@media(max-width:968px){.nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;gap:2rem;transition:right .4s;padding:2rem}.nav-links.open{right:0}.hamburger{display:flex}.about-grid,.contact-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.admin-panel{width:100%}.hero-logo{width:160px}}
+@media(max-width:600px){.stats{grid-template-columns:1fr}.hero-title{font-size:2.5rem}.section{padding:4rem 1rem}.album-detail-hero{height:30vh;min-height:180px}.lightbox-prev{left:1rem}.lightbox-next{right:1rem}.multi-preview{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}.albums-grid{grid-template-columns:1fr}.album-photos-header{flex-direction:column;align-items:flex-start}.icon-selector{grid-template-columns:repeat(6,1fr)}.hero-logo{width:130px}.nav-logo .logo-text .main{font-size:1rem}.nav-logo .logo-text .sub{font-size:.55rem}.nav-logo .shield-logo{width:45px;height:50px}.footer-logo .shield-logo{width:55px;height:60px}}
 </style>
 </head>
 <body>
@@ -337,9 +288,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
 <li><button class="btn-admin" onclick="openLogin()">Admin</button></li>
 </ul>
-<div class="hamburger" onclick="toggleMenu()">
-<span></span><span></span><span></span>
-</div>
+<div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 
 <section class="hero" id="inicio">
@@ -350,31 +299,23 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="hero-logo-glow"></div>
 <img src="logo.png" alt="Escudo Larramendi" class="hero-logo">
 </div>
-<span class="hero-badge">⚽ Agrupación de Veteranos de Fútbol</span>
+<span class="hero-badge"> Agrupación de Veteranos de Fútbol</span>
 <h1 class="hero-title"><span class="half-white">LARRA</span><span class="half-blue">MENDI</span></h1>
 <p class="hero-subtitle">Paraná, Entre Ríos · Pasión por el fútbol que trasciende el tiempo</p>
-<div class="hero-founded">🏛️ Fundada el <span>16 de Enero de 1989</span></div>
+<div class="hero-founded">️ Fundada el <span>16 de Enero de 1989</span></div>
 <div class="hero-buttons">
 <a href="#historia" class="btn btn-primary">Conocer Más</a>
 <a href="#galeria" class="btn btn-outline">Ver Galería</a>
 </div>
 </div>
-<div class="scroll-indicator">
-<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-</div>
+<div class="scroll-indicator"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
 </section>
 
 <section class="section section-alt" id="historia">
 <div class="container">
-<div class="section-header fade-in">
-<span class="section-label">Nuestra Historia</span>
-<h2 class="section-title">Tradición y <span style="color:var(--gold)">Pasión</span></h2>
-<div class="section-divider"></div>
-</div>
+<div class="section-header fade-in"><span class="section-label">Nuestra Historia</span><h2 class="section-title">Tradición y <span style="color:var(--gold)">Pasión</span></h2><div class="section-divider"></div></div>
 <div class="about-grid fade-in">
-<div class="about-image">
-<img src="" id="aboutImg" alt="Equipo Larramendi" onerror="this.style.display='none'">
-</div>
+<div class="about-image"><img src="" id="aboutImg" alt="Equipo Larramendi" onerror="this.style.display='none'"></div>
 <div class="about-text">
 <h3>Más que un equipo, una familia</h3>
 <p>La Agrupación de Veteranos de Fútbol Larramendi nació del amor por el deporte rey. Desde Paraná, Entre Ríos, reunimos a jugadores que mantienen viva la pasión por el fútbol a través de los años.</p>
@@ -391,33 +332,21 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <section class="section" id="galeria">
 <div class="container">
-<div class="section-header fade-in">
-<span class="section-label">Momentos</span>
-<h2 class="section-title">Galería de <span style="color:var(--gold)">Álbumes</span></h2>
-<div class="section-divider"></div>
-</div>
+<div class="section-header fade-in"><span class="section-label">Momentos</span><h2 class="section-title">Galería de <span style="color:var(--gold)">Álbumes</span></h2><div class="section-divider"></div></div>
 <div class="albums-grid fade-in" id="albumsGrid"></div>
 </div>
 </section>
 
 <section class="section section-alt" id="paginas">
 <div class="container">
-<div class="section-header fade-in">
-<span class="section-label">Contenido</span>
-<h2 class="section-title">Nuestras <span style="color:var(--gold)">Secciones</span></h2>
-<div class="section-divider"></div>
-</div>
+<div class="section-header fade-in"><span class="section-label">Contenido</span><h2 class="section-title">Nuestras <span style="color:var(--gold)">Secciones</span></h2><div class="section-divider"></div></div>
 <div class="pages-grid fade-in" id="pagesGrid"></div>
 </div>
 </section>
 
 <section class="section" id="contacto">
 <div class="container">
-<div class="section-header fade-in">
-<span class="section-label">Contacto</span>
-<h2 class="section-title">Hablemos de <span style="color:var(--gold)">Fútbol</span></h2>
-<div class="section-divider"></div>
-</div>
+<div class="section-header fade-in"><span class="section-label">Contacto</span><h2 class="section-title">Hablemos de <span style="color:var(--gold)">Fútbol</span></h2><div class="section-divider"></div></div>
 <div class="contact-grid fade-in">
 <div class="contact-info">
 <div class="contact-item"><div class="contact-item-icon">📍</div><div><h4>Ubicación</h4><p>Paraná, Entre Ríos, Argentina</p></div></div>
@@ -451,25 +380,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <div class="album-detail" id="albumDetail">
 <button class="album-detail-close" onclick="closeAlbumDetail()">✕</button>
-<div class="album-detail-hero">
-<img id="albumDetailHeroImg" src="" alt="">
-<div class="album-detail-hero-overlay"></div>
-<div class="album-detail-hero-content">
-<a class="album-detail-back" onclick="closeAlbumDetail()">← Volver a álbumes</a>
-<h1 class="album-detail-hero-title" id="albumDetailTitle"></h1>
-<p class="album-detail-hero-subtitle" id="albumDetailSubtitle"></p>
-</div>
-</div>
-<div class="album-photos-section">
-<div class="album-photos-header">
-<div>
-<div class="album-photos-title">Fotos del álbum <span id="albumPhotosTitleName"></span></div>
-<div class="album-photos-count" id="albumPhotosCount"></div>
-</div>
-<div class="album-photos-actions" id="albumPhotosActions"></div>
-</div>
-<div class="album-photos-grid" id="albumPhotosGrid"></div>
-</div>
+<div class="album-detail-hero"><img id="albumDetailHeroImg" src="" alt=""><div class="album-detail-hero-overlay"></div><div class="album-detail-hero-content"><a class="album-detail-back" onclick="closeAlbumDetail()">← Volver a álbumes</a><h1 class="album-detail-hero-title" id="albumDetailTitle"></h1><p class="album-detail-hero-subtitle" id="albumDetailSubtitle"></p></div></div>
+<div class="album-photos-section"><div class="album-photos-header"><div><div class="album-photos-title">Fotos del álbum <span id="albumPhotosTitleName"></span></div><div class="album-photos-count" id="albumPhotosCount"></div></div><div class="album-photos-actions" id="albumPhotosActions"></div></div><div class="album-photos-grid" id="albumPhotosGrid"></div></div>
 </div>
 
 <div class="modal-overlay" id="loginModal">
@@ -520,8 +432,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <input type="hidden" id="editPageId">
 <div class="form-group"><label>📝 Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
 <div class="form-group"><label>📄 Encabezado / Subtítulo</label><input type="text" id="pageField5" placeholder="Ej: Conocé a nuestro equipo"></div>
-<div class="form-group"><label>📋 Contenido / Descripción *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
-<div class="form-group"><label>🖼️ Imagen de fondo (Hero) *</label>
+<div class="form-group"><label> Contenido / Descripción *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
+<div class="form-group"><label>️ Imagen de fondo (Hero) *</label>
 <div class="upload-zone" id="pageUploadZone" onclick="document.getElementById('pageFileInput').click()">
 <div id="pageUploadPlaceholder"><p style="margin-bottom:.5rem">🖼️ Hacé clic para subir la imagen de fondo</p><p style="font-size:.8rem;opacity:.6">Esta imagen aparecerá como fondo al abrir la sección</p></div>
 <img id="pageUploadPreview" style="display:none">
@@ -530,7 +442,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <input type="url" id="pageField3" placeholder="https://... (opcional si subiste archivo)" oninput="clearPageBgPreview()">
 <div class="form-error" id="errPageBg">Debés subir una imagen o pegar una URL</div>
 </div>
-<div class="form-group"><label> Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
+<div class="form-group"><label>🎨 Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
 <div class="form-group"><label>📅 Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
 <button type="submit" class="btn btn-primary btn-full" id="btnSavePage">💾 Guardar Sección</button>
 </form>
@@ -554,17 +466,15 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="form-group"><label>Fecha para todas las fotos</label><input type="text" id="multiDate" placeholder="Octubre 2025"></div>
 <div id="multiCount" style="text-align:center;font-size:.9rem;opacity:.7;margin-bottom:1rem"></div>
 <div id="uploadProgress" style="display:none;text-align:center;margin-bottom:1rem">
-<div style="background:var(--glass);border-radius:10px;height:8px;overflow:hidden;margin-bottom:.5rem">
-<div id="uploadProgressBar" style="background:linear-gradient(90deg,var(--accent),var(--accent2));height:100%;width:0%;transition:width .3s"></div>
-</div>
+<div style="background:var(--glass);border-radius:10px;height:8px;overflow:hidden;margin-bottom:.5rem"><div id="uploadProgressBar" style="background:linear-gradient(90deg,var(--accent),var(--accent2));height:100%;width:0%;transition:width .3s"></div></div>
 <p style="font-size:.85rem;opacity:.7" id="uploadProgressText">Subiendo 0 de 0...</p>
 </div>
-<button class="btn btn-primary btn-full" id="btnMultiSave" onclick="saveMultiPhotos()"> Agregar Todas las Fotos</button>
+<button class="btn btn-primary btn-full" id="btnMultiSave" onclick="saveMultiPhotos()">💾 Agregar Todas las Fotos</button>
 </div>
 </div>
 
 <div class="lightbox" id="lightbox">
-<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<button class="lightbox-close" onclick="closeLightbox()"></button>
 <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">❮</button>
 <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">❯</button>
 <img id="lightboxImg" src="">
@@ -573,73 +483,30 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <button class="admin-toggle" id="adminToggle" onclick="toggleAdmin()">⚙️</button>
 <div class="admin-panel" id="adminPanel">
-<div class="admin-header">
-<h2>Panel <span>Admin</span></h2>
-<button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button>
-</div>
+<div class="admin-header"><h2>Panel <span>Admin</span></h2><button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button></div>
 <div class="admin-tabs">
 <button class="admin-tab active" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
-<button class="admin-tab" onclick="switchTab('pages',this)"> Secciones</button>
-<button class="admin-tab" onclick="switchTab('settings',this)">️ Ajustes</button>
+<button class="admin-tab" onclick="switchTab('pages',this)">📄 Secciones</button>
+<button class="admin-tab" onclick="switchTab('settings',this)">⚙️ Ajustes</button>
 </div>
 <div class="admin-content">
 <div class="admin-section active" id="tab-albums">
-<div class="help-box">
-<h4>💡 Cómo gestionar álbumes</h4>
-<ul>
-<li>Cada álbum es una galería temática independiente</li>
-<li>Hacé clic en "+ Nuevo Álbum" para crear uno</li>
-<li>Dentro de cada álbum podés agregar/eliminar fotos</li>
-<li>Las fotos se guardan en Supabase Storage (1GB gratis)</li>
-</ul>
-</div>
+<div class="help-box"><h4>💡 Cómo gestionar álbumes</h4><ul><li>Cada álbum es una galería temática independiente</li><li>Hacé clic en "+ Nuevo Álbum" para crear uno</li><li>Dentro de cada álbum podés agregar/eliminar fotos</li><li>Las fotos se guardan en Supabase Storage (1GB gratis)</li></ul></div>
 <div id="adminAlbumsList"></div>
 <button class="btn-add" onclick="openEditAlbum()">+ Nuevo Álbum</button>
 </div>
 <div class="admin-section" id="tab-pages">
-<div class="help-box">
-<h4>💡 Cómo gestionar secciones</h4>
-<ul>
-<li>Cada sección es una página con título, fondo y contenido propios</li>
-<li>Hacé clic en ✏️ para editar título, fondo, descripción e ícono</li>
-<li>Usá 🗑️ para eliminar una sección</li>
-</ul>
-</div>
+<div class="help-box"><h4> Cómo gestionar secciones</h4><ul><li>Cada sección es una página con título, fondo y contenido propios</li><li>Hacé clic en ✏️ para editar título, fondo, descripción e ícono</li><li>Usá 🗑️ para eliminar una sección</li></ul></div>
 <div id="adminPagesList"></div>
 <button class="btn-add" onclick="openEditPage()">+ Nueva Sección</button>
 </div>
 <div class="admin-section" id="tab-settings">
-<div class="help-box">
-<h4>⚙️ Ajustes del sitio</h4>
-<ul>
-<li>Cambiá la contraseña de administrador</li>
-<li>Modificá la imagen de fondo principal (Hero)</li>
-<li>Cerrá sesión cuando termines</li>
-</ul>
-</div>
-<div class="admin-item">
-<div class="admin-item-info">
-<div class="admin-item-title">Cambiar Contraseña</div>
-<div class="admin-item-meta">Actualizá la clave de administrador</div>
-</div>
-</div>
-<form onsubmit="changePassword(event)" style="margin-top:1rem">
-<div class="form-group"><label>Nueva Contraseña</label><input type="password" id="newPass" required></div>
-<button type="submit" class="btn btn-primary btn-full">Actualizar</button>
-</form>
-<div class="admin-item" style="margin-top:1.5rem">
-<div class="admin-item-info">
-<div class="admin-item-title">Imagen Hero (fondo principal)</div>
-<div class="admin-item-meta">URL de la imagen de fondo del inicio</div>
-</div>
-</div>
-<form onsubmit="changeHero(event)" style="margin-top:1rem">
-<div class="form-group"><label>URL de Imagen</label><input type="url" id="heroUrl" required></div>
-<button type="submit" class="btn btn-primary btn-full">Actualizar Hero</button>
-</form>
-<div style="margin-top:2rem;text-align:center">
-<button class="btn btn-outline" onclick="logout()" style="background:#ef4444;border-color:#ef4444;color:#fff">Cerrar Sesión</button>
-</div>
+<div class="help-box"><h4>⚙️ Ajustes del sitio</h4><ul><li>Cambiá la contraseña de administrador</li><li>Modificá la imagen de fondo principal (Hero)</li><li>Cerrá sesión cuando termines</li></ul></div>
+<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">Cambiar Contraseña</div><div class="admin-item-meta">Actualizá la clave de administrador</div></div></div>
+<form onsubmit="changePassword(event)" style="margin-top:1rem"><div class="form-group"><label>Nueva Contraseña</label><input type="password" id="newPass" required></div><button type="submit" class="btn btn-primary btn-full">Actualizar</button></form>
+<div class="admin-item" style="margin-top:1.5rem"><div class="admin-item-info"><div class="admin-item-title">Imagen Hero (fondo principal)</div><div class="admin-item-meta">URL de la imagen de fondo del inicio</div></div></div>
+<form onsubmit="changeHero(event)" style="margin-top:1rem"><div class="form-group"><label>URL de Imagen</label><input type="url" id="heroUrl" required></div><button type="submit" class="btn btn-primary btn-full">Actualizar Hero</button></form>
+<div style="margin-top:2rem;text-align:center"><button class="btn btn-outline" onclick="logout()" style="background:#ef4444;border-color:#ef4444;color:#fff">Cerrar Sesión</button></div>
 </div>
 </div>
 </div>
@@ -651,22 +518,19 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <script>
 /* ============================================================
    ⚠️ IMPORTANTE: REEMPLAZÁ ESTAS DOS LÍNEAS CON TUS CREDENCIALES REALES DE SUPABASE
-   ============================================================
    1. Andá a https://supabase.com → tu proyecto
-   2. Clic en el ícono de engranaje ⚙️ (Settings) → API
+   2. Clic en ⚙️ Settings → API
    3. Copiá "Project URL" y "anon public key"
    4. Pegalos abajo reemplazando los valores de ejemplo
    ============================================================ */
-
 const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
-
 /* ============================================================ */
 
 const SUPABASE_ENABLED = SUPABASE_URL !== 'https://TU-PROYECTO.supabase.co' && SUPABASE_KEY !== 'TU-CLAVE-PUBLICA-AQUI';
 let supabaseClient = null;
 if (SUPABASE_ENABLED) {
-  try { supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); console.log('✅ Supabase conectado correctamente'); } catch(e) { console.error('Error Supabase:', e); }
+  try { supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); console.log('✅ Supabase conectado'); } catch(e) { console.error('Error Supabase:', e); }
 }
 
 function compressImage(file, maxWidth = 1200, quality = 0.7) {
@@ -711,7 +575,7 @@ async function deleteFromSupabase(url) {
 }
 
 const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
-const ICONS = ['⚽','','🎉','📖','⭐','👥','🎯','️','📸','🎊','','🥅','💪','','🎖️',''];
+const ICONS = ['','🏆','🎉','','⭐','👥','','🏟️','📸','','🤝','🥅','','🏅','🎖️',''];
 
 const DEFAULT_ALBUMS = [
   {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde su fundación en 1989.',date:'Desde 1989',url:TEAM_IMAGE,photos:[
@@ -751,7 +615,7 @@ let state = {
 function updateStorageIndicator() {
   const indicator = document.getElementById('storageIndicator');
   if (SUPABASE_ENABLED) { indicator.textContent = '☁️ Supabase Storage (1GB)'; indicator.className = 'storage-indicator supabase'; }
-  else { indicator.textContent = '⚠️ Modo local (5MB límite)'; indicator.className = 'storage-indicator local'; }
+  else { indicator.textContent = '️ Modo local (5MB límite)'; indicator.className = 'storage-indicator local'; }
 }
 
 function save() {
@@ -761,37 +625,27 @@ function save() {
     localStorage.setItem('larr_hero', state.heroUrl);
     localStorage.setItem('larr_pass', state.password);
     return true;
-  } catch(e) { toast('⚠️ Error: almacenamiento local lleno. Configurá Supabase.', 'error'); return false; }
+  } catch(e) { toast('️ Error: almacenamiento local lleno.', 'error'); return false; }
 }
 
 function render() {
   document.getElementById('heroBg').style.backgroundImage = "url('" + state.heroUrl + "')";
   document.getElementById('heroUrl').value = state.heroUrl;
   document.getElementById('aboutImg').src = state.heroUrl;
-
   var ag = document.getElementById('albumsGrid');
   var albumsHtml = state.albums.map(function(a) {
     var photoCount = (a.photos || []).length;
     var coverUrl = a.url || TEAM_IMAGE;
-    return '<div class="album-card" onclick="openAlbumDetail(' + a.id + ')">' +
-      '<div class="album-cover"><img src="' + coverUrl + '" alt="' + a.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\'">' +
-      '<div class="album-cover-overlay"><span class="album-photo-count"> ' + photoCount + ' foto' + (photoCount !== 1 ? 's' : '') + '</span></div></div>' +
-      '<div class="album-info"><h3>' + a.title + '</h3><p>' + (a.desc || '').substring(0, 100) + (a.desc && a.desc.length > 100 ? '...' : '') + '</p><div class="album-date">' + (a.date || '') + '</div></div></div>';
+    return '<div class="album-card" onclick="openAlbumDetail(' + a.id + ')"><div class="album-cover"><img src="' + coverUrl + '" alt="' + a.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\'"><div class="album-cover-overlay"><span class="album-photo-count">📸 ' + photoCount + ' foto' + (photoCount !== 1 ? 's' : '') + '</span></div></div><div class="album-info"><h3>' + a.title + '</h3><p>' + (a.desc || '').substring(0, 100) + (a.desc && a.desc.length > 100 ? '...' : '') + '</p><div class="album-date">' + (a.date || '') + '</div></div></div>';
   }).join('');
   if (state.loggedIn) albumsHtml += '<div class="album-add" onclick="openEditAlbum()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Crear Nuevo Álbum</span></div>';
   ag.innerHTML = albumsHtml;
-
   var pg = document.getElementById('pagesGrid');
   pg.innerHTML = state.pages.map(function(p) {
     var pc = (p.gallery || []).length;
     var adminClass = state.loggedIn ? 'admin-mode' : '';
-    return '<div class="page-card ' + adminClass + '" onclick="handlePageCardClick(event,' + p.id + ')">' +
-      '<button class="page-edit-btn" onclick="event.stopPropagation();openEditPage(' + p.id + ')" title="Editar sección">✏️</button>' +
-      '<div class="page-card-icon">' + (p.icon || '') + '</div><h3>' + p.title + '</h3>' +
-      '<p>' + (p.desc || '').substring(0, 120) + ((p.desc || '').length > 120 ? '...' : '') + '</p>' +
-      '<div class="page-card-photos">📸 ' + pc + ' foto' + (pc !== 1 ? 's' : '') + '</div><div class="page-card-date">' + (p.date || '') + '</div></div>';
+    return '<div class="page-card ' + adminClass + '" onclick="handlePageCardClick(event,' + p.id + ')"><button class="page-edit-btn" onclick="event.stopPropagation();openEditPage(' + p.id + ')" title="Editar sección">✏️</button><div class="page-card-icon">' + (p.icon || '') + '</div><h3>' + p.title + '</h3><p>' + (p.desc || '').substring(0, 120) + ((p.desc || '').length > 120 ? '...' : '') + '</p><div class="page-card-photos">📸 ' + pc + ' foto' + (pc !== 1 ? 's' : '') + '</div><div class="page-card-date">' + (p.date || '') + '</div></div>';
   }).join('');
-
   renderAdmin(); updateStorageIndicator();
 }
 
@@ -802,11 +656,10 @@ function handlePageCardClick(event, id) {
 
 function renderAdmin() {
   document.getElementById('adminAlbumsList').innerHTML = state.albums.map(function(a) {
-    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">🖼️ ' + a.title + '</div><div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">️</button></div></div>';
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">️ ' + a.title + '</div><div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">🗑️</button></div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay álbumes creados</p>';
-
   document.getElementById('adminPagesList').innerHTML = state.pages.map(function(p) {
-    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + (p.icon || '') + ' ' + p.title + '</div><div class="admin-item-meta">' + (p.date || '') + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditPage(' + p.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">🗑️</button></div></div>';
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + (p.icon || '') + ' ' + p.title + '</div><div class="admin-item-meta">' + (p.date || '') + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditPage(' + p.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">️</button></div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay secciones</p>';
 }
 
@@ -821,7 +674,7 @@ function openAlbumDetail(id) {
   var photos = album.photos || [];
   document.getElementById('albumPhotosCount').textContent = photos.length + ' foto' + (photos.length !== 1 ? 's' : '');
   var actionsHtml = '';
-  if (state.loggedIn) actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">🗑️ Gestionar fotos</button><button class="btn btn-primary btn-sm" onclick="window._addPhotosToAlbum(' + id + ')">+ Agregar Fotos</button>';
+  if (state.loggedIn) actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">️ Gestionar fotos</button><button class="btn btn-primary btn-sm" onclick="window._addPhotosToAlbum(' + id + ')">+ Agregar Fotos</button>';
   document.getElementById('albumPhotosActions').innerHTML = actionsHtml;
   var grid = document.getElementById('albumPhotosGrid');
   grid.innerHTML = photos.map(function(ph) {
@@ -1136,7 +989,7 @@ async function handleMultiFileUpload(e) {
   var processed = 0, totalSize = 0;
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
-    if (file.size > 10 * 1024 * 1024) { toast('️ "' + file.name + '" supera 10MB, se omitió', 'error'); processed++; continue; }
+    if (file.size > 10 * 1024 * 1024) { toast('⚠️ "' + file.name + '" supera 10MB, se omitió', 'error'); processed++; continue; }
     try {
       var compressed = await compressImage(file, 1200, 0.7);
       state.multiFiles.push({ blob: compressed.blob, dataUrl: compressed.dataUrl, name: file.name, originalSize: file.size, compressedSize: compressed.size });
@@ -1165,6 +1018,7 @@ function updateMultiPreview() {
 }
 function removeMultiFile(idx) { state.multiFiles.splice(idx, 1); updateMultiPreview(); }
 
+// ✅ FUNCIÓN CORREGIDA: Ya no guarda URLs blob temporales
 async function saveMultiPhotos() {
   if (state.multiFiles.length === 0) { toast('Seleccioná al menos una foto', 'error'); return; }
   var date = document.getElementById('multiDate').value.trim() || new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
@@ -1173,27 +1027,47 @@ async function saveMultiPhotos() {
   var progressBar = document.getElementById('uploadProgressBar');
   var progressText = document.getElementById('uploadProgressText');
   btn.style.display = 'none'; progressDiv.style.display = 'block';
-  var total = state.multiFiles.length, added = 0;
+  var total = state.multiFiles.length;
+  var added = 0;
+  var failed = 0;
   try {
     for (var i = 0; i < state.multiFiles.length; i++) {
-      var f = state.multiFiles[i], photoUrl = f.dataUrl;
+      var f = state.multiFiles[i];
+      var photoUrl = null;
       if (SUPABASE_ENABLED && f.blob) {
         try {
           var folder = state.currentAlbumId ? 'albums/' + state.currentAlbumId : 'albums/general';
           photoUrl = await uploadToSupabase(f.blob, folder);
-        } catch(uploadErr) { console.error('Error subiendo a Supabase:', uploadErr); toast('⚠️ Error subiendo "' + f.name + '" a Supabase.', 'error'); }
+          console.log('✅ Foto subida:', photoUrl);
+        } catch(uploadErr) {
+          console.error('❌ Error subiendo:', uploadErr);
+          toast('⚠️ Error subiendo "' + f.name + '"', 'error');
+          failed++;
+          continue;
+        }
+      } else {
+        console.error(' Supabase no configurado');
+        toast('️ Configurá Supabase primero', 'error');
+        failed++;
+        continue;
       }
-      var photoData = { id: Date.now() + added, title: f.name.replace(/\.[^/.]+$/, ''), url: photoUrl, date: date };
-      if (state.currentAlbumId) {
-        var album = state.albums.find(function(a) { return a.id === state.currentAlbumId; });
-        if (album) { if (!album.photos) album.photos = []; album.photos.push(photoData); }
-      } else state.albums.push({ id: Date.now() + added + 10000, title: f.name.replace(/\.[^/.]+$/, ''), desc: '', url: photoUrl, date: date, photos: [] });
-      added++;
-      progressBar.style.width = Math.round((added / total) * 100) + '%';
-      progressText.textContent = 'Subiendo ' + added + ' de ' + total + '... (' + Math.round((added / total) * 100) + '%)';
+      if (photoUrl && !photoUrl.startsWith('blob:')) {
+        var photoData = { id: Date.now() + added, title: f.name.replace(/\.[^/.]+$/, ''), url: photoUrl, date: date };
+        if (state.currentAlbumId) {
+          var album = state.albums.find(function(a) { return a.id === state.currentAlbumId; });
+          if (album) { if (!album.photos) album.photos = []; album.photos.push(photoData); }
+        } else {
+          state.albums.push({ id: Date.now() + added + 10000, title: f.name.replace(/\.[^/.]+$/, ''), desc: '', url: photoUrl, date: date, photos: [] });
+        }
+        added++;
+      } else { failed++; }
+      progressBar.style.width = Math.round(((added + failed) / total) * 100) + '%';
+      progressText.textContent = 'Subiendo ' + (added + failed) + ' de ' + total + '...';
     }
     save(); render(); closeMultiUpload();
-    toast('✅ ' + added + ' fotos agregadas correctamente', 'success');
+    var msg = '✅ ' + added + ' fotos agregadas';
+    if (failed > 0) msg += ' (' + failed + ' fallaron)';
+    toast(msg, 'success');
     if (state.currentAlbumId) openAlbumDetail(state.currentAlbumId);
   } catch(err) {
     console.error('Error:', err); toast('❌ Error: ' + err.message, 'error');
