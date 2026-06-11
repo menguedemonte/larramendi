@@ -156,15 +156,30 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .page-edit-btn:hover{background:var(--gold);transform:scale(1.1)}
 .page-card.admin-mode .page-edit-btn{display:flex}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.contact-info{display:flex;flex-direction:column;gap:1.5rem}
-.contact-item{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2)}
+.contact-info{display:flex;flex-direction:column;gap:1rem;position:relative}
+.contact-item{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2);position:relative;transition:all .3s}
+.contact-item:hover{background:var(--glass2)}
 .contact-item-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
 .contact-item h4{margin-bottom:.3rem;font-size:1.1rem}
-.contact-item p{opacity:.75;font-size:.95rem}
+.contact-item p{opacity:.75;font-size:.95rem;word-break:break-word}
+.contact-item-actions{position:absolute;top:.5rem;right:.5rem;display:none;gap:.3rem}
+.contact-item.admin-visible:hover .contact-item-actions{display:flex}
+.contact-item-btn{width:28px;height:28px;border-radius:6px;border:none;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.contact-item-btn.edit{background:rgba(59,130,246,0.2);color:var(--accent2)}
+.contact-item-btn.edit:hover{background:var(--accent)}
+.contact-item-btn.delete{background:rgba(239,68,68,0.2);color:#fca5a5}
+.contact-item-btn.delete:hover{background:#ef4444;color:#fff}
+.contact-add-btn{background:var(--glass);border:2px dashed var(--glass2);border-radius:15px;padding:1rem;display:none;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;transition:all .3s;color:var(--gold);font-weight:600}
+.contact-add-btn:hover{background:var(--glass2);border-color:var(--gold)}
+.contact-add-btn.visible{display:flex}
 .contact-form{display:flex;flex-direction:column;gap:1rem}
-.contact-form input,.contact-form textarea{background:var(--glass);border:1px solid var(--glass2);padding:1rem 1.2rem;border-radius:12px;color:#fff;font-family:inherit;font-size:1rem;transition:all .3s}
-.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
+.contact-form input,.contact-form textarea,.contact-form select{background:var(--glass);border:1px solid var(--glass2);padding:1rem 1.2rem;border-radius:12px;color:#fff;font-family:inherit;font-size:1rem;transition:all .3s;width:100%}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
 .contact-form textarea{min-height:150px;resize:vertical}
+.contact-form-field-wrapper{position:relative}
+.contact-form-add{background:var(--glass);border:2px dashed var(--glass2);border-radius:12px;padding:1rem;display:none;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;transition:all .3s;color:var(--gold);font-weight:600}
+.contact-form-add:hover{background:var(--glass2);border-color:var(--gold)}
+.contact-form-add.visible{display:flex}
 .footer{background:var(--dark);padding:3rem 2rem 1.5rem;text-align:center;border-top:1px solid var(--glass2)}
 .footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
 .footer-logo .shield-logo{width:70px;height:75px;object-fit:contain}
@@ -190,7 +205,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .form-group{margin-bottom:1.2rem}
 .form-group label{display:block;margin-bottom:.5rem;font-weight:600;font-size:.9rem;color:var(--gold)}
 .form-group input,.form-group textarea,.form-group select{width:100%;background:var(--glass);border:1px solid var(--glass2);padding:.9rem 1.2rem;border-radius:12px;color:#fff;font-family:inherit;font-size:1rem;transition:all .3s}
-.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--accent);background:var(--glass2)}
 .form-group textarea{min-height:120px;resize:vertical}
 .form-error{color:#ef4444;font-size:.85rem;margin-top:.5rem;display:none}
 .form-error.show{display:block}
@@ -299,7 +314,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="hero-logo-glow"></div>
 <img src="logo.png" alt="Escudo Larramendi" class="hero-logo">
 </div>
-<span class="hero-badge"> Agrupación de Veteranos de Fútbol</span>
+<span class="hero-badge">⚽ Agrupación de Veteranos de Fútbol</span>
 <h1 class="hero-title"><span class="half-white">LARRA</span><span class="half-blue">MENDI</span></h1>
 <p class="hero-subtitle">Paraná, Entre Ríos · Pasión por el fútbol que trasciende el tiempo</p>
 <div class="hero-founded">️ Fundada el <span>16 de Enero de 1989</span></div>
@@ -348,19 +363,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="container">
 <div class="section-header fade-in"><span class="section-label">Contacto</span><h2 class="section-title">Hablemos de <span style="color:var(--gold)">Fútbol</span></h2><div class="section-divider"></div></div>
 <div class="contact-grid fade-in">
-<div class="contact-info">
-<div class="contact-item"><div class="contact-item-icon">📍</div><div><h4>Ubicación</h4><p>Paraná, Entre Ríos, Argentina</p></div></div>
-<div class="contact-item"><div class="contact-item-icon">📧</div><div><h4>Email</h4><p>contacto@larramendi.com.ar</p></div></div>
-<div class="contact-item"><div class="contact-item-icon">📱</div><div><h4>Teléfono</h4><p>+54 343 555-0000</p></div></div>
-<div class="contact-item"><div class="contact-item-icon">⏰</div><div><h4>Entrenamientos</h4><p>Martes y Jueves 18:00 hs</p></div></div>
-</div>
-<form class="contact-form" onsubmit="sendContact(event)">
-<input type="text" placeholder="Nombre completo" required>
-<input type="email" placeholder="Email" required>
-<input type="text" placeholder="Asunto">
-<textarea placeholder="Tu mensaje..." required></textarea>
-<button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
-</form>
+<div class="contact-info" id="contactInfo"></div>
+<form class="contact-form" id="contactForm" onsubmit="sendContact(event)"></form>
 </div>
 </div>
 </section>
@@ -374,7 +378,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 </div>
 </div>
 <p>Paraná, Entre Ríos · Desde 1989</p>
-<div class="footer-social"><a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a><a href="#">▶️</a></div>
+<div class="footer-social"><a href="#">📘</a><a href="#"></a><a href="#">🐦</a><a href="#">▶️</a></div>
 <div class="footer-copy">© 2025 Larramendi. Todos los derechos reservados.</div>
 </footer>
 
@@ -430,9 +434,9 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <p class="modal-subtitle">Modificá todos los elementos visibles de la sección</p>
 <form onsubmit="savePage(event)" novalidate>
 <input type="hidden" id="editPageId">
-<div class="form-group"><label>📝 Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
-<div class="form-group"><label>📄 Encabezado / Subtítulo</label><input type="text" id="pageField5" placeholder="Ej: Conocé a nuestro equipo"></div>
-<div class="form-group"><label> Contenido / Descripción *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
+<div class="form-group"><label> Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
+<div class="form-group"><label> Encabezado / Subtítulo</label><input type="text" id="pageField5" placeholder="Ej: Conocé a nuestro equipo"></div>
+<div class="form-group"><label>📋 Contenido / Descripción *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
 <div class="form-group"><label>️ Imagen de fondo (Hero) *</label>
 <div class="upload-zone" id="pageUploadZone" onclick="document.getElementById('pageFileInput').click()">
 <div id="pageUploadPlaceholder"><p style="margin-bottom:.5rem">🖼️ Hacé clic para subir la imagen de fondo</p><p style="font-size:.8rem;opacity:.6">Esta imagen aparecerá como fondo al abrir la sección</p></div>
@@ -442,8 +446,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <input type="url" id="pageField3" placeholder="https://... (opcional si subiste archivo)" oninput="clearPageBgPreview()">
 <div class="form-error" id="errPageBg">Debés subir una imagen o pegar una URL</div>
 </div>
-<div class="form-group"><label>🎨 Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
-<div class="form-group"><label>📅 Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
+<div class="form-group"><label> Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
+<div class="form-group"><label> Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
 <button type="submit" class="btn btn-primary btn-full" id="btnSavePage">💾 Guardar Sección</button>
 </form>
 </div>
@@ -456,7 +460,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <p class="modal-subtitle" id="multiUploadSubtitle">Seleccioná todas las fotos que quieras agregar</p>
 <div class="upload-zone" id="multiUploadZone" onclick="document.getElementById('multiFileInput').click()" style="min-height:120px">
 <div id="multiUploadPlaceholder">
-<p style="font-size:1.1rem;margin-bottom:.5rem">📁 Hacé clic para seleccionar fotos</p>
+<p style="font-size:1.1rem;margin-bottom:.5rem"> Hacé clic para seleccionar fotos</p>
 <p style="font-size:.85rem;opacity:.6">Podés seleccionar varias imágenes a la vez</p>
 <p style="font-size:.75rem;opacity:.5;margin-top:.5rem">Las imágenes se comprimirán automáticamente</p>
 </div>
@@ -473,8 +477,40 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 </div>
 </div>
 
+<div class="modal-overlay" id="editContactItemModal">
+<div class="modal">
+<button class="modal-close" onclick="closeEditContactItem()">✕</button>
+<h2 id="editContactItemTitle">Editar dato de contacto</h2>
+<p class="modal-subtitle">Modificá la información de contacto</p>
+<form onsubmit="saveContactItem(event)" novalidate>
+<input type="hidden" id="contactItemId">
+<div class="form-group"><label>Ícono (emoji)</label><input type="text" id="contactItemIcon" placeholder="Ej:  📱 🌐" maxlength="4"></div>
+<div class="form-group"><label>Título *</label><input type="text" id="contactItemTitleField" required placeholder="Ej: Ubicación"><div class="form-error" id="errContactItemTitle">El título es obligatorio</div></div>
+<div class="form-group"><label>Contenido *</label><input type="text" id="contactItemContent" required placeholder="Ej: Paraná, Entre Ríos"><div class="form-error" id="errContactItemContent">El contenido es obligatorio</div></div>
+<button type="submit" class="btn btn-primary btn-full"> Guardar</button>
+</form>
+</div>
+</div>
+
+<div class="modal-overlay" id="editFormFieldModal">
+<div class="modal">
+<button class="modal-close" onclick="closeEditFormField()">✕</button>
+<h2 id="editFormFieldTitle">Editar campo del formulario</h2>
+<p class="modal-subtitle">Configurá el campo del formulario de contacto</p>
+<form onsubmit="saveFormField(event)" novalidate>
+<input type="hidden" id="formFieldId">
+<div class="form-group"><label>Etiqueta *</label><input type="text" id="formFieldLabel" required placeholder="Ej: Nombre completo"><div class="form-error" id="errFormFieldLabel">La etiqueta es obligatoria</div></div>
+<div class="form-group"><label>Tipo de campo</label><select id="formFieldType"><option value="text">Texto corto</option><option value="email">Email</option><option value="tel">Teléfono</option><option value="textarea">Texto largo (mensaje)</option><option value="select">Selección</option></select></div>
+<div class="form-group" id="formFieldOptionsGroup" style="display:none"><label>Opciones (una por línea)</label><textarea id="formFieldOptions" placeholder="Opción 1&#10;Opción 2&#10;Opción 3"></textarea></div>
+<div class="form-group"><label>¿Obligatorio?</label><select id="formFieldRequired"><option value="true">Sí</option><option value="false">No</option></select></div>
+<div class="form-group"><label>Placeholder</label><input type="text" id="formFieldPlaceholder" placeholder="Texto de ayuda..."></div>
+<button type="submit" class="btn btn-primary btn-full">💾 Guardar</button>
+</form>
+</div>
+</div>
+
 <div class="lightbox" id="lightbox">
-<button class="lightbox-close" onclick="closeLightbox()"></button>
+<button class="lightbox-close" onclick="closeLightbox()">✕</button>
 <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">❮</button>
 <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">❯</button>
 <img id="lightboxImg" src="">
@@ -486,19 +522,29 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="admin-header"><h2>Panel <span>Admin</span></h2><button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button></div>
 <div class="admin-tabs">
 <button class="admin-tab active" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
-<button class="admin-tab" onclick="switchTab('pages',this)">📄 Secciones</button>
-<button class="admin-tab" onclick="switchTab('settings',this)">⚙️ Ajustes</button>
+<button class="admin-tab" onclick="switchTab('pages',this)"> Secciones</button>
+<button class="admin-tab" onclick="switchTab('contact',this)"> Contacto</button>
+<button class="admin-tab" onclick="switchTab('settings',this)">️ Ajustes</button>
 </div>
 <div class="admin-content">
 <div class="admin-section active" id="tab-albums">
-<div class="help-box"><h4>💡 Cómo gestionar álbumes</h4><ul><li>Cada álbum es una galería temática independiente</li><li>Hacé clic en "+ Nuevo Álbum" para crear uno</li><li>Dentro de cada álbum podés agregar/eliminar fotos</li><li>Las fotos se guardan en Supabase Storage (1GB gratis)</li></ul></div>
+<div class="help-box"><h4>💡 Cómo gestionar álbumes</h4><ul><li>Cada álbum es una galería temática independiente</li><li>Hacé clic en "+ Nuevo Álbum" para crear uno</li><li>Dentro de cada álbum podés agregar/eliminar fotos</li></ul></div>
 <div id="adminAlbumsList"></div>
 <button class="btn-add" onclick="openEditAlbum()">+ Nuevo Álbum</button>
 </div>
 <div class="admin-section" id="tab-pages">
-<div class="help-box"><h4> Cómo gestionar secciones</h4><ul><li>Cada sección es una página con título, fondo y contenido propios</li><li>Hacé clic en ✏️ para editar título, fondo, descripción e ícono</li><li>Usá 🗑️ para eliminar una sección</li></ul></div>
+<div class="help-box"><h4> Cómo gestionar secciones</h4><ul><li>Cada sección es una página con título, fondo y contenido propios</li><li>Hacé clic en ✏️ para editar</li><li>Usá 🗑️ para eliminar</li></ul></div>
 <div id="adminPagesList"></div>
 <button class="btn-add" onclick="openEditPage()">+ Nueva Sección</button>
+</div>
+<div class="admin-section" id="tab-contact">
+<div class="help-box"><h4> Gestión de Contacto</h4><ul><li>Editá los datos de contacto (ubicación, email, etc.)</li><li>Agregá o eliminá campos del formulario</li><li>Los cambios se reflejan inmediatamente en el sitio</li></ul></div>
+<h3 style="margin-bottom:1rem;color:var(--gold)">Datos de contacto</h3>
+<div id="adminContactItemsList"></div>
+<button class="btn-add" onclick="openEditContactItem()">+ Agregar dato de contacto</button>
+<h3 style="margin:1.5rem 0 1rem;color:var(--gold)">Campos del formulario</h3>
+<div id="adminFormFieldsList"></div>
+<button class="btn-add" onclick="openEditFormField()">+ Agregar campo al formulario</button>
 </div>
 <div class="admin-section" id="tab-settings">
 <div class="help-box"><h4>⚙️ Ajustes del sitio</h4><ul><li>Cambiá la contraseña de administrador</li><li>Modificá la imagen de fondo principal (Hero)</li><li>Cerrá sesión cuando termines</li></ul></div>
@@ -517,22 +563,334 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <script>
 /* ============================================================
-   ⚠️ IMPORTANTE: REEMPLAZÁ ESTAS DOS LÍNEAS CON TUS CREDENCIALES REALES DE SUPABASE
-   1. Andá a https://supabase.com → tu proyecto
-   2. Clic en ⚙️ Settings → API
-   3. Copiá "Project URL" y "anon public key"
-   4. Pegalos abajo reemplazando los valores de ejemplo
+   ⚠️ REEMPLAZÁ ESTAS DOS LÍNEAS CON TUS CREDENCIALES REALES DE SUPABASE
    ============================================================ */
 const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
 /* ============================================================ */
 
-const SUPABASE_ENABLED = SUPABASE_URL !== 'https://TU-PROYECTO.supabase.co' && SUPABASE_KEY !== 'TU-CLAVE-PUBLICA-AQUI';
+const SUPABASE_ENABLED = SUPABASE_URL !== 'https://ngfgghnrfjjimfpuytfr.supabase.co' && SUPABASE_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
+
 let supabaseClient = null;
 if (SUPABASE_ENABLED) {
   try { supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); console.log('✅ Supabase conectado'); } catch(e) { console.error('Error Supabase:', e); }
 }
 
+const DEFAULT_CONTACT_ITEMS = [
+  { id: 1, icon: '📍', title: 'Ubicación', content: 'Paraná, Entre Ríos, Argentina' },
+  { id: 2, icon: '📧', title: 'Email', content: 'contacto@larramendi.com.ar' },
+  { id: 3, icon: '📱', title: 'Teléfono', content: '+54 343 555-0000' }
+];
+
+const DEFAULT_FORM_FIELDS = [
+  { id: 1, label: 'Nombre completo', type: 'text', required: true, placeholder: 'Tu nombre', options: [] },
+  { id: 2, label: 'Email', type: 'email', required: true, placeholder: 'tu@email.com', options: [] },
+  { id: 3, label: 'Asunto', type: 'text', required: false, placeholder: 'Motivo de contacto', options: [] },
+  { id: 4, label: 'Mensaje', type: 'textarea', required: true, placeholder: 'Escribí tu mensaje...', options: [] }
+];
+
+const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
+const ICONS = ['⚽','🏆','','📖','⭐','👥','🎯','🏟️','📸','🎊','🤝','🥅','💪','🏅','🎖️','🏆'];
+
+const DEFAULT_ALBUMS = [
+  {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde su fundación en 1989.',date:'Desde 1989',url:TEAM_IMAGE,photos:[
+    {id:101,title:'Fundación del club',date:'16 de Enero de 1989',url:TEAM_IMAGE},
+    {id:102,title:'Primer plantel',date:'Años 90',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800'},
+    {id:103,title:'Cancha original',date:'Años 90',url:'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800'}
+  ]},
+  {id:2,title:'Torneo 2025',desc:'Los mejores momentos del torneo regional de este año.',date:'2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',photos:[
+    {id:201,title:'Apertura del torneo',date:'Marzo 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800'},
+    {id:202,title:'Semifinal',date:'Agosto 2025',url:'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800'},
+    {id:203,title:'Final y premiación',date:'Octubre 2025',url:'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800'}
+  ]},
+  {id:3,title:'Asados y Reuniones',desc:'Los momentos más divertidos fuera de la cancha.',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',photos:[
+    {id:301,title:'Asado de primavera',date:'Septiembre 2025',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800'},
+    {id:302,title:'Fiesta de fin de año',date:'Diciembre 2024',url:'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800'}
+  ]}
+];
+
+const DEFAULT_PAGES = [
+  {id:1,title:'Nuestro Equipo',header:'Conocé a nuestro plantel',desc:'Conocé a los jugadores que forman parte de la Agrupación de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Desde 1989',url:TEAM_IMAGE,gallery:[]},
+  {id:2,title:'Torneos y Competencias',header:'Nuestras competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
+  {id:3,title:'Eventos Sociales',header:'Más allá de la cancha',desc:'Más allá de la cancha, somos una comunidad.',icon:'🎉',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
+  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación el 16 de enero de 1989, hemos construido una tradición de compañerismo y deporte.',icon:'📖',date:'16 de Enero de 1989',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
+];
+
+let state = {
+  albums: JSON.parse(localStorage.getItem('larr_albums')) || DEFAULT_ALBUMS,
+  pages: JSON.parse(localStorage.getItem('larr_pages')) || DEFAULT_PAGES,
+  contactItems: JSON.parse(localStorage.getItem('larr_contact_items')) || DEFAULT_CONTACT_ITEMS,
+  formFields: JSON.parse(localStorage.getItem('larr_form_fields')) || DEFAULT_FORM_FIELDS,
+  heroUrl: localStorage.getItem('larr_hero') || TEAM_IMAGE,
+  password: localStorage.getItem('larr_pass') || 'larramendi2025',
+  loggedIn: sessionStorage.getItem('larr_logged') === 'true',
+  pendingImage: null, originalUrl: null, pagePendingBg: null, pageOriginalBg: null,
+  selectedIcon: '⚽', currentAlbumId: null, lightboxImages: [], lightboxIndex: 0,
+  multiFiles: [], manageMode: false
+};
+
+function save() {
+  try {
+    localStorage.setItem('larr_albums', JSON.stringify(state.albums));
+    localStorage.setItem('larr_pages', JSON.stringify(state.pages));
+    localStorage.setItem('larr_contact_items', JSON.stringify(state.contactItems));
+    localStorage.setItem('larr_form_fields', JSON.stringify(state.formFields));
+    localStorage.setItem('larr_hero', state.heroUrl);
+    localStorage.setItem('larr_pass', state.password);
+    return true;
+  } catch(e) { toast('⚠️ Error: almacenamiento local lleno.', 'error'); return false; }
+}
+
+function updateStorageIndicator() {
+  const indicator = document.getElementById('storageIndicator');
+  if (SUPABASE_ENABLED) { indicator.textContent = '☁️ Supabase Storage (1GB)'; indicator.className = 'storage-indicator supabase'; }
+  else { indicator.textContent = '⚠️ Modo local (5MB límite)'; indicator.className = 'storage-indicator local'; }
+}
+
+// ============================================================
+// ✅ RENDER SECCIÓN CONTACTO - SOLO ADMIN VE BOTONES DE EDICIÓN
+// ============================================================
+function renderContactSection() {
+  const contactInfo = document.getElementById('contactInfo');
+  let contactHtml = state.contactItems.map(function(item) {
+    // Los botones de editar/eliminar SOLO se agregan si el admin está logueado
+    let actionsHtml = '';
+    if (state.loggedIn) {
+      actionsHtml = '<div class="contact-item-actions">' +
+        '<button class="contact-item-btn edit" onclick="openEditContactItem(' + item.id + ')" title="Editar">✏️</button>' +
+        '<button class="contact-item-btn delete" onclick="deleteContactItem(' + item.id + ')" title="Eliminar">🗑️</button>' +
+      '</div>';
+    }
+    return '<div class="contact-item">' +
+      '<div class="contact-item-icon">' + (item.icon || '📌') + '</div>' +
+      '<div><h4>' + item.title + '</h4><p>' + item.content + '</p></div>' +
+      actionsHtml +
+    '</div>';
+  }).join('');
+  
+  // Botón "Agregar" SOLO visible para admin
+  if (state.loggedIn) {
+    contactHtml += '<div class="contact-add-btn visible" onclick="openEditContactItem()">➕ Agregar dato de contacto</div>';
+  }
+  contactInfo.innerHTML = contactHtml;
+
+  // Renderizar formulario
+  const contactForm = document.getElementById('contactForm');
+  let formHtml = state.formFields.map(function(field) {
+    let inputHtml = '';
+    const requiredAttr = field.required ? 'required' : '';
+    const placeholderAttr = field.placeholder ? 'placeholder="' + field.placeholder + '"' : '';
+    
+    if (field.type === 'textarea') {
+      inputHtml = '<textarea ' + requiredAttr + ' ' + placeholderAttr + '></textarea>';
+    } else if (field.type === 'select') {
+      const options = (field.options || []).map(function(opt) {
+        return '<option value="' + opt + '">' + opt + '</option>';
+      }).join('');
+      inputHtml = '<select ' + requiredAttr + '><option value="">Seleccionar...</option>' + options + '</select>';
+    } else {
+      inputHtml = '<input type="' + field.type + '" ' + requiredAttr + ' ' + placeholderAttr + '>';
+    }
+    
+    let fieldHeaderHtml = '';
+    // Los controles de editar/eliminar del campo SOLO para admin
+    if (state.loggedIn) {
+      fieldHeaderHtml = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">' +
+        '<label style="color:var(--gold);font-size:.9rem;font-weight:600">' + field.label + (field.required ? ' *' : '') + '</label>' +
+        '<div style="display:flex;gap:.3rem">' +
+          '<button class="contact-item-btn edit" onclick="openEditFormField(' + field.id + ')" style="width:28px;height:28px;border-radius:6px;border:none;background:rgba(59,130,246,0.2);color:var(--accent2);cursor:pointer;font-size:.8rem">️</button>' +
+          '<button class="contact-item-btn delete" onclick="deleteFormField(' + field.id + ')" style="width:28px;height:28px;border-radius:6px;border:none;background:rgba(239,68,68,0.2);color:#fca5a5;cursor:pointer;font-size:.8rem">️</button>' +
+        '</div>' +
+      '</div>';
+    }
+    
+    return '<div class="contact-form-field-wrapper">' + fieldHeaderHtml + inputHtml + '</div>';
+  }).join('');
+  
+  // Botón "Agregar campo" SOLO visible para admin
+  if (state.loggedIn) {
+    formHtml += '<div class="contact-form-add visible" onclick="openEditFormField()">➕ Agregar campo al formulario</div>';
+  }
+  formHtml += '<button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>';
+  contactForm.innerHTML = formHtml;
+}
+
+// ============================================================
+// GESTIÓN DE ITEMS DE CONTACTO
+// ============================================================
+function openEditContactItem(id) {
+  // Protección: solo admin puede editar
+  if (!state.loggedIn) { openLogin(); return; }
+  document.getElementById('contactItemId').value = id || '';
+  document.getElementById('editContactItemTitle').textContent = id ? 'Editar dato de contacto' : 'Nuevo dato de contacto';
+  
+  if (id) {
+    const item = state.contactItems.find(function(x) { return x.id === id; });
+    if (item) {
+      document.getElementById('contactItemIcon').value = item.icon || '';
+      document.getElementById('contactItemTitleField').value = item.title;
+      document.getElementById('contactItemContent').value = item.content;
+    }
+  } else {
+    document.getElementById('contactItemIcon').value = '📌';
+    document.getElementById('contactItemTitleField').value = '';
+    document.getElementById('contactItemContent').value = '';
+  }
+  
+  document.querySelectorAll('#editContactItemModal .form-error').forEach(function(e) { e.classList.remove('show'); });
+  document.getElementById('editContactItemModal').classList.add('active');
+}
+
+function closeEditContactItem() {
+  document.getElementById('editContactItemModal').classList.remove('active');
+}
+
+function saveContactItem(e) {
+  e.preventDefault();
+  if (!state.loggedIn) return;
+  document.querySelectorAll('#editContactItemModal .form-error').forEach(function(e) { e.classList.remove('show'); });
+  
+  const id = document.getElementById('contactItemId').value;
+  const icon = document.getElementById('contactItemIcon').value.trim() || '';
+  const title = document.getElementById('contactItemTitleField').value.trim();
+  const content = document.getElementById('contactItemContent').value.trim();
+  
+  let hasError = false;
+  if (!title) { document.getElementById('errContactItemTitle').classList.add('show'); hasError = true; }
+  if (!content) { document.getElementById('errContactItemContent').classList.add('show'); hasError = true; }
+  if (hasError) return;
+  
+  if (id) {
+    const item = state.contactItems.find(function(x) { return x.id === parseInt(id); });
+    if (item) { item.icon = icon; item.title = title; item.content = content; }
+  } else {
+    state.contactItems.push({ id: Date.now(), icon: icon, title: title, content: content });
+  }
+  
+  save();
+  renderContactSection();
+  renderAdminContact();
+  closeEditContactItem();
+  toast('✅ Dato de contacto guardado', 'success');
+}
+
+function deleteContactItem(id) {
+  // Protección: solo admin puede eliminar
+  if (!state.loggedIn) { openLogin(); return; }
+  if (!confirm('¿Eliminar este dato de contacto?')) return;
+  state.contactItems = state.contactItems.filter(function(x) { return x.id !== id; });
+  save();
+  renderContactSection();
+  renderAdminContact();
+  toast('️ Dato eliminado', 'error');
+}
+
+// ============================================================
+// GESTIÓN DE CAMPOS DEL FORMULARIO
+// ============================================================
+function openEditFormField(id) {
+  if (!state.loggedIn) { openLogin(); return; }
+  document.getElementById('formFieldId').value = id || '';
+  document.getElementById('editFormFieldTitle').textContent = id ? 'Editar campo del formulario' : 'Nuevo campo del formulario';
+  
+  if (id) {
+    const field = state.formFields.find(function(x) { return x.id === id; });
+    if (field) {
+      document.getElementById('formFieldLabel').value = field.label;
+      document.getElementById('formFieldType').value = field.type;
+      document.getElementById('formFieldRequired').value = field.required ? 'true' : 'false';
+      document.getElementById('formFieldPlaceholder').value = field.placeholder || '';
+      document.getElementById('formFieldOptions').value = (field.options || []).join('\n');
+    }
+  } else {
+    document.getElementById('formFieldLabel').value = '';
+    document.getElementById('formFieldType').value = 'text';
+    document.getElementById('formFieldRequired').value = 'true';
+    document.getElementById('formFieldPlaceholder').value = '';
+    document.getElementById('formFieldOptions').value = '';
+  }
+  
+  toggleFormFieldOptions();
+  document.querySelectorAll('#editFormFieldModal .form-error').forEach(function(e) { e.classList.remove('show'); });
+  document.getElementById('editFormFieldModal').classList.add('active');
+}
+
+function closeEditFormField() {
+  document.getElementById('editFormFieldModal').classList.remove('active');
+}
+
+function toggleFormFieldOptions() {
+  const type = document.getElementById('formFieldType').value;
+  document.getElementById('formFieldOptionsGroup').style.display = type === 'select' ? 'block' : 'none';
+}
+
+document.addEventListener('change', function(e) {
+  if (e.target.id === 'formFieldType') toggleFormFieldOptions();
+});
+
+function saveFormField(e) {
+  e.preventDefault();
+  if (!state.loggedIn) return;
+  document.querySelectorAll('#editFormFieldModal .form-error').forEach(function(e) { e.classList.remove('show'); });
+  
+  const id = document.getElementById('formFieldId').value;
+  const label = document.getElementById('formFieldLabel').value.trim();
+  const type = document.getElementById('formFieldType').value;
+  const required = document.getElementById('formFieldRequired').value === 'true';
+  const placeholder = document.getElementById('formFieldPlaceholder').value.trim();
+  const optionsText = document.getElementById('formFieldOptions').value.trim();
+  const options = optionsText ? optionsText.split('\n').map(function(o) { return o.trim(); }).filter(function(o) { return o; }) : [];
+  
+  if (!label) { document.getElementById('errFormFieldLabel').classList.add('show'); return; }
+  
+  if (id) {
+    const field = state.formFields.find(function(x) { return x.id === parseInt(id); });
+    if (field) {
+      field.label = label;
+      field.type = type;
+      field.required = required;
+      field.placeholder = placeholder;
+      field.options = options;
+    }
+  } else {
+    state.formFields.push({ id: Date.now(), label: label, type: type, required: required, placeholder: placeholder, options: options });
+  }
+  
+  save();
+  renderContactSection();
+  renderAdminContact();
+  closeEditFormField();
+  toast('✅ Campo del formulario guardado', 'success');
+}
+
+function deleteFormField(id) {
+  if (!state.loggedIn) { openLogin(); return; }
+  if (!confirm('¿Eliminar este campo del formulario?')) return;
+  state.formFields = state.formFields.filter(function(x) { return x.id !== id; });
+  save();
+  renderContactSection();
+  renderAdminContact();
+  toast('🗑️ Campo eliminado', 'error');
+}
+
+// ============================================================
+// RENDER ADMIN CONTACTO
+// ============================================================
+function renderAdminContact() {
+  const itemsList = document.getElementById('adminContactItemsList');
+  itemsList.innerHTML = state.contactItems.map(function(item) {
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + (item.icon || '📌') + ' ' + item.title + '</div><div class="admin-item-meta">' + item.content + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditContactItem(' + item.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deleteContactItem(' + item.id + ')">🗑️</button></div></div>';
+  }).join('') || '<p style="opacity:.5;text-align:center;padding:1rem">No hay datos de contacto</p>';
+  
+  const fieldsList = document.getElementById('adminFormFieldsList');
+  fieldsList.innerHTML = state.formFields.map(function(field) {
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + field.label + (field.required ? ' *' : '') + '</div><div class="admin-item-meta">Tipo: ' + field.type + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditFormField(' + field.id + ')">️</button><button class="btn-icon btn-delete" onclick="deleteFormField(' + field.id + ')">🗑️</button></div></div>';
+  }).join('') || '<p style="opacity:.5;text-align:center;padding:1rem">No hay campos en el formulario</p>';
+}
+
+// ============================================================
+// FUNCIONES EXISTENTES
+// ============================================================
 function compressImage(file, maxWidth = 1200, quality = 0.7) {
   return new Promise(function(resolve, reject) {
     const reader = new FileReader();
@@ -574,64 +932,11 @@ async function deleteFromSupabase(url) {
   } catch(e) { console.error('Error al eliminar:', e); }
 }
 
-const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
-const ICONS = ['','🏆','🎉','','⭐','👥','','🏟️','📸','','🤝','🥅','','🏅','🎖️',''];
-
-const DEFAULT_ALBUMS = [
-  {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde su fundación en 1989.',date:'Desde 1989',url:TEAM_IMAGE,photos:[
-    {id:101,title:'Fundación del club',date:'16 de Enero de 1989',url:TEAM_IMAGE},
-    {id:102,title:'Primer plantel',date:'Años 90',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800'},
-    {id:103,title:'Cancha original',date:'Años 90',url:'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800'}
-  ]},
-  {id:2,title:'Torneo 2025',desc:'Los mejores momentos del torneo regional de este año.',date:'2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',photos:[
-    {id:201,title:'Apertura del torneo',date:'Marzo 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800'},
-    {id:202,title:'Semifinal',date:'Agosto 2025',url:'https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800'},
-    {id:203,title:'Final y premiación',date:'Octubre 2025',url:'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800'}
-  ]},
-  {id:3,title:'Asados y Reuniones',desc:'Los momentos más divertidos fuera de la cancha.',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',photos:[
-    {id:301,title:'Asado de primavera',date:'Septiembre 2025',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800'},
-    {id:302,title:'Fiesta de fin de año',date:'Diciembre 2024',url:'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800'}
-  ]}
-];
-
-const DEFAULT_PAGES = [
-  {id:1,title:'Nuestro Equipo',header:'Conocé a nuestro plantel',desc:'Conocé a los jugadores que forman parte de la Agrupación de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Desde 1989',url:TEAM_IMAGE,gallery:[]},
-  {id:2,title:'Torneos y Competencias',header:'Nuestras competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
-  {id:3,title:'Eventos Sociales',header:'Más allá de la cancha',desc:'Más allá de la cancha, somos una comunidad.',icon:'🎉',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
-  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación el 16 de enero de 1989, hemos construido una tradición de compañerismo y deporte.',icon:'📖',date:'16 de Enero de 1989',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
-];
-
-let state = {
-  albums: JSON.parse(localStorage.getItem('larr_albums')) || DEFAULT_ALBUMS,
-  pages: JSON.parse(localStorage.getItem('larr_pages')) || DEFAULT_PAGES,
-  heroUrl: localStorage.getItem('larr_hero') || TEAM_IMAGE,
-  password: localStorage.getItem('larr_pass') || 'larramendi2025',
-  loggedIn: sessionStorage.getItem('larr_logged') === 'true',
-  pendingImage: null, originalUrl: null, pagePendingBg: null, pageOriginalBg: null,
-  selectedIcon: '⚽', currentAlbumId: null, lightboxImages: [], lightboxIndex: 0,
-  multiFiles: [], manageMode: false
-};
-
-function updateStorageIndicator() {
-  const indicator = document.getElementById('storageIndicator');
-  if (SUPABASE_ENABLED) { indicator.textContent = '☁️ Supabase Storage (1GB)'; indicator.className = 'storage-indicator supabase'; }
-  else { indicator.textContent = '️ Modo local (5MB límite)'; indicator.className = 'storage-indicator local'; }
-}
-
-function save() {
-  try {
-    localStorage.setItem('larr_albums', JSON.stringify(state.albums));
-    localStorage.setItem('larr_pages', JSON.stringify(state.pages));
-    localStorage.setItem('larr_hero', state.heroUrl);
-    localStorage.setItem('larr_pass', state.password);
-    return true;
-  } catch(e) { toast('️ Error: almacenamiento local lleno.', 'error'); return false; }
-}
-
 function render() {
   document.getElementById('heroBg').style.backgroundImage = "url('" + state.heroUrl + "')";
   document.getElementById('heroUrl').value = state.heroUrl;
   document.getElementById('aboutImg').src = state.heroUrl;
+  
   var ag = document.getElementById('albumsGrid');
   var albumsHtml = state.albums.map(function(a) {
     var photoCount = (a.photos || []).length;
@@ -640,13 +945,17 @@ function render() {
   }).join('');
   if (state.loggedIn) albumsHtml += '<div class="album-add" onclick="openEditAlbum()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Crear Nuevo Álbum</span></div>';
   ag.innerHTML = albumsHtml;
+  
   var pg = document.getElementById('pagesGrid');
   pg.innerHTML = state.pages.map(function(p) {
     var pc = (p.gallery || []).length;
     var adminClass = state.loggedIn ? 'admin-mode' : '';
     return '<div class="page-card ' + adminClass + '" onclick="handlePageCardClick(event,' + p.id + ')"><button class="page-edit-btn" onclick="event.stopPropagation();openEditPage(' + p.id + ')" title="Editar sección">✏️</button><div class="page-card-icon">' + (p.icon || '') + '</div><h3>' + p.title + '</h3><p>' + (p.desc || '').substring(0, 120) + ((p.desc || '').length > 120 ? '...' : '') + '</p><div class="page-card-photos">📸 ' + pc + ' foto' + (pc !== 1 ? 's' : '') + '</div><div class="page-card-date">' + (p.date || '') + '</div></div>';
   }).join('');
-  renderAdmin(); updateStorageIndicator();
+  
+  renderContactSection();
+  renderAdmin();
+  updateStorageIndicator();
 }
 
 function handlePageCardClick(event, id) {
@@ -656,11 +965,14 @@ function handlePageCardClick(event, id) {
 
 function renderAdmin() {
   document.getElementById('adminAlbumsList').innerHTML = state.albums.map(function(a) {
-    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">️ ' + a.title + '</div><div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">🗑️</button></div></div>';
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">🖼️ ' + a.title + '</div><div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">️</button><button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">🗑️</button></div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay álbumes creados</p>';
+  
   document.getElementById('adminPagesList').innerHTML = state.pages.map(function(p) {
-    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + (p.icon || '') + ' ' + p.title + '</div><div class="admin-item-meta">' + (p.date || '') + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditPage(' + p.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">️</button></div></div>';
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + (p.icon || '') + ' ' + p.title + '</div><div class="admin-item-meta">' + (p.date || '') + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditPage(' + p.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deletePage(' + p.id + ')">🗑️</button></div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay secciones</p>';
+  
+  renderAdminContact();
 }
 
 function openAlbumDetail(id) {
@@ -674,11 +986,11 @@ function openAlbumDetail(id) {
   var photos = album.photos || [];
   document.getElementById('albumPhotosCount').textContent = photos.length + ' foto' + (photos.length !== 1 ? 's' : '');
   var actionsHtml = '';
-  if (state.loggedIn) actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">️ Gestionar fotos</button><button class="btn btn-primary btn-sm" onclick="window._addPhotosToAlbum(' + id + ')">+ Agregar Fotos</button>';
+  if (state.loggedIn) actionsHtml = '<button class="manage-mode-toggle" id="manageModeBtn" onclick="toggleManageMode()">🗑️ Gestionar fotos</button><button class="btn btn-primary btn-sm" onclick="window._addPhotosToAlbum(' + id + ')">+ Agregar Fotos</button>';
   document.getElementById('albumPhotosActions').innerHTML = actionsHtml;
   var grid = document.getElementById('albumPhotosGrid');
   grid.innerHTML = photos.map(function(ph) {
-    return '<div class="album-photo-item" id="photo-' + ph.id + '" onclick="handlePhotoClick(event,' + id + ',' + ph.id + ')"><button class="album-photo-delete" onclick="event.stopPropagation();confirmDeletePhoto(' + id + ',' + ph.id + ')" title="Eliminar foto">🗑️</button><img src="' + ph.url + '" alt="' + ph.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\';this.style.display=\'none\'"><div class="album-photo-item-overlay"><div><div class="album-photo-item-title">' + ph.title + '</div><div class="album-photo-item-date">' + (ph.date || '') + '</div></div></div></div>';
+    return '<div class="album-photo-item" id="photo-' + ph.id + '" onclick="handlePhotoClick(event,' + id + ',' + ph.id + ')"><button class="album-photo-delete" onclick="event.stopPropagation();confirmDeletePhoto(' + id + ',' + ph.id + ')" title="Eliminar foto">️</button><img src="' + ph.url + '" alt="' + ph.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\';this.style.display=\'none\'"><div class="album-photo-item-overlay"><div><div class="album-photo-item-title">' + ph.title + '</div><div class="album-photo-item-date">' + (ph.date || '') + '</div></div></div></div>';
   }).join('');
   if (state.loggedIn) grid.innerHTML += '<div class="album-photo-add-btn" onclick="window._addPhotosToAlbum(' + id + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Agregar Múltiples Fotos</span></div>';
   if (photos.length === 0 && !state.loggedIn) grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;opacity:.6"><p>No hay fotos en este álbum aún</p></div>';
@@ -690,7 +1002,7 @@ window._addPhotosToAlbum = function(albumId) { openMultiUploadForAlbum(albumId);
 function toggleManageMode() {
   state.manageMode = !state.manageMode;
   var btn = document.getElementById('manageModeBtn');
-  if (btn) { btn.classList.toggle('active', state.manageMode); btn.innerHTML = state.manageMode ? '✕ Salir de gestión' : '🗑️ Gestionar fotos'; }
+  if (btn) { btn.classList.toggle('active', state.manageMode); btn.innerHTML = state.manageMode ? ' Salir de gestión' : '🗑️ Gestionar fotos'; }
   document.querySelectorAll('.album-photo-item').forEach(function(item) { item.classList.toggle('manage-mode', state.manageMode); });
   if (state.manageMode) toast('Modo eliminar activado. Hacé clic en 🗑️ para borrar fotos.', '');
 }
@@ -859,7 +1171,7 @@ function openEditPage(id) {
   hideAllErrors();
   document.getElementById('editPageId').value = id || '';
   document.getElementById('editPageTitle').textContent = id ? 'Editar Sección' : 'Nueva Sección';
-  state.pagePendingBg = null; state.pageOriginalBg = null; state.selectedIcon = '⚽';
+  state.pagePendingBg = null; state.pageOriginalBg = null; state.selectedIcon = '';
   document.getElementById('pageUploadPreview').style.display = 'none';
   document.getElementById('pageUploadPlaceholder').style.display = 'block';
   document.getElementById('pageUploadZone').classList.remove('has-image');
@@ -989,7 +1301,7 @@ async function handleMultiFileUpload(e) {
   var processed = 0, totalSize = 0;
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
-    if (file.size > 10 * 1024 * 1024) { toast('⚠️ "' + file.name + '" supera 10MB, se omitió', 'error'); processed++; continue; }
+    if (file.size > 10 * 1024 * 1024) { toast('️ "' + file.name + '" supera 10MB, se omitió', 'error'); processed++; continue; }
     try {
       var compressed = await compressImage(file, 1200, 0.7);
       state.multiFiles.push({ blob: compressed.blob, dataUrl: compressed.dataUrl, name: file.name, originalSize: file.size, compressedSize: compressed.size });
@@ -1018,7 +1330,6 @@ function updateMultiPreview() {
 }
 function removeMultiFile(idx) { state.multiFiles.splice(idx, 1); updateMultiPreview(); }
 
-// ✅ FUNCIÓN CORREGIDA: Ya no guarda URLs blob temporales
 async function saveMultiPhotos() {
   if (state.multiFiles.length === 0) { toast('Seleccioná al menos una foto', 'error'); return; }
   var date = document.getElementById('multiDate').value.trim() || new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long' });
@@ -1081,7 +1392,7 @@ function changePassword(e) {
   state.password = newP; save(); document.getElementById('newPass').value = ''; toast('Contraseña actualizada', 'success');
 }
 function changeHero(e) { e.preventDefault(); state.heroUrl = document.getElementById('heroUrl').value; save(); render(); toast('Imagen hero actualizada', 'success'); }
-function sendContact(e) { e.preventDefault(); toast('Mensaje enviado correctamente', 'success'); e.target.reset(); }
+function sendContact(e) { e.preventDefault(); toast('✅ Mensaje enviado correctamente', 'success'); e.target.reset(); }
 function toast(msg, type) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show ' + (type || ''); setTimeout(function() { t.classList.remove('show'); }, 3500); }
 function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
 function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
@@ -1097,8 +1408,7 @@ render();
 
 
               <script>
-                              const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
+                              if (!state.loggedIn) { openLogin(); return; }
 
 
               </script>
