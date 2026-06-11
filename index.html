@@ -1,19 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-
-                
-              </style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -157,10 +142,10 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .page-card.admin-mode .page-edit-btn{display:flex}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
 .contact-info{display:flex;flex-direction:column;gap:1rem;position:relative}
-.contact-item{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2);position:relative;transition:all .3s}
+.contact-item{display:flex;gap:1rem;align-items:center;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2);position:relative;transition:all .3s}
 .contact-item:hover{background:var(--glass2)}
-.contact-item-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.contact-item h4{margin-bottom:.3rem;font-size:1.1rem}
+.contact-item-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.contact-item h4{margin-bottom:.2rem;font-size:1.1rem}
 .contact-item p{opacity:.75;font-size:.95rem;word-break:break-word}
 .contact-item-actions{position:absolute;top:.5rem;right:.5rem;display:none;gap:.3rem}
 .contact-item.admin-visible:hover .contact-item-actions{display:flex}
@@ -390,7 +375,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <div class="modal-overlay" id="loginModal">
 <div class="modal">
-<button class="modal-close" onclick="closeLogin()">✕</button>
+<button class="modal-close" onclick="closeLogin()"></button>
 <h2>Acceso <span style="color:var(--gold)">Administrador</span></h2>
 <p class="modal-subtitle">Ingresá tus credenciales para gestionar el sitio</p>
 <form onsubmit="doLogin(event)">
@@ -414,7 +399,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="form-group"><label>Descripción</label><textarea id="albumField2" placeholder="Descripción breve del álbum..."></textarea></div>
 <div class="form-group"><label>Imagen de portada *</label>
 <div class="upload-zone" id="albumUploadZone" onclick="document.getElementById('albumFileInput').click()">
-<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem">📁 Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
+<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem"> Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
 <img id="albumUploadPreview" style="display:none">
 <input type="file" id="albumFileInput" accept="image/*" onchange="handleAlbumCoverUpload(event)">
 </div>
@@ -434,10 +419,10 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <p class="modal-subtitle">Modificá todos los elementos visibles de la sección</p>
 <form onsubmit="savePage(event)" novalidate>
 <input type="hidden" id="editPageId">
-<div class="form-group"><label> Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
-<div class="form-group"><label> Encabezado / Subtítulo</label><input type="text" id="pageField5" placeholder="Ej: Conocé a nuestro equipo"></div>
+<div class="form-group"><label>📝 Título de la sección *</label><input type="text" id="pageField1" required placeholder="Ej: Nuestro Equipo"><div class="form-error" id="errPageTitle">El título es obligatorio</div></div>
+<div class="form-group"><label>📄 Encabezado / Subtítulo</label><input type="text" id="pageField5" placeholder="Ej: Conocé a nuestro equipo"></div>
 <div class="form-group"><label>📋 Contenido / Descripción *</label><textarea id="pageField2" style="min-height:150px" placeholder="Escribí el contenido completo de la página..."></textarea><div class="form-error" id="errPageDesc">La descripción es obligatoria</div></div>
-<div class="form-group"><label>️ Imagen de fondo (Hero) *</label>
+<div class="form-group"><label>🖼️ Imagen de fondo (Hero) *</label>
 <div class="upload-zone" id="pageUploadZone" onclick="document.getElementById('pageFileInput').click()">
 <div id="pageUploadPlaceholder"><p style="margin-bottom:.5rem">🖼️ Hacé clic para subir la imagen de fondo</p><p style="font-size:.8rem;opacity:.6">Esta imagen aparecerá como fondo al abrir la sección</p></div>
 <img id="pageUploadPreview" style="display:none">
@@ -446,8 +431,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <input type="url" id="pageField3" placeholder="https://... (opcional si subiste archivo)" oninput="clearPageBgPreview()">
 <div class="form-error" id="errPageBg">Debés subir una imagen o pegar una URL</div>
 </div>
-<div class="form-group"><label> Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
-<div class="form-group"><label> Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
+<div class="form-group"><label>🎨 Ícono de la sección</label><div class="icon-selector" id="iconSelector"></div><input type="hidden" id="pageFieldIcon"></div>
+<div class="form-group"><label>📅 Fecha / Período</label><input type="text" id="pageField4" placeholder="Octubre 2025"></div>
 <button type="submit" class="btn btn-primary btn-full" id="btnSavePage">💾 Guardar Sección</button>
 </form>
 </div>
@@ -460,7 +445,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <p class="modal-subtitle" id="multiUploadSubtitle">Seleccioná todas las fotos que quieras agregar</p>
 <div class="upload-zone" id="multiUploadZone" onclick="document.getElementById('multiFileInput').click()" style="min-height:120px">
 <div id="multiUploadPlaceholder">
-<p style="font-size:1.1rem;margin-bottom:.5rem"> Hacé clic para seleccionar fotos</p>
+<p style="font-size:1.1rem;margin-bottom:.5rem">📁 Hacé clic para seleccionar fotos</p>
 <p style="font-size:.85rem;opacity:.6">Podés seleccionar varias imágenes a la vez</p>
 <p style="font-size:.75rem;opacity:.5;margin-top:.5rem">Las imágenes se comprimirán automáticamente</p>
 </div>
@@ -487,7 +472,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="form-group"><label>Ícono (emoji)</label><input type="text" id="contactItemIcon" placeholder="Ej:  📱 🌐" maxlength="4"></div>
 <div class="form-group"><label>Título *</label><input type="text" id="contactItemTitleField" required placeholder="Ej: Ubicación"><div class="form-error" id="errContactItemTitle">El título es obligatorio</div></div>
 <div class="form-group"><label>Contenido *</label><input type="text" id="contactItemContent" required placeholder="Ej: Paraná, Entre Ríos"><div class="form-error" id="errContactItemContent">El contenido es obligatorio</div></div>
-<button type="submit" class="btn btn-primary btn-full"> Guardar</button>
+<button type="submit" class="btn btn-primary btn-full">💾 Guardar</button>
 </form>
 </div>
 </div>
@@ -511,20 +496,20 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <div class="lightbox" id="lightbox">
 <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-<button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">❮</button>
+<button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)"></button>
 <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">❯</button>
 <img id="lightboxImg" src="">
 <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 
-<button class="admin-toggle" id="adminToggle" onclick="toggleAdmin()">⚙️</button>
+<button class="admin-toggle" id="adminToggle" onclick="toggleAdmin()">️</button>
 <div class="admin-panel" id="adminPanel">
 <div class="admin-header"><h2>Panel <span>Admin</span></h2><button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button></div>
 <div class="admin-tabs">
 <button class="admin-tab active" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
-<button class="admin-tab" onclick="switchTab('pages',this)"> Secciones</button>
-<button class="admin-tab" onclick="switchTab('contact',this)"> Contacto</button>
-<button class="admin-tab" onclick="switchTab('settings',this)">️ Ajustes</button>
+<button class="admin-tab" onclick="switchTab('pages',this)">📄 Secciones</button>
+<button class="admin-tab" onclick="switchTab('contact',this)">📞 Contacto</button>
+<button class="admin-tab" onclick="switchTab('settings',this)">⚙️ Ajustes</button>
 </div>
 <div class="admin-content">
 <div class="admin-section active" id="tab-albums">
@@ -533,12 +518,12 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <button class="btn-add" onclick="openEditAlbum()">+ Nuevo Álbum</button>
 </div>
 <div class="admin-section" id="tab-pages">
-<div class="help-box"><h4> Cómo gestionar secciones</h4><ul><li>Cada sección es una página con título, fondo y contenido propios</li><li>Hacé clic en ✏️ para editar</li><li>Usá 🗑️ para eliminar</li></ul></div>
+<div class="help-box"><h4>💡 Cómo gestionar secciones</h4><ul><li>Cada sección es una página con título, fondo y contenido propios</li><li>Hacé clic en ✏️ para editar</li><li>Usá 🗑️ para eliminar</li></ul></div>
 <div id="adminPagesList"></div>
 <button class="btn-add" onclick="openEditPage()">+ Nueva Sección</button>
 </div>
 <div class="admin-section" id="tab-contact">
-<div class="help-box"><h4> Gestión de Contacto</h4><ul><li>Editá los datos de contacto (ubicación, email, etc.)</li><li>Agregá o eliminá campos del formulario</li><li>Los cambios se reflejan inmediatamente en el sitio</li></ul></div>
+<div class="help-box"><h4>📞 Gestión de Contacto</h4><ul><li>Editá los datos de contacto (ubicación, email, etc.)</li><li>Agregá o eliminá campos del formulario</li><li>Los cambios se reflejan inmediatamente en el sitio</li></ul></div>
 <h3 style="margin-bottom:1rem;color:var(--gold)">Datos de contacto</h3>
 <div id="adminContactItemsList"></div>
 <button class="btn-add" onclick="openEditContactItem()">+ Agregar dato de contacto</button>
@@ -547,7 +532,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <button class="btn-add" onclick="openEditFormField()">+ Agregar campo al formulario</button>
 </div>
 <div class="admin-section" id="tab-settings">
-<div class="help-box"><h4>⚙️ Ajustes del sitio</h4><ul><li>Cambiá la contraseña de administrador</li><li>Modificá la imagen de fondo principal (Hero)</li><li>Cerrá sesión cuando termines</li></ul></div>
+<div class="help-box"><h4>️ Ajustes del sitio</h4><ul><li>Cambiá la contraseña de administrador</li><li>Modificá la imagen de fondo principal (Hero)</li><li>Cerrá sesión cuando termines</li></ul></div>
 <div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">Cambiar Contraseña</div><div class="admin-item-meta">Actualizá la clave de administrador</div></div></div>
 <form onsubmit="changePassword(event)" style="margin-top:1rem"><div class="form-group"><label>Nueva Contraseña</label><input type="password" id="newPass" required></div><button type="submit" class="btn btn-primary btn-full">Actualizar</button></form>
 <div class="admin-item" style="margin-top:1.5rem"><div class="admin-item-info"><div class="admin-item-title">Imagen Hero (fondo principal)</div><div class="admin-item-meta">URL de la imagen de fondo del inicio</div></div></div>
@@ -562,23 +547,23 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-/* ============================================================
-   ⚠️ REEMPLAZÁ ESTAS DOS LÍNEAS CON TUS CREDENCIALES REALES DE SUPABASE
-   ============================================================ */
+
+
 const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
-/* ============================================================ */
-
-const SUPABASE_ENABLED = SUPABASE_URL !== 'https://ngfgghnrfjjimfpuytfr.supabase.co' && SUPABASE_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
+const SUPABASE_ENABLED = SUPABASE_URL !== 'https://TU-PROYECTO.supabase.co' && SUPABASE_KEY !== 'TU-CLAVE-PUBLICA-AQUI';
 
 let supabaseClient = null;
 if (SUPABASE_ENABLED) {
   try { supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); console.log('✅ Supabase conectado'); } catch(e) { console.error('Error Supabase:', e); }
 }
 
+// ✅ EMAIL DE CONTACTO ACTUALIZADO
+const CONTACT_EMAIL = 'larramendifutbolveteranos@gmail.com';
+
 const DEFAULT_CONTACT_ITEMS = [
   { id: 1, icon: '📍', title: 'Ubicación', content: 'Paraná, Entre Ríos, Argentina' },
-  { id: 2, icon: '📧', title: 'Email', content: 'contacto@larramendi.com.ar' },
+  { id: 2, icon: '📧', title: 'Email', content: CONTACT_EMAIL },
   { id: 3, icon: '📱', title: 'Teléfono', content: '+54 343 555-0000' }
 ];
 
@@ -586,11 +571,11 @@ const DEFAULT_FORM_FIELDS = [
   { id: 1, label: 'Nombre completo', type: 'text', required: true, placeholder: 'Tu nombre', options: [] },
   { id: 2, label: 'Email', type: 'email', required: true, placeholder: 'tu@email.com', options: [] },
   { id: 3, label: 'Asunto', type: 'text', required: false, placeholder: 'Motivo de contacto', options: [] },
-  { id: 4, label: 'Mensaje', type: 'textarea', required: true, placeholder: 'Escribí tu mensaje...', options: [] }
+  { id: 4, label: 'Mensaje', type: 'textarea', required: true, placeholder: 'Tu mensaje...', options: [] }
 ];
 
 const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
-const ICONS = ['⚽','🏆','','📖','⭐','👥','🎯','🏟️','📸','🎊','🤝','🥅','💪','🏅','🎖️','🏆'];
+const ICONS = ['','🏆','🎉','','⭐','👥','🎯','🏟️','📸','🎊','🤝','🥅','💪','🏅','🎖️',''];
 
 const DEFAULT_ALBUMS = [
   {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde su fundación en 1989.',date:'Desde 1989',url:TEAM_IMAGE,photos:[
@@ -611,9 +596,9 @@ const DEFAULT_ALBUMS = [
 
 const DEFAULT_PAGES = [
   {id:1,title:'Nuestro Equipo',header:'Conocé a nuestro plantel',desc:'Conocé a los jugadores que forman parte de la Agrupación de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Desde 1989',url:TEAM_IMAGE,gallery:[]},
-  {id:2,title:'Torneos y Competencias',header:'Nuestras competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
+  {id:2,title:'Torneos y Competencias',header:'Nuestras competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'🏆',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
   {id:3,title:'Eventos Sociales',header:'Más allá de la cancha',desc:'Más allá de la cancha, somos una comunidad.',icon:'🎉',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
-  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación el 16 de enero de 1989, hemos construido una tradición de compañerismo y deporte.',icon:'📖',date:'16 de Enero de 1989',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
+  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación el 16 de enero de 1989, hemos construido una tradición de compañerismo y deporte.',icon:'',date:'16 de Enero de 1989',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
 ];
 
 let state = {
@@ -647,14 +632,12 @@ function updateStorageIndicator() {
   else { indicator.textContent = '⚠️ Modo local (5MB límite)'; indicator.className = 'storage-indicator local'; }
 }
 
-// ============================================================
-// ✅ RENDER SECCIÓN CONTACTO - SOLO ADMIN VE BOTONES DE EDICIÓN
-// ============================================================
+// ✅ RENDER CONTACTO - SOLO ADMIN VE BOTONES DE EDICIÓN
 function renderContactSection() {
   const contactInfo = document.getElementById('contactInfo');
   let contactHtml = state.contactItems.map(function(item) {
-    // Los botones de editar/eliminar SOLO se agregan si el admin está logueado
     let actionsHtml = '';
+    // Botones de editar/eliminar SOLO para admin logueado
     if (state.loggedIn) {
       actionsHtml = '<div class="contact-item-actions">' +
         '<button class="contact-item-btn edit" onclick="openEditContactItem(' + item.id + ')" title="Editar">✏️</button>' +
@@ -668,7 +651,7 @@ function renderContactSection() {
     '</div>';
   }).join('');
   
-  // Botón "Agregar" SOLO visible para admin
+  // Botón "Agregar" SOLO para admin
   if (state.loggedIn) {
     contactHtml += '<div class="contact-add-btn visible" onclick="openEditContactItem()">➕ Agregar dato de contacto</div>';
   }
@@ -693,13 +676,13 @@ function renderContactSection() {
     }
     
     let fieldHeaderHtml = '';
-    // Los controles de editar/eliminar del campo SOLO para admin
+    // Controles de editar/eliminar del campo SOLO para admin
     if (state.loggedIn) {
       fieldHeaderHtml = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">' +
         '<label style="color:var(--gold);font-size:.9rem;font-weight:600">' + field.label + (field.required ? ' *' : '') + '</label>' +
         '<div style="display:flex;gap:.3rem">' +
-          '<button class="contact-item-btn edit" onclick="openEditFormField(' + field.id + ')" style="width:28px;height:28px;border-radius:6px;border:none;background:rgba(59,130,246,0.2);color:var(--accent2);cursor:pointer;font-size:.8rem">️</button>' +
-          '<button class="contact-item-btn delete" onclick="deleteFormField(' + field.id + ')" style="width:28px;height:28px;border-radius:6px;border:none;background:rgba(239,68,68,0.2);color:#fca5a5;cursor:pointer;font-size:.8rem">️</button>' +
+          '<button class="contact-item-btn edit" onclick="openEditFormField(' + field.id + ')" style="width:28px;height:28px;border-radius:6px;border:none;background:rgba(59,130,246,0.2);color:var(--accent2);cursor:pointer;font-size:.8rem">✏️</button>' +
+          '<button class="contact-item-btn delete" onclick="deleteFormField(' + field.id + ')" style="width:28px;height:28px;border-radius:6px;border:none;background:rgba(239,68,68,0.2);color:#fca5a5;cursor:pointer;font-size:.8rem">🗑️</button>' +
         '</div>' +
       '</div>';
     }
@@ -707,7 +690,7 @@ function renderContactSection() {
     return '<div class="contact-form-field-wrapper">' + fieldHeaderHtml + inputHtml + '</div>';
   }).join('');
   
-  // Botón "Agregar campo" SOLO visible para admin
+  // Botón "Agregar campo" SOLO para admin
   if (state.loggedIn) {
     formHtml += '<div class="contact-form-add visible" onclick="openEditFormField()">➕ Agregar campo al formulario</div>';
   }
@@ -715,11 +698,8 @@ function renderContactSection() {
   contactForm.innerHTML = formHtml;
 }
 
-// ============================================================
-// GESTIÓN DE ITEMS DE CONTACTO
-// ============================================================
+// ✅ GESTIÓN DE ITEMS DE CONTACTO - PROTEGIDO
 function openEditContactItem(id) {
-  // Protección: solo admin puede editar
   if (!state.loggedIn) { openLogin(); return; }
   document.getElementById('contactItemId').value = id || '';
   document.getElementById('editContactItemTitle').textContent = id ? 'Editar dato de contacto' : 'Nuevo dato de contacto';
@@ -775,19 +755,16 @@ function saveContactItem(e) {
 }
 
 function deleteContactItem(id) {
-  // Protección: solo admin puede eliminar
   if (!state.loggedIn) { openLogin(); return; }
   if (!confirm('¿Eliminar este dato de contacto?')) return;
   state.contactItems = state.contactItems.filter(function(x) { return x.id !== id; });
   save();
   renderContactSection();
   renderAdminContact();
-  toast('️ Dato eliminado', 'error');
+  toast('🗑️ Dato eliminado', 'error');
 }
 
-// ============================================================
-// GESTIÓN DE CAMPOS DEL FORMULARIO
-// ============================================================
+// ✅ GESTIÓN DE CAMPOS DEL FORMULARIO - PROTEGIDO
 function openEditFormField(id) {
   if (!state.loggedIn) { openLogin(); return; }
   document.getElementById('formFieldId').value = id || '';
@@ -873,9 +850,6 @@ function deleteFormField(id) {
   toast('🗑️ Campo eliminado', 'error');
 }
 
-// ============================================================
-// RENDER ADMIN CONTACTO
-// ============================================================
 function renderAdminContact() {
   const itemsList = document.getElementById('adminContactItemsList');
   itemsList.innerHTML = state.contactItems.map(function(item) {
@@ -884,13 +858,10 @@ function renderAdminContact() {
   
   const fieldsList = document.getElementById('adminFormFieldsList');
   fieldsList.innerHTML = state.formFields.map(function(field) {
-    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + field.label + (field.required ? ' *' : '') + '</div><div class="admin-item-meta">Tipo: ' + field.type + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditFormField(' + field.id + ')">️</button><button class="btn-icon btn-delete" onclick="deleteFormField(' + field.id + ')">🗑️</button></div></div>';
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">' + field.label + (field.required ? ' *' : '') + '</div><div class="admin-item-meta">Tipo: ' + field.type + '</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditFormField(' + field.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deleteFormField(' + field.id + ')">🗑️</button></div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:1rem">No hay campos en el formulario</p>';
 }
 
-// ============================================================
-// FUNCIONES EXISTENTES
-// ============================================================
 function compressImage(file, maxWidth = 1200, quality = 0.7) {
   return new Promise(function(resolve, reject) {
     const reader = new FileReader();
@@ -965,7 +936,7 @@ function handlePageCardClick(event, id) {
 
 function renderAdmin() {
   document.getElementById('adminAlbumsList').innerHTML = state.albums.map(function(a) {
-    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">🖼️ ' + a.title + '</div><div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">️</button><button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">🗑️</button></div></div>';
+    return '<div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">🖼️ ' + a.title + '</div><div class="admin-item-meta">' + (a.date || '') + ' · ' + ((a.photos || []).length) + ' fotos</div></div><div class="admin-item-actions"><button class="btn-icon btn-edit" onclick="openEditAlbum(' + a.id + ')">✏️</button><button class="btn-icon btn-delete" onclick="deleteAlbum(' + a.id + ')">🗑️</button></div></div>';
   }).join('') || '<p style="opacity:.5;text-align:center;padding:2rem">No hay álbumes creados</p>';
   
   document.getElementById('adminPagesList').innerHTML = state.pages.map(function(p) {
@@ -990,7 +961,7 @@ function openAlbumDetail(id) {
   document.getElementById('albumPhotosActions').innerHTML = actionsHtml;
   var grid = document.getElementById('albumPhotosGrid');
   grid.innerHTML = photos.map(function(ph) {
-    return '<div class="album-photo-item" id="photo-' + ph.id + '" onclick="handlePhotoClick(event,' + id + ',' + ph.id + ')"><button class="album-photo-delete" onclick="event.stopPropagation();confirmDeletePhoto(' + id + ',' + ph.id + ')" title="Eliminar foto">️</button><img src="' + ph.url + '" alt="' + ph.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\';this.style.display=\'none\'"><div class="album-photo-item-overlay"><div><div class="album-photo-item-title">' + ph.title + '</div><div class="album-photo-item-date">' + (ph.date || '') + '</div></div></div></div>';
+    return '<div class="album-photo-item" id="photo-' + ph.id + '" onclick="handlePhotoClick(event,' + id + ',' + ph.id + ')"><button class="album-photo-delete" onclick="event.stopPropagation();confirmDeletePhoto(' + id + ',' + ph.id + ')" title="Eliminar foto">🗑️</button><img src="' + ph.url + '" alt="' + ph.title + '" onerror="this.parentElement.style.background=\'#1e3a5f\';this.style.display=\'none\'"><div class="album-photo-item-overlay"><div><div class="album-photo-item-title">' + ph.title + '</div><div class="album-photo-item-date">' + (ph.date || '') + '</div></div></div></div>';
   }).join('');
   if (state.loggedIn) grid.innerHTML += '<div class="album-photo-add-btn" onclick="window._addPhotosToAlbum(' + id + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg><span>Agregar Múltiples Fotos</span></div>';
   if (photos.length === 0 && !state.loggedIn) grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;opacity:.6"><p>No hay fotos en este álbum aún</p></div>';
@@ -1002,7 +973,7 @@ window._addPhotosToAlbum = function(albumId) { openMultiUploadForAlbum(albumId);
 function toggleManageMode() {
   state.manageMode = !state.manageMode;
   var btn = document.getElementById('manageModeBtn');
-  if (btn) { btn.classList.toggle('active', state.manageMode); btn.innerHTML = state.manageMode ? ' Salir de gestión' : '🗑️ Gestionar fotos'; }
+  if (btn) { btn.classList.toggle('active', state.manageMode); btn.innerHTML = state.manageMode ? '✕ Salir de gestión' : '🗑️ Gestionar fotos'; }
   document.querySelectorAll('.album-photo-item').forEach(function(item) { item.classList.toggle('manage-mode', state.manageMode); });
   if (state.manageMode) toast('Modo eliminar activado. Hacé clic en 🗑️ para borrar fotos.', '');
 }
@@ -1171,7 +1142,7 @@ function openEditPage(id) {
   hideAllErrors();
   document.getElementById('editPageId').value = id || '';
   document.getElementById('editPageTitle').textContent = id ? 'Editar Sección' : 'Nueva Sección';
-  state.pagePendingBg = null; state.pageOriginalBg = null; state.selectedIcon = '';
+  state.pagePendingBg = null; state.pageOriginalBg = null; state.selectedIcon = '⚽';
   document.getElementById('pageUploadPreview').style.display = 'none';
   document.getElementById('pageUploadPlaceholder').style.display = 'block';
   document.getElementById('pageUploadZone').classList.remove('has-image');
@@ -1301,7 +1272,7 @@ async function handleMultiFileUpload(e) {
   var processed = 0, totalSize = 0;
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
-    if (file.size > 10 * 1024 * 1024) { toast('️ "' + file.name + '" supera 10MB, se omitió', 'error'); processed++; continue; }
+    if (file.size > 10 * 1024 * 1024) { toast('⚠️ "' + file.name + '" supera 10MB, se omitió', 'error'); processed++; continue; }
     try {
       var compressed = await compressImage(file, 1200, 0.7);
       state.multiFiles.push({ blob: compressed.blob, dataUrl: compressed.dataUrl, name: file.name, originalSize: file.size, compressedSize: compressed.size });
@@ -1357,8 +1328,8 @@ async function saveMultiPhotos() {
           continue;
         }
       } else {
-        console.error(' Supabase no configurado');
-        toast('️ Configurá Supabase primero', 'error');
+        console.error('❌ Supabase no configurado');
+        toast('⚠️ Configurá Supabase primero', 'error');
         failed++;
         continue;
       }
@@ -1392,7 +1363,27 @@ function changePassword(e) {
   state.password = newP; save(); document.getElementById('newPass').value = ''; toast('Contraseña actualizada', 'success');
 }
 function changeHero(e) { e.preventDefault(); state.heroUrl = document.getElementById('heroUrl').value; save(); render(); toast('Imagen hero actualizada', 'success'); }
-function sendContact(e) { e.preventDefault(); toast('✅ Mensaje enviado correctamente', 'success'); e.target.reset(); }
+
+// ✅ ENVÍO DE FORMULARIO CON EMAIL ACTUALIZADO
+function sendContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  let message = 'Nuevo mensaje de contacto desde el sitio Larramendi:\n\n';
+  const inputs = form.querySelectorAll('input, textarea, select');
+  inputs.forEach(function(input) {
+    if (input.name) message += input.name + ': ' + input.value + '\n';
+  });
+  
+  // Abrir cliente de correo con el email actualizado
+  const subject = encodeURIComponent('Contacto desde sitio web Larramendi');
+  const body = encodeURIComponent(message);
+  window.open('mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body);
+  
+  toast('✅ Se abrió tu cliente de correo para enviar el mensaje a ' + CONTACT_EMAIL, 'success');
+  form.reset();
+}
+
 function toast(msg, type) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show ' + (type || ''); setTimeout(function() { t.classList.remove('show'); }, 3500); }
 function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
 function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
@@ -1405,13 +1396,3 @@ render();
 </body>
 </html>
 
-
-
-              <script>
-                              if (!state.loggedIn) { openLogin(); return; }
-
-
-              </script>
-                        </body>
-                        </html>
-                    
