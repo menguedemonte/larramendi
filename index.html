@@ -57,20 +57,28 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .section{padding:6rem 2rem;position:relative}
 .section-alt{background:linear-gradient(180deg,var(--primary) 0%,var(--secondary) 100%)}
 .container{max-width:1200px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:4rem}
+.section-header{text-align:center;margin-bottom:4rem;position:relative}
+.section-header .admin-edit-btn{position:absolute;top:-1rem;right:0;display:none}
+.section-header.admin-mode .admin-edit-btn{display:block}
 .section-label{color:var(--gold);font-size:.85rem;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:.8rem;display:block}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:1rem}
+.section-title .gold{color:var(--gold)}
 .section-divider{width:80px;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));margin:0 auto;border-radius:2px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative}
 .about-image{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.5)}
 .about-image img{width:100%;display:block;transition:transform .6s}
 .about-image:hover img{transform:scale(1.05)}
+.about-text{position:relative}
+.about-text .admin-edit-btn{position:absolute;top:-2rem;right:0;display:none}
+.about-text.admin-mode .admin-edit-btn{display:block}
 .about-text h3{font-size:1.8rem;margin-bottom:1rem;font-family:'Playfair Display',serif}
 .about-text p{line-height:1.8;opacity:.85;margin-bottom:1rem;font-size:1.05rem}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
 .stat{text-align:center;padding:1.5rem;background:var(--glass);border-radius:15px;border:1px solid var(--glass2);backdrop-filter:blur(10px)}
 .stat-number{font-size:2.5rem;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif}
 .stat-label{font-size:.85rem;opacity:.7;margin-top:.3rem}
+.admin-edit-btn{background:linear-gradient(135deg,var(--gold),#f59e0b);color:var(--dark);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 15px rgba(251,191,36,0.4)}
+.admin-edit-btn:hover{transform:scale(1.1) rotate(15deg)}
 .albums-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
 .album-card{background:var(--glass);border:1px solid var(--glass2);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .4s;position:relative}
 .album-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,0.4);background:var(--glass2)}
@@ -258,6 +266,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 .storage-indicator{position:fixed;top:80px;right:20px;background:var(--glass);border:1px solid var(--glass2);padding:.5rem 1rem;border-radius:20px;font-size:.75rem;z-index:999;backdrop-filter:blur(10px)}
 .storage-indicator supabase{border-color:#10b981;color:#10b981}
 .storage-indicator.local{border-color:#f59e0b;color:#f59e0b}
+.stat-edit-btn{position:absolute;top:.5rem;right:.5rem;width:28px;height:28px;background:rgba(251,191,36,0.9);border:none;color:var(--dark);border-radius:50%;cursor:pointer;font-size:.8rem;display:none;align-items:center;justify-content:center;z-index:5}
+.stat.admin-mode .stat-edit-btn{display:flex}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
@@ -302,7 +312,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <span class="hero-badge">⚽ Agrupación de Veteranos de Fútbol</span>
 <h1 class="hero-title"><span class="half-white">LARRA</span><span class="half-blue">MENDI</span></h1>
 <p class="hero-subtitle">Paraná, Entre Ríos · Pasión por el fútbol que trasciende el tiempo</p>
-<div class="hero-founded">️ Fundada el <span>16 de Enero de 1989</span></div>
+<div class="hero-founded">🏛️ Fundada el <span>16 de Enero de 1989</span></div>
 <div class="hero-buttons">
 <a href="#historia" class="btn btn-primary">Conocer Más</a>
 <a href="#galeria" class="btn btn-outline">Ver Galería</a>
@@ -311,19 +321,28 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="scroll-indicator"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
 </section>
 
+<!-- ✅ SECCIÓN HISTORIA DINÁMICA -->
 <section class="section section-alt" id="historia">
 <div class="container">
-<div class="section-header fade-in"><span class="section-label">Nuestra Historia</span><h2 class="section-title">Tradición y <span style="color:var(--gold)">Pasión</span></h2><div class="section-divider"></div></div>
+<div class="section-header fade-in" id="historiaHeader">
+<span class="section-label" id="historiaLabel">Nuestra Historia</span>
+<h2 class="section-title" id="historiaTitle">Tradición y <span class="gold">Pasión</span></h2>
+<div class="section-divider"></div>
+<button class="admin-edit-btn" onclick="openEditHomeSection()" title="Editar sección">✏️</button>
+</div>
 <div class="about-grid fade-in">
-<div class="about-image"><img src="" id="aboutImg" alt="Equipo Larramendi" onerror="this.style.display='none'"></div>
-<div class="about-text">
-<h3>Más que un equipo, una familia</h3>
-<p>La Agrupación de Veteranos de Fútbol Larramendi nació del amor por el deporte rey. Desde Paraná, Entre Ríos, reunimos a jugadores que mantienen viva la pasión por el fútbol a través de los años.</p>
-<p>Fundada el 16 de enero de 1989, nuestra agrupación ha sido un pilar del fútbol veterano en la región, fomentando el deporte, la camaradería y los valores que el fútbol nos enseñó. Cada partido es una celebración de la amistad y el compañerismo.</p>
-<div class="stats">
-<div class="stat"><div class="stat-number">36+</div><div class="stat-label">Años de historia</div></div>
-<div class="stat"><div class="stat-number">40+</div><div class="stat-label">Jugadores</div></div>
-<div class="stat"><div class="stat-number">15+</div><div class="stat-label">Torneos</div></div>
+<div class="about-image">
+<img src="" id="aboutImg" alt="Equipo Larramendi" onerror="this.style.display='none'">
+</div>
+<div class="about-text" id="aboutText">
+<h3 id="aboutTitle">Más que un equipo, una familia</h3>
+<p id="aboutP1">La Agrupación de Veteranos de Fútbol Larramendi nació del amor por el deporte rey. Desde Paraná, Entre Ríos, reunimos a jugadores que mantienen viva la pasión por el fútbol a través de los años.</p>
+<p id="aboutP2">Fundada el 16 de enero de 1989, nuestra agrupación ha sido un pilar del fútbol veterano en la región, fomentando el deporte, la camaradería y los valores que el fútbol nos enseñó. Cada partido es una celebración de la amistad y el compañerismo.</p>
+<button class="admin-edit-btn" onclick="openEditHomeSection()" title="Editar contenido" style="position:static;margin-top:1rem">✏️ Editar contenido</button>
+<div class="stats" id="statsContainer">
+<div class="stat"><div class="stat-number" id="stat1Num">36+</div><div class="stat-label" id="stat1Label">Años de historia</div></div>
+<div class="stat"><div class="stat-number" id="stat2Num">40+</div><div class="stat-label" id="stat2Label">Jugadores</div></div>
+<div class="stat"><div class="stat-number" id="stat3Num">15+</div><div class="stat-label" id="stat3Label">Torneos</div></div>
 </div>
 </div>
 </div>
@@ -363,7 +382,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 </div>
 </div>
 <p>Paraná, Entre Ríos · Desde 1989</p>
-<div class="footer-social"><a href="#">📘</a><a href="#"></a><a href="#">🐦</a><a href="#">▶️</a></div>
+<div class="footer-social"><a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a><a href="#">▶️</a></div>
 <div class="footer-copy">© 2025 Larramendi. Todos los derechos reservados.</div>
 </footer>
 
@@ -375,7 +394,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <div class="modal-overlay" id="loginModal">
 <div class="modal">
-<button class="modal-close" onclick="closeLogin()"></button>
+<button class="modal-close" onclick="closeLogin()">✕</button>
 <h2>Acceso <span style="color:var(--gold)">Administrador</span></h2>
 <p class="modal-subtitle">Ingresá tus credenciales para gestionar el sitio</p>
 <form onsubmit="doLogin(event)">
@@ -399,7 +418,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <div class="form-group"><label>Descripción</label><textarea id="albumField2" placeholder="Descripción breve del álbum..."></textarea></div>
 <div class="form-group"><label>Imagen de portada *</label>
 <div class="upload-zone" id="albumUploadZone" onclick="document.getElementById('albumFileInput').click()">
-<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem"> Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
+<div id="albumUploadPlaceholder"><p style="margin-bottom:.5rem">📁 Hacé clic para subir la portada</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
 <img id="albumUploadPreview" style="display:none">
 <input type="file" id="albumFileInput" accept="image/*" onchange="handleAlbumCoverUpload(event)">
 </div>
@@ -438,6 +457,42 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 </div>
 </div>
 
+<!-- ✅ MODAL EDITAR SECCIÓN INICIO/HISTORIA -->
+<div class="modal-overlay" id="editHomeSectionModal">
+<div class="modal modal-xl">
+<button class="modal-close" onclick="closeEditHomeSection()">✕</button>
+<h2>✏️ Editar Sección Historia</h2>
+<p class="modal-subtitle">Modificá todos los elementos visibles de la sección "Nuestra Historia"</p>
+<form onsubmit="saveHomeSection(event)" novalidate>
+<div class="form-group"><label>🏷️ Etiqueta superior (ej: "Nuestra Historia")</label><input type="text" id="homeLabel" placeholder="Nuestra Historia"><div class="form-error" id="errHomeLabel">La etiqueta es obligatoria</div></div>
+<div class="form-group"><label>📌 Título principal (usá * para la parte dorada, ej: "Tradición y *Pasión*")</label><input type="text" id="homeTitle" placeholder="Tradición y *Pasión*"><div class="form-error" id="errHomeTitle">El título es obligatorio</div></div>
+<div class="form-group"><label>📝 Subtítulo del bloque</label><input type="text" id="homeAboutTitle" placeholder="Más que un equipo, una familia"><div class="form-error" id="errHomeAboutTitle">El subtítulo es obligatorio</div></div>
+<div class="form-group"><label>📄 Primer párrafo</label><textarea id="homeP1" style="min-height:100px"></textarea><div class="form-error" id="errHomeP1">El primer párrafo es obligatorio</div></div>
+<div class="form-group"><label>📄 Segundo párrafo</label><textarea id="homeP2" style="min-height:100px"></textarea><div class="form-error" id="errHomeP2">El segundo párrafo es obligatorio</div></div>
+<div class="form-group"><label>🖼️ Imagen del bloque</label>
+<div class="upload-zone" id="homeUploadZone" onclick="document.getElementById('homeFileInput').click()">
+<div id="homeUploadPlaceholder"><p style="margin-bottom:.5rem">🖼️ Hacé clic para subir la imagen</p><p style="font-size:.8rem;opacity:.6">o pegá una URL abajo</p></div>
+<img id="homeUploadPreview" style="display:none">
+<input type="file" id="homeFileInput" accept="image/*" onchange="handleHomeImageUpload(event)">
+</div>
+<input type="url" id="homeImageUrl" placeholder="https://... (opcional si subiste archivo)" oninput="clearHomeImagePreview()">
+</div>
+<div style="border-top:1px solid var(--glass2);padding-top:1rem;margin-top:1rem">
+<h3 style="color:var(--gold);margin-bottom:1rem;font-size:1.1rem">📊 Estadísticas</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+<div class="form-group"><label>Stat 1 - Número</label><input type="text" id="homeStat1Num" placeholder="36+"></div>
+<div class="form-group"><label>Stat 1 - Etiqueta</label><input type="text" id="homeStat1Label" placeholder="Años de historia"></div>
+<div class="form-group"><label>Stat 2 - Número</label><input type="text" id="homeStat2Num" placeholder="40+"></div>
+<div class="form-group"><label>Stat 2 - Etiqueta</label><input type="text" id="homeStat2Label" placeholder="Jugadores"></div>
+<div class="form-group"><label>Stat 3 - Número</label><input type="text" id="homeStat3Num" placeholder="15+"></div>
+<div class="form-group"><label>Stat 3 - Etiqueta</label><input type="text" id="homeStat3Label" placeholder="Torneos"></div>
+</div>
+</div>
+<button type="submit" class="btn btn-primary btn-full">💾 Guardar Cambios</button>
+</form>
+</div>
+</div>
+
 <div class="modal-overlay" id="multiUploadModal">
 <div class="modal modal-xl">
 <button class="modal-close" onclick="closeMultiUpload()">✕</button>
@@ -469,7 +524,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <p class="modal-subtitle">Modificá la información de contacto</p>
 <form onsubmit="saveContactItem(event)" novalidate>
 <input type="hidden" id="contactItemId">
-<div class="form-group"><label>Ícono (emoji)</label><input type="text" id="contactItemIcon" placeholder="Ej:  📱 🌐" maxlength="4"></div>
+<div class="form-group"><label>Ícono (emoji)</label><input type="text" id="contactItemIcon" placeholder="Ej: 📍 📱 🌐" maxlength="4"></div>
 <div class="form-group"><label>Título *</label><input type="text" id="contactItemTitleField" required placeholder="Ej: Ubicación"><div class="form-error" id="errContactItemTitle">El título es obligatorio</div></div>
 <div class="form-group"><label>Contenido *</label><input type="text" id="contactItemContent" required placeholder="Ej: Paraná, Entre Ríos"><div class="form-error" id="errContactItemContent">El contenido es obligatorio</div></div>
 <button type="submit" class="btn btn-primary btn-full">💾 Guardar</button>
@@ -496,23 +551,36 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <div class="lightbox" id="lightbox">
 <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-<button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)"></button>
+<button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">❮</button>
 <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">❯</button>
 <img id="lightboxImg" src="">
 <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 
-<button class="admin-toggle" id="adminToggle" onclick="toggleAdmin()">️</button>
+<button class="admin-toggle" id="adminToggle" onclick="toggleAdmin()">⚙️</button>
 <div class="admin-panel" id="adminPanel">
 <div class="admin-header"><h2>Panel <span>Admin</span></h2><button class="modal-close" onclick="toggleAdmin()" style="position:static">✕</button></div>
 <div class="admin-tabs">
-<button class="admin-tab active" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
+<button class="admin-tab active" onclick="switchTab('home',this)">🏠 Inicio</button>
+<button class="admin-tab" onclick="switchTab('albums',this)">🖼️ Álbumes</button>
 <button class="admin-tab" onclick="switchTab('pages',this)">📄 Secciones</button>
 <button class="admin-tab" onclick="switchTab('contact',this)">📞 Contacto</button>
 <button class="admin-tab" onclick="switchTab('settings',this)">⚙️ Ajustes</button>
 </div>
 <div class="admin-content">
-<div class="admin-section active" id="tab-albums">
+<div class="admin-section active" id="tab-home">
+<div class="help-box">
+<h4>🏠 Gestión de la sección Historia</h4>
+<ul>
+<li>Editá el título, subtítulo y textos</li>
+<li>Cambiá la imagen del bloque</li>
+<li>Modificá las 3 estadísticas</li>
+<li>Los cambios se reflejan inmediatamente</li>
+</ul>
+</div>
+<button class="btn-add" onclick="openEditHomeSection()">✏️ Editar sección Historia</button>
+</div>
+<div class="admin-section" id="tab-albums">
 <div class="help-box"><h4>💡 Cómo gestionar álbumes</h4><ul><li>Cada álbum es una galería temática independiente</li><li>Hacé clic en "+ Nuevo Álbum" para crear uno</li><li>Dentro de cada álbum podés agregar/eliminar fotos</li></ul></div>
 <div id="adminAlbumsList"></div>
 <button class="btn-add" onclick="openEditAlbum()">+ Nuevo Álbum</button>
@@ -532,7 +600,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 <button class="btn-add" onclick="openEditFormField()">+ Agregar campo al formulario</button>
 </div>
 <div class="admin-section" id="tab-settings">
-<div class="help-box"><h4>️ Ajustes del sitio</h4><ul><li>Cambiá la contraseña de administrador</li><li>Modificá la imagen de fondo principal (Hero)</li><li>Cerrá sesión cuando termines</li></ul></div>
+<div class="help-box"><h4>⚙️ Ajustes del sitio</h4><ul><li>Cambiá la contraseña de administrador</li><li>Modificá la imagen de fondo principal (Hero)</li><li>Cerrá sesión cuando termines</li></ul></div>
 <div class="admin-item"><div class="admin-item-info"><div class="admin-item-title">Cambiar Contraseña</div><div class="admin-item-meta">Actualizá la clave de administrador</div></div></div>
 <form onsubmit="changePassword(event)" style="margin-top:1rem"><div class="form-group"><label>Nueva Contraseña</label><input type="password" id="newPass" required></div><button type="submit" class="btn btn-primary btn-full">Actualizar</button></form>
 <div class="admin-item" style="margin-top:1.5rem"><div class="admin-item-info"><div class="admin-item-title">Imagen Hero (fondo principal)</div><div class="admin-item-meta">URL de la imagen de fondo del inicio</div></div></div>
@@ -548,18 +616,32 @@ body{font-family:'Montserrat',sans-serif;background:var(--primary);color:#fff;ov
 
 <script>
 
-
 const SUPABASE_URL = 'https://ngfgghnrfjjimfpuytfr.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
-const SUPABASE_ENABLED = SUPABASE_URL !== 'https://TU-PROYECTO.supabase.co' && SUPABASE_KEY !== 'TU-CLAVE-PUBLICA-AQUI';
+const SUPABASE_ENABLED = SUPABASE_URL !== 'https://ngfgghnrfjjimfpuytfr.supabase.co' && SUPABASE_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5nZmdnaG5yZmpqaW1mcHV5dGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MTE1MDgsImV4cCI6MjA5NjQ4NzUwOH0.XR03HSiIta1P2LxeDw1by-lBGotjzAj_tvO30foLjg0';
+
 
 let supabaseClient = null;
 if (SUPABASE_ENABLED) {
   try { supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); console.log('✅ Supabase conectado'); } catch(e) { console.error('Error Supabase:', e); }
 }
 
-// ✅ EMAIL DE CONTACTO ACTUALIZADO
 const CONTACT_EMAIL = 'larramendifutbolveteranos@gmail.com';
+
+// ✅ DATOS POR DEFECTO DE LA SECCIÓN HISTORIA
+const DEFAULT_HOME_SECTION = {
+  label: 'Nuestra Historia',
+  title: 'Tradición y *Pasión*',
+  aboutTitle: 'Más que un equipo, una familia',
+  p1: 'La Agrupación de Veteranos de Fútbol Larramendi nació del amor por el deporte rey. Desde Paraná, Entre Ríos, reunimos a jugadores que mantienen viva la pasión por el fútbol a través de los años.',
+  p2: 'Fundada el 16 de enero de 1989, nuestra agrupación ha sido un pilar del fútbol veterano en la región, fomentando el deporte, la camaradería y los valores que el fútbol nos enseñó. Cada partido es una celebración de la amistad y el compañerismo.',
+  image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920',
+  stats: [
+    { number: '36+', label: 'Años de historia' },
+    { number: '40+', label: 'Jugadores' },
+    { number: '15+', label: 'Torneos' }
+  ]
+};
 
 const DEFAULT_CONTACT_ITEMS = [
   { id: 1, icon: '📍', title: 'Ubicación', content: 'Paraná, Entre Ríos, Argentina' },
@@ -575,7 +657,7 @@ const DEFAULT_FORM_FIELDS = [
 ];
 
 const TEAM_IMAGE = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1920';
-const ICONS = ['','🏆','🎉','','⭐','👥','🎯','🏟️','📸','🎊','🤝','🥅','💪','🏅','🎖️',''];
+const ICONS = ['⚽','','🎉','','⭐','👥','🎯','🏟️','📸','🎊','🤝','🥅','💪','🏅','🎖️','🏆'];
 
 const DEFAULT_ALBUMS = [
   {id:1,title:'Fotos Históricas',desc:'Imágenes que recorren la historia de Larramendi desde su fundación en 1989.',date:'Desde 1989',url:TEAM_IMAGE,photos:[
@@ -598,10 +680,11 @@ const DEFAULT_PAGES = [
   {id:1,title:'Nuestro Equipo',header:'Conocé a nuestro plantel',desc:'Conocé a los jugadores que forman parte de la Agrupación de Veteranos Larramendi.\n\nLos entrenamientos son martes y jueves a las 18:00 hs en la cancha municipal.',icon:'⚽',date:'Desde 1989',url:TEAM_IMAGE,gallery:[]},
   {id:2,title:'Torneos y Competencias',header:'Nuestras competencias',desc:'Participamos activamente en torneos locales y regionales de fútbol veterano.',icon:'🏆',date:'Temporada 2025',url:'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800',gallery:[]},
   {id:3,title:'Eventos Sociales',header:'Más allá de la cancha',desc:'Más allá de la cancha, somos una comunidad.',icon:'🎉',date:'Todo el año',url:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',gallery:[]},
-  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación el 16 de enero de 1989, hemos construido una tradición de compañerismo y deporte.',icon:'',date:'16 de Enero de 1989',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
+  {id:4,title:'Historia del Club',header:'Nuestra trayectoria',desc:'Desde nuestra fundación el 16 de enero de 1989, hemos construido una tradición de compañerismo y deporte.',icon:'📖',date:'16 de Enero de 1989',url:'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800',gallery:[]}
 ];
 
 let state = {
+  homeSection: JSON.parse(localStorage.getItem('larr_home_section')) || DEFAULT_HOME_SECTION,
   albums: JSON.parse(localStorage.getItem('larr_albums')) || DEFAULT_ALBUMS,
   pages: JSON.parse(localStorage.getItem('larr_pages')) || DEFAULT_PAGES,
   contactItems: JSON.parse(localStorage.getItem('larr_contact_items')) || DEFAULT_CONTACT_ITEMS,
@@ -610,12 +693,14 @@ let state = {
   password: localStorage.getItem('larr_pass') || 'larramendi2025',
   loggedIn: sessionStorage.getItem('larr_logged') === 'true',
   pendingImage: null, originalUrl: null, pagePendingBg: null, pageOriginalBg: null,
+  homePendingImage: null, homeOriginalImage: null,
   selectedIcon: '⚽', currentAlbumId: null, lightboxImages: [], lightboxIndex: 0,
   multiFiles: [], manageMode: false
 };
 
 function save() {
   try {
+    localStorage.setItem('larr_home_section', JSON.stringify(state.homeSection));
     localStorage.setItem('larr_albums', JSON.stringify(state.albums));
     localStorage.setItem('larr_pages', JSON.stringify(state.pages));
     localStorage.setItem('larr_contact_items', JSON.stringify(state.contactItems));
@@ -632,12 +717,175 @@ function updateStorageIndicator() {
   else { indicator.textContent = '⚠️ Modo local (5MB límite)'; indicator.className = 'storage-indicator local'; }
 }
 
-// ✅ RENDER CONTACTO - SOLO ADMIN VE BOTONES DE EDICIÓN
+// ✅ RENDER SECCIÓN HISTORIA DINÁMICA
+function renderHomeSection() {
+  const hs = state.homeSection;
+  
+  // Etiqueta y título
+  document.getElementById('historiaLabel').textContent = hs.label || 'Nuestra Historia';
+  
+  // Título con parte dorada (usando *texto* para marcar dorado)
+  const titleText = hs.title || 'Tradición y *Pasión*';
+  const titleParts = titleText.split('*');
+  let titleHtml = '';
+  titleParts.forEach((part, i) => {
+    if (i % 2 === 1) {
+      titleHtml += '<span class="gold">' + part + '</span>';
+    } else {
+      titleHtml += part;
+    }
+  });
+  document.getElementById('historiaTitle').innerHTML = titleHtml;
+  
+  // Subtítulo y párrafos
+  document.getElementById('aboutTitle').textContent = hs.aboutTitle || 'Más que un equipo, una familia';
+  document.getElementById('aboutP1').textContent = hs.p1 || '';
+  document.getElementById('aboutP2').textContent = hs.p2 || '';
+  
+  // Imagen
+  const aboutImg = document.getElementById('aboutImg');
+  if (hs.image) {
+    aboutImg.src = hs.image;
+    aboutImg.style.display = 'block';
+  } else {
+    aboutImg.style.display = 'none';
+  }
+  
+  // Estadísticas
+  if (hs.stats && hs.stats.length >= 3) {
+    document.getElementById('stat1Num').textContent = hs.stats[0].number;
+    document.getElementById('stat1Label').textContent = hs.stats[0].label;
+    document.getElementById('stat2Num').textContent = hs.stats[1].number;
+    document.getElementById('stat2Label').textContent = hs.stats[1].label;
+    document.getElementById('stat3Num').textContent = hs.stats[2].number;
+    document.getElementById('stat3Label').textContent = hs.stats[2].label;
+  }
+  
+  // Mostrar botones de edición solo si admin está logueado
+  const header = document.getElementById('historiaHeader');
+  const aboutText = document.getElementById('aboutText');
+  if (state.loggedIn) {
+    header.classList.add('admin-mode');
+    aboutText.classList.add('admin-mode');
+  } else {
+    header.classList.remove('admin-mode');
+    aboutText.classList.remove('admin-mode');
+  }
+}
+
+// ✅ MODAL EDITAR SECCIÓN HISTORIA
+function openEditHomeSection() {
+  if (!state.loggedIn) { openLogin(); return; }
+  
+  const hs = state.homeSection;
+  document.getElementById('homeLabel').value = hs.label || '';
+  document.getElementById('homeTitle').value = hs.title || '';
+  document.getElementById('homeAboutTitle').value = hs.aboutTitle || '';
+  document.getElementById('homeP1').value = hs.p1 || '';
+  document.getElementById('homeP2').value = hs.p2 || '';
+  document.getElementById('homeImageUrl').value = '';
+  
+  if (hs.stats && hs.stats.length >= 3) {
+    document.getElementById('homeStat1Num').value = hs.stats[0].number;
+    document.getElementById('homeStat1Label').value = hs.stats[0].label;
+    document.getElementById('homeStat2Num').value = hs.stats[1].number;
+    document.getElementById('homeStat2Label').value = hs.stats[1].label;
+    document.getElementById('homeStat3Num').value = hs.stats[2].number;
+    document.getElementById('homeStat3Label').value = hs.stats[2].label;
+  }
+  
+  // Preview de imagen actual
+  state.homePendingImage = null;
+  state.homeOriginalImage = hs.image || '';
+  document.getElementById('homeUploadPreview').style.display = 'none';
+  document.getElementById('homeUploadPlaceholder').style.display = 'block';
+  document.getElementById('homeUploadZone').classList.remove('has-image');
+  document.getElementById('homeFileInput').value = '';
+  
+  if (hs.image) {
+    document.getElementById('homeUploadPreview').src = hs.image;
+    document.getElementById('homeUploadPreview').style.display = 'block';
+    document.getElementById('homeUploadPlaceholder').style.display = 'none';
+    document.getElementById('homeUploadZone').classList.add('has-image');
+  }
+  
+  document.querySelectorAll('#editHomeSectionModal .form-error').forEach(function(e) { e.classList.remove('show'); });
+  document.getElementById('editHomeSectionModal').classList.add('active');
+}
+
+function closeEditHomeSection() {
+  document.getElementById('editHomeSectionModal').classList.remove('active');
+  state.homePendingImage = null;
+  state.homeOriginalImage = null;
+}
+
+function handleHomeImageUpload(e) {
+  var file = e.target.files[0]; if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('La imagen es muy grande (máx 10MB)', 'error'); return; }
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    state.homePendingImage = ev.target.result;
+    document.getElementById('homeUploadPreview').src = ev.target.result;
+    document.getElementById('homeUploadPreview').style.display = 'block';
+    document.getElementById('homeUploadPlaceholder').style.display = 'none';
+    document.getElementById('homeUploadZone').classList.add('has-image');
+    document.getElementById('homeImageUrl').value = '';
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearHomeImagePreview() {
+  if (document.getElementById('homeImageUrl').value) {
+    state.homePendingImage = null;
+    document.getElementById('homeUploadPreview').style.display = 'none';
+    document.getElementById('homeUploadPlaceholder').style.display = 'block';
+    document.getElementById('homeUploadZone').classList.remove('has-image');
+  }
+}
+
+function saveHomeSection(e) {
+  e.preventDefault();
+  if (!state.loggedIn) return;
+  document.querySelectorAll('#editHomeSectionModal .form-error').forEach(function(e) { e.classList.remove('show'); });
+  
+  const label = document.getElementById('homeLabel').value.trim();
+  const title = document.getElementById('homeTitle').value.trim();
+  const aboutTitle = document.getElementById('homeAboutTitle').value.trim();
+  const p1 = document.getElementById('homeP1').value.trim();
+  const p2 = document.getElementById('homeP2').value.trim();
+  let image = document.getElementById('homeImageUrl').value.trim();
+  
+  if (state.homePendingImage) image = state.homePendingImage;
+  if (!image) image = state.homeOriginalImage;
+  
+  const stats = [
+    { number: document.getElementById('homeStat1Num').value.trim() || '0', label: document.getElementById('homeStat1Label').value.trim() || '' },
+    { number: document.getElementById('homeStat2Num').value.trim() || '0', label: document.getElementById('homeStat2Label').value.trim() || '' },
+    { number: document.getElementById('homeStat3Num').value.trim() || '0', label: document.getElementById('homeStat3Label').value.trim() || '' }
+  ];
+  
+  let hasError = false;
+  if (!label) { document.getElementById('errHomeLabel').classList.add('show'); hasError = true; }
+  if (!title) { document.getElementById('errHomeTitle').classList.add('show'); hasError = true; }
+  if (!aboutTitle) { document.getElementById('errHomeAboutTitle').classList.add('show'); hasError = true; }
+  if (!p1) { document.getElementById('errHomeP1').classList.add('show'); hasError = true; }
+  if (!p2) { document.getElementById('errHomeP2').classList.add('show'); hasError = true; }
+  if (hasError) { toast('Revisá los campos marcados', 'error'); return; }
+  
+  state.homeSection = { label, title, aboutTitle, p1, p2, image, stats };
+  
+  if (save()) {
+    renderHomeSection();
+    closeEditHomeSection();
+    toast('✅ Sección Historia actualizada', 'success');
+  }
+}
+
+// ✅ RENDER CONTACTO
 function renderContactSection() {
   const contactInfo = document.getElementById('contactInfo');
   let contactHtml = state.contactItems.map(function(item) {
     let actionsHtml = '';
-    // Botones de editar/eliminar SOLO para admin logueado
     if (state.loggedIn) {
       actionsHtml = '<div class="contact-item-actions">' +
         '<button class="contact-item-btn edit" onclick="openEditContactItem(' + item.id + ')" title="Editar">✏️</button>' +
@@ -651,13 +899,11 @@ function renderContactSection() {
     '</div>';
   }).join('');
   
-  // Botón "Agregar" SOLO para admin
   if (state.loggedIn) {
     contactHtml += '<div class="contact-add-btn visible" onclick="openEditContactItem()">➕ Agregar dato de contacto</div>';
   }
   contactInfo.innerHTML = contactHtml;
 
-  // Renderizar formulario
   const contactForm = document.getElementById('contactForm');
   let formHtml = state.formFields.map(function(field) {
     let inputHtml = '';
@@ -676,7 +922,6 @@ function renderContactSection() {
     }
     
     let fieldHeaderHtml = '';
-    // Controles de editar/eliminar del campo SOLO para admin
     if (state.loggedIn) {
       fieldHeaderHtml = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">' +
         '<label style="color:var(--gold);font-size:.9rem;font-weight:600">' + field.label + (field.required ? ' *' : '') + '</label>' +
@@ -690,7 +935,6 @@ function renderContactSection() {
     return '<div class="contact-form-field-wrapper">' + fieldHeaderHtml + inputHtml + '</div>';
   }).join('');
   
-  // Botón "Agregar campo" SOLO para admin
   if (state.loggedIn) {
     formHtml += '<div class="contact-form-add visible" onclick="openEditFormField()">➕ Agregar campo al formulario</div>';
   }
@@ -698,7 +942,6 @@ function renderContactSection() {
   contactForm.innerHTML = formHtml;
 }
 
-// ✅ GESTIÓN DE ITEMS DE CONTACTO - PROTEGIDO
 function openEditContactItem(id) {
   if (!state.loggedIn) { openLogin(); return; }
   document.getElementById('contactItemId').value = id || '';
@@ -721,9 +964,7 @@ function openEditContactItem(id) {
   document.getElementById('editContactItemModal').classList.add('active');
 }
 
-function closeEditContactItem() {
-  document.getElementById('editContactItemModal').classList.remove('active');
-}
+function closeEditContactItem() { document.getElementById('editContactItemModal').classList.remove('active'); }
 
 function saveContactItem(e) {
   e.preventDefault();
@@ -764,7 +1005,6 @@ function deleteContactItem(id) {
   toast('🗑️ Dato eliminado', 'error');
 }
 
-// ✅ GESTIÓN DE CAMPOS DEL FORMULARIO - PROTEGIDO
 function openEditFormField(id) {
   if (!state.loggedIn) { openLogin(); return; }
   document.getElementById('formFieldId').value = id || '';
@@ -792,9 +1032,7 @@ function openEditFormField(id) {
   document.getElementById('editFormFieldModal').classList.add('active');
 }
 
-function closeEditFormField() {
-  document.getElementById('editFormFieldModal').classList.remove('active');
-}
+function closeEditFormField() { document.getElementById('editFormFieldModal').classList.remove('active'); }
 
 function toggleFormFieldOptions() {
   const type = document.getElementById('formFieldType').value;
@@ -823,11 +1061,8 @@ function saveFormField(e) {
   if (id) {
     const field = state.formFields.find(function(x) { return x.id === parseInt(id); });
     if (field) {
-      field.label = label;
-      field.type = type;
-      field.required = required;
-      field.placeholder = placeholder;
-      field.options = options;
+      field.label = label; field.type = type; field.required = required;
+      field.placeholder = placeholder; field.options = options;
     }
   } else {
     state.formFields.push({ id: Date.now(), label: label, type: type, required: required, placeholder: placeholder, options: options });
@@ -906,7 +1141,8 @@ async function deleteFromSupabase(url) {
 function render() {
   document.getElementById('heroBg').style.backgroundImage = "url('" + state.heroUrl + "')";
   document.getElementById('heroUrl').value = state.heroUrl;
-  document.getElementById('aboutImg').src = state.heroUrl;
+  
+  renderHomeSection();
   
   var ag = document.getElementById('albumsGrid');
   var albumsHtml = state.albums.map(function(a) {
@@ -1364,22 +1600,17 @@ function changePassword(e) {
 }
 function changeHero(e) { e.preventDefault(); state.heroUrl = document.getElementById('heroUrl').value; save(); render(); toast('Imagen hero actualizada', 'success'); }
 
-// ✅ ENVÍO DE FORMULARIO CON EMAIL ACTUALIZADO
 function sendContact(e) {
   e.preventDefault();
   const form = e.target;
-  const formData = new FormData(form);
   let message = 'Nuevo mensaje de contacto desde el sitio Larramendi:\n\n';
   const inputs = form.querySelectorAll('input, textarea, select');
   inputs.forEach(function(input) {
-    if (input.name) message += input.name + ': ' + input.value + '\n';
+    if (input.placeholder) message += input.placeholder + ': ' + input.value + '\n';
   });
-  
-  // Abrir cliente de correo con el email actualizado
   const subject = encodeURIComponent('Contacto desde sitio web Larramendi');
   const body = encodeURIComponent(message);
   window.open('mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body);
-  
   toast('✅ Se abrió tu cliente de correo para enviar el mensaje a ' + CONTACT_EMAIL, 'success');
   form.reset();
 }
